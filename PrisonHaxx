@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local Hub = Instance.new("ScreenGui")
 local Scripts = Instance.new("Frame")
 local Close = Instance.new("TextButton")
@@ -23,8 +18,6 @@ local Aimbot = Instance.new("TextButton")
 local Fly = Instance.new("TextButton")
 local Open = Instance.new("TextButton")
 local InfAmmo = Instance.new("TextButton")
-
---Properties:
 
 Hub.Name = "Hub"
 Hub.Parent = game.CoreGui
