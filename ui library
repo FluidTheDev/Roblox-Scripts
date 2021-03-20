@@ -1,8 +1,3 @@
-local library = {}
-
-library:CreateWindow("Ok")
-
-function library:CreateWindow(name)
 local ScreenGui = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local VisibleToggle = Instance.new("Frame")
@@ -35,6 +30,17 @@ Toggle.TextColor3 = Color3.fromRGB(0, 255, 0)
 Toggle.TextScaled = true
 Toggle.TextSize = 14.000
 Toggle.TextWrapped = true
+Toggle.MouseButton1Down:Connect(function()
+    if toggled then
+        toggled = false
+        Container:TweenSize(UDim2.new(0, 524,0, 41), "In", "Linear", 0.1)
+        Toggle.Rotation = 270
+    else
+        toggled = true
+        Container:TweenSize(UDim2.new(0, 524,0, 230), "Out", "Linear", 0.1)
+        Toggle.Rotation = 90
+    end
+end)
 
 Button.Name = "Button"
 Button.Parent = VisibleToggle
@@ -46,43 +52,3 @@ Button.Font = Enum.Font.SourceSans
 Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 Button.TextSize = 14.000
 Button.TextWrapped = true
-
-	local EpicLibrary = {}
-	
-	function EpicLibrary:CreateButton(text, callback)
-        local callback = callback or function() end
-
-		local TextButton = Instance.new("TextButton")
-	
-		TextButton.Parent = Container
-		TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-		TextButton.BorderSizePixel = 0
-		TextButton.Position = UDim2.new(0.384364814, 0, 0.46198833, 0)
-		TextButton.Size = UDim2.new(0, 141, 0, 25)
-		TextButton.Font = Enum.Font.SourceSansLight
-		TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TextButton.TextSize = 17.000
-		TextButton.Text = text
-
-        TextButton.MouseButton1Down:Connect(function()
-        pcall(callback)
-	end)
-end
-	return EpicLibrary
-end
-
-local toggled = false
-	
-VisibleToggle.MouseButton1Down:Connect(function()
-    if toggled then
-        toggled = false
-        Container:TweenSize(UDim2.new(0, 524,0, 41), "In", "Linear", 0.1)
-        Toggle.Rotation = 270
-    else
-        toggled = true
-        VisibleToggle:TweenSize(UDim2.new(0, 524,0, 230), "Out", "Linear", 0.1)
-        Toggle.Rotation = 90
-    end
-end)
-
-return library
