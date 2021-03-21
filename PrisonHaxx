@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local PrisonHaxx = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local VisibleToggle = Instance.new("Frame")
@@ -21,6 +26,8 @@ local ScriptsTitle = Instance.new("TextLabel")
 local TpTitle = Instance.new("TextLabel")
 local SettingsTitle = Instance.new("TextLabel")
 local ScriptNameTitle = Instance.new("TextLabel")
+
+--Properties:
 
 PrisonHaxx.Name = "PrisonHaxx"
 PrisonHaxx.Parent = game.CoreGui
@@ -143,23 +150,7 @@ InfAmmo.Text = "Inf Ammo"
 InfAmmo.TextColor3 = Color3.fromRGB(0, 0, 0)
 InfAmmo.TextSize = 14.000
 InfAmmo.TextWrapped = true
-InfAmmo.MouseButton1Down:Connect(function()
-	local player = game:GetService("Players").LocalPlayer
-
-	local gun = player.Backpack:FindFirstChild("M9")
-
-	local sM = require(gun:FindFirstChild("GunStates"))
-
-	sM["MaxAmmo"] = 1000
-
-	sM["StoredAmmo"] = 1000
-	
-	sM["AmmoPerClip"] = 1000
-
-	sM["ReloadTime"] = 0.05
-
-	sM["AutoFire"] = true
-end)
+InfAmmo.Visible = false
 
 YardTp.Name = "YardTp"
 YardTp.Parent = VisibleToggle
@@ -405,6 +396,8 @@ Credits.MouseButton1Down:Connect(function()
 	Close.TextSize = 14.000
 	Close.TextWrapped = true
 
+	-- Scripts:
+
 	local function TOAH_fake_script() -- Close.Close-Script 
 		local script = Instance.new('LocalScript', Close)
 
@@ -463,6 +456,8 @@ ScriptNameTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
 ScriptNameTitle.TextScaled = true
 ScriptNameTitle.TextSize = 14.000
 ScriptNameTitle.TextWrapped = true
+
+-- Scripts:
 
 local function HXCUGDO_fake_script() -- Toggle.LocalScript 
 	local script = Instance.new('LocalScript', Toggle)
