@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local PrisonHaxx = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local VisibleToggle = Instance.new("Frame")
@@ -21,6 +26,8 @@ local ScriptsTitle = Instance.new("TextLabel")
 local TpTitle = Instance.new("TextLabel")
 local SettingsTitle = Instance.new("TextLabel")
 local ScriptNameTitle = Instance.new("TextLabel")
+
+--Properties:
 
 PrisonHaxx.Name = "PrisonHaxx"
 PrisonHaxx.Parent = game.CoreGui
@@ -143,7 +150,15 @@ InfAmmo.Text = "Inf Ammo"
 InfAmmo.TextColor3 = Color3.fromRGB(0, 0, 0)
 InfAmmo.TextSize = 14.000
 InfAmmo.TextWrapped = true
-InfAmmo.Visible = false
+InfAmmo.MouseButton1Click:Connect(function()
+local gun = game.Players.LocalPlayer.Backpack.M9.GunStates
+
+a = require(gun)
+a.MaxAmmo = math.huge
+a.CurrentAmmo = math.huge
+a.ReloadTime = 0.1
+a.Damage = math.huge
+end)
 
 YardTp.Name = "YardTp"
 YardTp.Parent = VisibleToggle
