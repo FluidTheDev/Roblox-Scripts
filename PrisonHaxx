@@ -1,1131 +1,495 @@
-local Hub = Instance.new("ScreenGui")
-local Scripts = Instance.new("Frame")
-local Close = Instance.new("TextButton")
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local PrisonHaxx = Instance.new("ScreenGui")
+local Container = Instance.new("Frame")
+local VisibleToggle = Instance.new("Frame")
+local Toggle = Instance.new("TextButton")
 local InfJump = Instance.new("TextButton")
 local SpeedHack = Instance.new("TextButton")
-local Noclip = Instance.new("TextButton")
-local Esp = Instance.new("TextButton")
-local DestroyGui = Instance.new("TextButton")
-local Yard = Instance.new("TextButton")
-local GuardBase = Instance.new("TextButton")
-local GuardTower = Instance.new("TextButton")
-local JailIn = Instance.new("TextButton")
-local JailOut = Instance.new("TextButton")
-local Title = Instance.new("TextLabel")
-local BatInstantKill = Instance.new("TextButton")
-local KillAura = Instance.new("TextButton")
+local NoclipHack = Instance.new("TextButton")
 local Aimbot = Instance.new("TextButton")
-local Fly = Instance.new("TextButton")
-local Open = Instance.new("TextButton")
 local InfAmmo = Instance.new("TextButton")
+local YardTp = Instance.new("TextButton")
+local GuardBaseTp = Instance.new("TextButton")
+local GuardTower = Instance.new("TextButton")
+local CrimBaseTp = Instance.new("TextButton")
+local PrisonOutTp = Instance.new("TextButton")
+local DestroyGui = Instance.new("TextButton")
+local BackgroundColorRed = Instance.new("TextButton")
+local ResetBackgroundColor = Instance.new("TextButton")
+local BackgroundColorBlue = Instance.new("TextButton")
+local Credits = Instance.new("TextButton")
+local ScriptsTitle = Instance.new("TextLabel")
+local TpTitle = Instance.new("TextLabel")
+local SettingsTitle = Instance.new("TextLabel")
+local ScriptNameTitle = Instance.new("TextLabel")
 
-Hub.Name = "Hub"
-Hub.Parent = game.CoreGui
-Hub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+--Properties:
 
-Scripts.Name = "Scripts"
-Scripts.Parent = Hub
-Scripts.BackgroundColor3 = Color3.fromRGB(69, 69, 69)
-Scripts.Position = UDim2.new(0.320286036, 0, 0.0588350035, 0)
-Scripts.Selectable = true
-Scripts.Size = UDim2.new(0, 400, 0, 553)
-Scripts.Visible = false
-Scripts.Active = true
-Scripts.Draggable = true
+PrisonHaxx.Name = "PrisonHaxx"
+PrisonHaxx.Parent = game.CoreGui
 
-InfAmmo.Name = "InfAmmo"
-InfAmmo.Parent = Scripts
-InfAmmo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfAmmo.Position = UDim2.new(-0.00389188528, 0, 0.177260935, 0)
-InfAmmo.Size = UDim2.new(0, 200, 0, 50)
-InfAmmo.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-InfAmmo.Font = Enum.Font.SourceSans
-InfAmmo.Text = "Inf Ammo"
-InfAmmo.TextColor3 = Color3.fromRGB(0, 0, 0)
-InfAmmo.TextSize = 14.000
-InfAmmo.MouseButton1Click:Connect(function()
-	local player = game:GetService("Players").LocalPlayer
+Container.Name = "Container"
+Container.Parent = PrisonHaxx
+Container.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Container.ClipsDescendants = true
+Container.Position = UDim2.new(0.224, 0,0.224, 0)
+Container.Size = UDim2.new(0, 605,0, 41)
+Container.Active = true
+Container.Draggable = true
 
+VisibleToggle.Name = "VisibleToggle"
+VisibleToggle.Parent = Container
+VisibleToggle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+VisibleToggle.Size = UDim2.new(0, 605, 0, 41)
 
-	local gun = player.Backpack:FindFirstChild("Remington 870")
-
-	local sM = require(gun:FindFirstChild("GunStates"))
-
-	sM["Damage"] = 999
-
-	sM["MaxAmmo"] = 9999991
-
-	sM["StoredAmmo"] = 9999991
-
-	sM["FireRate"] = 0.05
-
-	sM["AmmoPerClip"] = 9999991
-
-	sM["Range"] = 5000
-
-	sM["ReloadTime"] = 0.05
-
-	sM["Bullets"] = 10
-
-	sM["AutoFire"] = true
-end)
-
-Close.Name = "Close"
-Close.Parent = Scripts
-Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Close.BackgroundTransparency = 1.000
-Close.Position = UDim2.new(0, 343, 0, -9)
-Close.Size = UDim2.new(0, 57, 0, 50)
-Close.Font = Enum.Font.SourceSansBold
-Close.Text = "X"
-Close.TextColor3 = Color3.fromRGB(255, 0, 0)
-Close.TextScaled = true
-Close.TextSize = 14.000
-Close.TextWrapped = true
-Close.MouseButton1Click:Connect(function()
-	Scripts.Visible = false
-	Open.Text = "Open"
-end)
+Toggle.Name = "Toggle"
+Toggle.Parent = VisibleToggle
+Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundTransparency = 1.000
+Toggle.Position = UDim2.new(0.940839708, 0, 0, 0)
+Toggle.Size = UDim2.new(0, 31, 0, 34)
+Toggle.Font = Enum.Font.SourceSansBold
+Toggle.Text = ">"
+Toggle.TextColor3 = Color3.fromRGB(0, 255, 0)
+Toggle.TextScaled = true
+Toggle.TextSize = 14.000
+Toggle.TextWrapped = true
+Toggle.Rotation = 270
 
 InfJump.Name = "InfJump"
-InfJump.Parent = Scripts
+InfJump.Parent = VisibleToggle
 InfJump.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfJump.Position = UDim2.new(-0.00139187975, 0, 0.267893463, 0)
+InfJump.Position = UDim2.new(-0.000834901002, 0, 1.74854517, 0)
 InfJump.Size = UDim2.new(0, 200, 0, 50)
 InfJump.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
 InfJump.Font = Enum.Font.SourceSans
 InfJump.Text = "Inf Jump"
 InfJump.TextColor3 = Color3.fromRGB(0, 0, 0)
 InfJump.TextSize = 14.000
-InfJump.MouseButton1Click:Connect(function()
+InfJump.TextWrapped = true
+InfJump.MouseButton1Down:Connect(function()
 	game:GetService("UserInputService").JumpRequest:connect(function()
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
 	end)
 end)
 
 SpeedHack.Name = "SpeedHack"
-SpeedHack.Parent = Scripts
+SpeedHack.Parent = VisibleToggle
 SpeedHack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SpeedHack.Position = UDim2.new(-0.00389187969, 0, 0.36079365, 0)
+SpeedHack.Position = UDim2.new(-0.00248779356, 0, 2.96805739, 0)
 SpeedHack.Size = UDim2.new(0, 200, 0, 50)
 SpeedHack.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
 SpeedHack.Font = Enum.Font.SourceSans
 SpeedHack.Text = "Speed Hack"
 SpeedHack.TextColor3 = Color3.fromRGB(0, 0, 0)
 SpeedHack.TextSize = 14.000
-SpeedHack.MouseButton1Click:Connect(function()
+SpeedHack.TextWrapped = true
+SpeedHack.MouseButton1Down:Connect(function()
 	local gmt = getrawmetatable(game)
 	setreadonly(gmt,false)
-
+	
 	local oldindex = gmt._index
-
+	
 	gmt._index = newcclosure(function(self,k)
 		if k == "WalkSpeed" then
-			return 20
+			return 20;
 		end
 		return oldindex(self,k)
 	end)
-
+	
 	print("meta")
-
+	
 	while true do
 		wait()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
 	end
-end)
-
-Noclip.Name = "Noclip"
-Noclip.Parent = Scripts
-Noclip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Noclip.Position = UDim2.new(-0.00139187975, 0, 0.451342076, 0)
-Noclip.Size = UDim2.new(0, 200, 0, 50)
-Noclip.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Noclip.Font = Enum.Font.SourceSans
-Noclip.Text = "Noclip"
-Noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
-Noclip.TextSize = 14.000
-Noclip.MouseButton1Click:Connect(function()
-	local Workspace = game:GetService("Workspace")
-	local CoreGui = game:GetService("CoreGui")
-	local Players = game:GetService("Players")
-	local Noclip = Instance.new("ScreenGui")
-	local BG = Instance.new("Frame")
-	local Title = Instance.new("TextLabel")
-	local Toggle = Instance.new("TextButton")
-	local StatusPF = Instance.new("TextLabel")
-	local Status = Instance.new("TextLabel")
-	local Credit = Instance.new("TextLabel")
-	local Plr = Players.LocalPlayer
-	local Clipon = false
-
-	Noclip.Name = "Noclip"
-	Noclip.Parent = game.CoreGui
-
-	BG.Name = "BG"
-	BG.Parent = Noclip
-	BG.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
-	BG.BorderColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
-	BG.BorderSizePixel = 2
-	BG.Position = UDim2.new(0.149479166, 0, 0.82087779, 0)
-	BG.Size = UDim2.new(0, 210, 0, 127)
-	BG.Active = true
-	BG.Draggable = true
-
-	Title.Name = "Title"
-	Title.Parent = BG
-	Title.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
-	Title.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
-	Title.BorderSizePixel = 2
-	Title.Size = UDim2.new(0, 210, 0, 33)
-	Title.Font = Enum.Font.Highway
-	Title.Text = "Noclip"
-	Title.TextColor3 = Color3.new(1, 1, 1)
-	Title.FontSize = Enum.FontSize.Size32
-	Title.TextSize = 30
-	Title.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
-	Title.TextStrokeTransparency = 0
-
-	Toggle.Parent = BG
-	Toggle.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
-	Toggle.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
-	Toggle.BorderSizePixel = 2
-	Toggle.Position = UDim2.new(0.152380958, 0, 0.374192119, 0)
-	Toggle.Size = UDim2.new(0, 146, 0, 36)
-	Toggle.Font = Enum.Font.Highway
-	Toggle.FontSize = Enum.FontSize.Size28
-	Toggle.Text = "Toggle"
-	Toggle.TextColor3 = Color3.new(1, 1, 1)
-	Toggle.TextSize = 25
-	Toggle.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
-	Toggle.TextStrokeTransparency = 0
-
-	StatusPF.Name = "StatusPF"
-	StatusPF.Parent = BG
-	StatusPF.BackgroundColor3 = Color3.new(1, 1, 1)
-	StatusPF.BackgroundTransparency = 1
-	StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
-	StatusPF.Size = UDim2.new(0, 56, 0, 20)
-	StatusPF.Font = Enum.Font.Highway
-	StatusPF.FontSize = Enum.FontSize.Size24
-	StatusPF.Text = "Status:"
-	StatusPF.TextColor3 = Color3.new(1, 1, 1)
-	StatusPF.TextSize = 20
-	StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
-	StatusPF.TextStrokeTransparency = 0
-	StatusPF.TextWrapped = true
-
-	Status.Name = "Status"
-	Status.Parent = BG
-	Status.BackgroundColor3 = Color3.new(1, 1, 1)
-	Status.BackgroundTransparency = 1
-	Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
-	Status.Size = UDim2.new(0, 56, 0, 20)
-	Status.Font = Enum.Font.Highway
-	Status.FontSize = Enum.FontSize.Size14
-	Status.Text = "off"
-	Status.TextColor3 = Color3.new(0.666667, 0, 0)
-	Status.TextScaled = true
-	Status.TextSize = 14
-	Status.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
-	Status.TextWrapped = true
-	Status.TextXAlignment = Enum.TextXAlignment.Left
-
-	Credit.Name = "Credit"
-	Credit.Parent = BG
-	Credit.BackgroundColor3 = Color3.new(1, 1, 1)
-	Credit.BackgroundTransparency = 1
-	Credit.Position = UDim2.new(0.195238099, 0, 0.866141737, 0)
-	Credit.Size = UDim2.new(0, 128, 0, 17)
-	Credit.Font = Enum.Font.SourceSans
-	Credit.FontSize = Enum.FontSize.Size18
-	Credit.Text = "Created by KingLuna"
-	Credit.TextColor3 = Color3.new(1, 1, 1)
-	Credit.TextSize = 16
-	Credit.TextStrokeColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-	Credit.TextStrokeTransparency = 0
-	Credit.TextWrapped = true
-
-	Toggle.MouseButton1Click:connect(function()
-		if Status.Text == "off" then
-			Clipon = true
-			Status.Text = "on"
-			Status.TextColor3 = Color3.new(0,185,0)
-			Stepped = game:GetService("RunService").Stepped:Connect(function()
-				if not Clipon == false then
-					for a, b in pairs(Workspace:GetChildren()) do
-						if b.Name == Plr.Name then
-							for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
-								if v:IsA("BasePart") then
-									v.CanCollide = false
-								end end end end
-				else
-					Stepped:Disconnect()
-				end
-			end)
-		elseif Status.Text == "on" then
-			Clipon = false
-			Status.Text = "off"
-			Status.TextColor3 = Color3.new(170,0,0)
-		end
-	end) 
-end)
-
-Esp.Name = "Esp"
-Esp.Parent = Scripts
-Esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Esp.Position = UDim2.new(-0.00139187789, 0, 0.542781889, 0)
-Esp.Size = UDim2.new(0, 200, 0, 50)
-Esp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Esp.Font = Enum.Font.SourceSans
-Esp.Text = "Esp"
-Esp.TextColor3 = Color3.fromRGB(0, 0, 0)
-Esp.TextSize = 14.000
-Esp.MouseButton1Click:Connect(function()
-	local Holder = Instance.new("Folder", game.CoreGui)
-	Holder.Name = "ESP"
-
-	local Box = Instance.new("BoxHandleAdornment")
-	Box.Name = "nilBox"
-	Box.Size = Vector3.new(4, 7, 4)
-	Box.Color3 = Color3.new(100 / 255, 100 / 255, 100 / 255)
-	Box.Transparency = 0.7
-	Box.ZIndex = 0
-	Box.AlwaysOnTop = true
-	Box.Visible = true
-
-	local NameTag = Instance.new("BillboardGui")
-	NameTag.Name = "nilNameTag"
-	NameTag.Enabled = false
-	NameTag.Size = UDim2.new(0, 200, 0, 50)
-	NameTag.AlwaysOnTop = true
-	NameTag.StudsOffset = Vector3.new(0, 1.8, 0)
-	local Tag = Instance.new("TextLabel", NameTag)
-	Tag.Name = "Tag"
-	Tag.BackgroundTransparency = 1
-	Tag.Position = UDim2.new(0, -50, 0, 0)
-	Tag.Size = UDim2.new(0, 300, 0, 20)
-	Tag.TextSize = 20
-	Tag.TextColor3 = Color3.new(100 / 255, 100 / 255, 100 / 255)
-	Tag.TextStrokeColor3 = Color3.new(0 / 255, 0 / 255, 0 / 255)
-	Tag.TextStrokeTransparency = 0.4
-	Tag.Text = "nil"
-	Tag.Font = Enum.Font.SourceSansBold
-	Tag.TextScaled = false
-
-	local LoadCharacter = function(v)
-		repeat wait() until v.Character ~= nil
-		v.Character:WaitForChild("Humanoid")
-		local vHolder = Holder:FindFirstChild(v.Name)
-		vHolder:ClearAllChildren()
-		local b = Box:Clone()
-		b.Name = v.Name .. "Box"
-		b.Adornee = v.Character
-		b.Parent = vHolder
-		local t = NameTag:Clone()
-		t.Name = v.Name .. "NameTag"
-		t.Enabled = true
-		t.Parent = vHolder
-		t.Adornee = v.Character:WaitForChild("Head", 5)
-		if not t.Adornee then
-			return UnloadCharacter(v)
-		end
-		t.Tag.Text = v.Name
-		b.Color3 = Color3.new(v.TeamColor.r, v.TeamColor.g, v.TeamColor.b)
-		t.Tag.TextColor3 = Color3.new(v.TeamColor.r, v.TeamColor.g, v.TeamColor.b)
-		local Update
-		local UpdateNameTag = function()
-			if not pcall(function()
-					v.Character.Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-					local maxh = math.floor(v.Character.Humanoid.MaxHealth)
-					local h = math.floor(v.Character.Humanoid.Health)
-					t.Tag.Text = v.Name .. "\n" .. ((maxh ~= 0 and tostring(math.floor((h / maxh) * 100))) or "0") .. "%  " .. tostring(h) .. "/" .. tostring(maxh)
-				end) then
-				Update:Disconnect()
-			end
-		end
-		UpdateNameTag()
-		Update = v.Character.Humanoid.Changed:Connect(UpdateNameTag)
-	end
-
-	local UnloadCharacter = function(v)
-		local vHolder = Holder:FindFirstChild(v.Name)
-		if vHolder and (vHolder:FindFirstChild(v.Name .. "Box") ~= nil or vHolder:FindFirstChild(v.Name .. "NameTag") ~= nil) then
-			vHolder:ClearAllChildren()
-		end
-	end
-
-	local LoadPlayer = function(v)
-		local vHolder = Instance.new("Folder", Holder)
-		vHolder.Name = v.Name
-		v.CharacterAdded:Connect(function()
-			pcall(LoadCharacter, v)
-		end)
-		v.CharacterRemoving:Connect(function()
-			pcall(UnloadCharacter, v)
-		end)
-		v.Changed:Connect(function(prop)
-			if prop == "TeamColor" then
-				UnloadCharacter(v)
-				wait()
-				LoadCharacter(v)
-			end
-		end)
-		LoadCharacter(v)
-	end
-
-	local UnloadPlayer = function(v)
-		UnloadCharacter(v)
-		local vHolder = Holder:FindFirstChild(v.Name)
-		if vHolder then
-			vHolder:Destroy()
-		end
-	end
-
-	for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-		spawn(function() pcall(LoadPlayer, v) end)
-	end
-
-	game:GetService("Players").PlayerAdded:Connect(function(v)
-		pcall(LoadPlayer, v)
 	end)
 
-	game:GetService("Players").PlayerRemoving:Connect(function(v)
-		pcall(UnloadPlayer, v)
-	end)
-
-	game:GetService("Players").LocalPlayer.NameDisplayDistance = 0
-end)
-
-DestroyGui.Name = "DestroyGui"
-DestroyGui.Parent = Scripts
-DestroyGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DestroyGui.Position = UDim2.new(-0.00139188021, 0, 0.633279443, 0)
-DestroyGui.Size = UDim2.new(0, 200, 0, 50)
-DestroyGui.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-DestroyGui.Font = Enum.Font.SourceSans
-DestroyGui.Text = "DestroyGUi"
-DestroyGui.TextColor3 = Color3.fromRGB(0, 0, 0)
-DestroyGui.TextSize = 14.000
-DestroyGui.MouseButton1Click:Connect(function()
-	Scripts.Visible = false
-	Open.Visible = false
-end)
-
-Yard.Name = "Yard"
-Yard.Parent = Scripts
-Yard.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Yard.Position = UDim2.new(0.498608112, 0, 0.542040169, 0)
-Yard.Size = UDim2.new(0, 200, 0, 50)
-Yard.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Yard.Font = Enum.Font.SourceSans
-Yard.Text = "Yard"
-Yard.TextColor3 = Color3.fromRGB(0, 0, 0)
-Yard.TextSize = 14.000
-Yard.MouseButton1Click:Connect(function()
-	local CFrame = CFrame.new(780.937744, 97.9999466, 2490.81006)
-
-	local ts = game:GetService("TweenService")
-	local char = game.Players.LocalPlayer.Character
-
-	local part = char.HumanoidRootPart 
-	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-	local tp = {CFrame = CFrame}
-	ts:Create(part, ti, tp):Play()
-end)
-
-GuardBase.Name = "GuardBase"
-GuardBase.Parent = Scripts
-GuardBase.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GuardBase.Position = UDim2.new(0.496108115, 0, 0.632513463, 0)
-GuardBase.Size = UDim2.new(0, 200, 0, 50)
-GuardBase.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-GuardBase.Font = Enum.Font.SourceSans
-GuardBase.Text = "Guard base"
-GuardBase.TextColor3 = Color3.fromRGB(0, 0, 0)
-GuardBase.TextSize = 14.000
-GuardBase.MouseButton1Click:Connect(function()
-	local CFrame = CFrame.new(845.677551, 99.9900055, 2260.82007)
-
-	local ts = game:GetService("TweenService")
-	local char = game.Players.LocalPlayer.Character
-
-	local part = char.HumanoidRootPart 
-	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-	local tp = {CFrame = CFrame}
-	ts:Create(part, ti, tp):Play()
-end)
-
-GuardTower.Name = "GuardTower"
-GuardTower.Parent = Scripts
-GuardTower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GuardTower.Position = UDim2.new(0.498608112, 0, 0.725181341, 0)
-GuardTower.Size = UDim2.new(0, 200, 0, 50)
-GuardTower.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-GuardTower.Font = Enum.Font.SourceSans
-GuardTower.Text = "GuardTower"
-GuardTower.TextColor3 = Color3.fromRGB(0, 0, 0)
-GuardTower.TextSize = 14.000
-GuardTower.MouseButton1Click:Connect(function()
-	local CFrame = CFrame.new(822.727661, 130.039948, 2570.42896)
-
-	local ts = game:GetService("TweenService")
-	local char = game.Players.LocalPlayer.Character
-
-	local part = char.HumanoidRootPart 
-	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-	local tp = {CFrame = CFrame}
-	ts:Create(part, ti, tp):Play()
-end)
-
-JailIn.Name = "JailIn"
-JailIn.Parent = Scripts
-JailIn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-JailIn.Position = UDim2.new(0.498608112, 0, 0.81634891, 0)
-JailIn.Size = UDim2.new(0, 200, 0, 50)
-JailIn.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-JailIn.Font = Enum.Font.SourceSans
-JailIn.Text = "Jail in"
-JailIn.TextColor3 = Color3.fromRGB(0, 0, 0)
-JailIn.TextSize = 14.000
-JailIn.MouseButton1Click:Connect(function()
-	local CFrame = CFrame.new(920.34729, 99.9899902, 2440.19946)
-
-	local ts = game:GetService("TweenService")
-	local char = game.Players.LocalPlayer.Character
-
-	local part = char.HumanoidRootPart 
-	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-	local tp = {CFrame = CFrame}
-	ts:Create(part, ti, tp):Play()
-end)
-
-JailOut.Name = "JailOut"
-JailOut.Parent = Scripts
-JailOut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-JailOut.Position = UDim2.new(0.496108115, 0, 0.909056544, 0)
-JailOut.Size = UDim2.new(0, 200, 0, 50)
-JailOut.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-JailOut.Font = Enum.Font.SourceSans
-JailOut.Text = "Jail Out"
-JailOut.TextColor3 = Color3.fromRGB(0, 0, 0)
-JailOut.TextSize = 14.000
-JailOut.MouseButton1Click:Connect(function()
-	local CFrame = CFrame.new(285.028412, 72.5167236, 2215.48071)
-
-	local ts = game:GetService("TweenService")
-	local char = game.Players.LocalPlayer.Character
-
-	local part = char.HumanoidRootPart 
-	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-	local tp = {CFrame = CFrame}
-	ts:Create(part, ti, tp):Play()
-end)
-
-Title.Name = "Title"
-Title.Parent = Scripts
-Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Title.BackgroundTransparency = 1.000
-Title.Position = UDim2.new(0, 0, -0.00647365581, 0)
-Title.Size = UDim2.new(0, 217, 0, 33)
-Title.Font = Enum.Font.SourceSans
-Title.Text = "PrisonHaxx"
-Title.TextColor3 = Color3.fromRGB(85, 0, 255)
-Title.TextScaled = true
-Title.TextSize = 14.000
-Title.TextWrapped = true
-
-BatInstantKill.Name = "Bat(Instant Kill)"
-BatInstantKill.Parent = Scripts
-BatInstantKill.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BatInstantKill.Position = UDim2.new(-0.00139187882, 0, 0.908127367, 0)
-BatInstantKill.Size = UDim2.new(0, 200, 0, 50)
-BatInstantKill.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-BatInstantKill.Font = Enum.Font.SourceSans
-BatInstantKill.Text = "Bat (Instant Kill)"
-BatInstantKill.TextColor3 = Color3.fromRGB(0, 0, 0)
-BatInstantKill.TextSize = 14.000
-BatInstantKill.MouseButton1Click:Connect(function()
-	local plr=game.Players.LocalPlayer;local tool=Instance.new("Tool",plr.Backpack)tool.GripPos=Vector3.new(0.1,-1,0)tool.Name="Baseball Bat"local k=Instance.new("Part",tool)k.Name="Handle"k.Size=Vector3.new(0.4,4,0.4)local l=Instance.new("Animation",tool)l.AnimationId="rbxassetid://218504594"local m=plr.Character.Humanoid:LoadAnimation(l)db=true;da=false;tool.Equipped:connect(function()tool.Activated:connect(function()if db==true then db=false;m:Play()wait()da=true;db=true;wait(0.1)da=false end end)end)k.Touched:connect(function(n)if da==true then local o=n.Parent.Humanoid;if o~=nil then local p=game.Players:FindFirstChild(n.Parent.Name)for j=1,10 do if p.Name~="gwapobeboy3_YT"then game.ReplicatedStorage.meleeEvent:FireServer(p)end end end end end)
-end)
-
-KillAura.Name = "KillAura"
-KillAura.Parent = Scripts
-KillAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-KillAura.Position = UDim2.new(-0.00139187882, 0, 0.814643562, 0)
-KillAura.Size = UDim2.new(0, 200, 0, 50)
-KillAura.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-KillAura.Font = Enum.Font.SourceSans
-KillAura.Text = "Kill Aura"
-KillAura.TextColor3 = Color3.fromRGB(0, 0, 0)
-KillAura.TextSize = 14.000
-KillAura.MouseButton1Click:Connect(function()
-	mainRemotes = game.ReplicatedStorage
-	meleeRemote = mainRemotes['meleeEvent']
-
-	killAura = true
-
-	contextactionservice = game.ContextActionService
-
-	function toggleKillAura(actionName, inputState, inputObject)
-		print('Doing the action : ' .. actionName)
-		if inputState == Enum.UserInputState.Begin then
-			if killAura == true then
-				killAura = false
-			else
-				killAura = true
-			end
-		end
-	end
-
-	contextactionservice:BindAction('ToggleKillAura', toggleKillAura, false, Enum.KeyCode.K)
-
-	while wait() do
-		if killAura == true then
-			for _, plr in pairs (game:GetService('Players'):GetChildren()) do
-				if plr.Name ~= game.Players.LocalPlayer.Name then
-					meleeRemote:FireServer(plr)
-				end
-			end
-		end
-	end
+NoclipHack.Name = "Noclip Hack"
+NoclipHack.Parent = VisibleToggle
+NoclipHack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NoclipHack.Position = UDim2.new(-0.000834901002, 0, 4.18756962, 0)
+NoclipHack.Size = UDim2.new(0, 200, 0, 50)
+NoclipHack.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+NoclipHack.Font = Enum.Font.SourceSans
+NoclipHack.Text = "Noclip Hack"
+NoclipHack.TextColor3 = Color3.fromRGB(0, 0, 0)
+NoclipHack.TextSize = 14.000
+NoclipHack.TextWrapped = true
+NoclipHack.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/9LBsfRkD"))()
 end)
 
 Aimbot.Name = "Aimbot"
-Aimbot.Parent = Scripts
+Aimbot.Parent = VisibleToggle
 Aimbot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Aimbot.Position = UDim2.new(-0.0038918783, 0, 0.723352075, 0)
+Aimbot.Position = UDim2.new(-0.00248779356, 0, 5.40708208, 0)
 Aimbot.Size = UDim2.new(0, 200, 0, 50)
 Aimbot.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
 Aimbot.Font = Enum.Font.SourceSans
 Aimbot.Text = "Aimbot"
 Aimbot.TextColor3 = Color3.fromRGB(0, 0, 0)
 Aimbot.TextSize = 14.000
-Aimbot.MouseButton1Click:Connect(function()
-	local plrs = game:GetService("Players")
-	local TeamBased = true ; local teambasedswitch = "o"
-	local presskeytoaim = true; local aimkey = "e"
-	local raycast = false
+Aimbot.TextWrapped = true
+Aimbot.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/4CdHwkxj"))()
+end)
 
-	local espupdatetime = 5; autoesp = false
+InfAmmo.Name = "InfAmmo"
+InfAmmo.Parent = VisibleToggle
+InfAmmo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfAmmo.Position = UDim2.new(-0.00248779356, 0, 6.62659454, 0)
+InfAmmo.Size = UDim2.new(0, 200, 0, 50)
+InfAmmo.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+InfAmmo.Font = Enum.Font.SourceSans
+InfAmmo.Text = "Inf Ammo"
+InfAmmo.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfAmmo.TextSize = 14.000
+InfAmmo.TextWrapped = true
+InfAmmo.MouseButton1Down:Connect(function()
+	local player = game:GetService("Players").LocalPlayer
 
+	local gun = player.Backpack:FindFirstChild("M9")
 
+	local sM = require(gun:FindFirstChild("GunStates"))
 
-	local lockaim = true; local lockangle = 5
+	sM["MaxAmmo"] = 1000
 
+	sM["StoredAmmo"] = 1000
+	
+	sM["AmmoPerClip"] = 1000
 
+	sM["ReloadTime"] = 0.05
 
-	--function findwat(folder, what)
-	--  for i, smth in pairs(folder:GetChildren()) do
-	--      if string.find(string.lower(tostring(smth)), string.lower(what)) then
-	--          return smth
-	--      end
-	--  end
-	--end
-	--
-	--local plrs = findwat(game, "Players")
+	sM["AutoFire"] = true
+end)
 
+YardTp.Name = "YardTp"
+YardTp.Parent = VisibleToggle
+YardTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+YardTp.Position = UDim2.new(0.334563494, 0, 1.74854517, 0)
+YardTp.Size = UDim2.new(0, 200, 0, 50)
+YardTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+YardTp.Font = Enum.Font.SourceSans
+YardTp.Text = "Yard Tp"
+YardTp.TextColor3 = Color3.fromRGB(0, 0, 0)
+YardTp.TextSize = 14.000
+YardTp.TextWrapped = true
+YardTp.MouseButton1Down:Connect(function()
+	local new_CFrame = CFrame.new(763.5419931, 97.9999466, 2487.10791)
+		
+		local ts = game:GetService("TweenService")
+		local char = game.Players.LocalPlayer.Character
+		
+		local part = char.HumanoidRootPart
+		local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+		local tp = {CFrame = new_CFrame}
+		ts:Create(part, ti, tp):Play()
+		end)
 
+GuardBaseTp.Name = "GuardBaseTp"
+GuardBaseTp.Parent = VisibleToggle
+GuardBaseTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuardBaseTp.Position = UDim2.new(0.334563494, 0, 2.96805739, 0)
+GuardBaseTp.Size = UDim2.new(0, 200, 0, 50)
+GuardBaseTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+GuardBaseTp.Font = Enum.Font.SourceSans
+GuardBaseTp.Text = "Guard Base Tp"
+GuardBaseTp.TextColor3 = Color3.fromRGB(0, 0, 0)
+GuardBaseTp.TextSize = 14.000
+GuardBaseTp.TextWrapped = true
+GuardBaseTp.MouseButton1Down:Connect(function()
+local new_CFrame = CFrame.new(835.180176, 99.9900055, 2268.19165)
 
+local ts = game:GetService("TweenService")
+local char = game.Players.LocalPlayer.Character
 
-	local Gui = Instance.new("ScreenGui")
-	local Move = Instance.new("Frame")
+local part = char.HumanoidRootPart
+local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+local tp = {CFrame = new_CFrame}
+ts:Create(part, ti, tp):Play()
+end)
+
+GuardTower.Name = "GuardTower"
+GuardTower.Parent = VisibleToggle
+GuardTower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuardTower.Position = UDim2.new(0.334563494, 0, 4.18756962, 0)
+GuardTower.Size = UDim2.new(0, 200, 0, 50)
+GuardTower.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+GuardTower.Font = Enum.Font.SourceSans
+GuardTower.Text = "Guard Tower Tp"
+GuardTower.TextColor3 = Color3.fromRGB(0, 0, 0)
+GuardTower.TextSize = 14.000
+GuardTower.TextWrapped = true
+GuardTower.MouseButton1Down:Connect(function()
+	local new_CFrame = CFrame.new(818.790405, 130.039948, 2572.03345)
+
+	local ts = game:GetService("TweenService")
+	local char = game.Players.LocalPlayer.Character
+
+	local part = char.HumanoidRootPart
+	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+	local tp = {CFrame = new_CFrame}
+	ts:Create(part, ti, tp):Play()
+end)
+
+CrimBaseTp.Name = "CrimBaseTp"
+CrimBaseTp.Parent = VisibleToggle
+CrimBaseTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CrimBaseTp.Position = UDim2.new(0.334563494, 0, 5.4070816, 0)
+CrimBaseTp.Size = UDim2.new(0, 200, 0, 50)
+CrimBaseTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+CrimBaseTp.Font = Enum.Font.SourceSans
+CrimBaseTp.Text = "Crim Base Tp"
+CrimBaseTp.TextColor3 = Color3.fromRGB(0, 0, 0)
+CrimBaseTp.TextSize = 14.000
+CrimBaseTp.TextWrapped = true
+CrimBaseTp.MouseButton1Down:Connect(function()
+	local new_CFrame = CFrame.new(-900, 94, 2050)
+
+	local ts = game:GetService("TweenService")
+	local char = game.Players.LocalPlayer.Character
+
+	local part = char.HumanoidRootPart
+	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+	local tp = {CFrame = new_CFrame}
+	ts:Create(part, ti, tp):Play()
+end)
+
+PrisonOutTp.Name = "PrisonOutTp"
+PrisonOutTp.Parent = VisibleToggle
+PrisonOutTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PrisonOutTp.Position = UDim2.new(0.334563494, 0, 6.62659359, 0)
+PrisonOutTp.Size = UDim2.new(0, 200, 0, 50)
+PrisonOutTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+PrisonOutTp.Font = Enum.Font.SourceSans
+PrisonOutTp.Text = "Prison Out Tp"
+PrisonOutTp.TextColor3 = Color3.fromRGB(0, 0, 0)
+PrisonOutTp.TextSize = 14.000
+PrisonOutTp.TextWrapped = true
+PrisonOutTp.MouseButton1Down:Connect(function()
+	local new_CFrame = CFrame.new(	284.616882, 72.5167236, 2221.65234)
+
+	local ts = game:GetService("TweenService")
+	local char = game.Players.LocalPlayer.Character
+
+	local part = char.HumanoidRootPart
+	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+	local tp = {CFrame = new_CFrame}
+	ts:Create(part, ti, tp):Play()
+end)
+
+DestroyGui.Name = "DestroyGui"
+DestroyGui.Parent = VisibleToggle
+DestroyGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DestroyGui.Position = UDim2.new(0.668447793, 0, 1.74854469, 0)
+DestroyGui.Size = UDim2.new(0, 200, 0, 50)
+DestroyGui.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+DestroyGui.Font = Enum.Font.SourceSans
+DestroyGui.Text = "DestroyGui"
+DestroyGui.TextColor3 = Color3.fromRGB(0, 0, 0)
+DestroyGui.TextSize = 14.000
+DestroyGui.TextWrapped = true
+DestroyGui.MouseButton1Down:Connect(function()
+	VisibleToggle.Visible = false
+	Container.Visible = false
+end)
+
+BackgroundColorRed.Name = "BackgroundColorRed"
+BackgroundColorRed.Parent = VisibleToggle
+BackgroundColorRed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BackgroundColorRed.Position = UDim2.new(0.668447793, 0, 2.96805692, 0)
+BackgroundColorRed.Size = UDim2.new(0, 200, 0, 50)
+BackgroundColorRed.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+BackgroundColorRed.Font = Enum.Font.SourceSans
+BackgroundColorRed.Text = "Background Color Red"
+BackgroundColorRed.TextColor3 = Color3.fromRGB(0, 0, 0)
+BackgroundColorRed.TextSize = 14.000
+BackgroundColorRed.TextWrapped = true
+BackgroundColorRed.MouseButton1Down:Connect(function()
+	Container.BackgroundColor3 = Color3.new(1, 0, 0)
+end)
+
+ResetBackgroundColor.Name = "ResetBackgroundColor"
+ResetBackgroundColor.Parent = VisibleToggle
+ResetBackgroundColor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ResetBackgroundColor.Position = UDim2.new(0.668447793, 0, 4.18756914, 0)
+ResetBackgroundColor.Size = UDim2.new(0, 200, 0, 50)
+ResetBackgroundColor.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+ResetBackgroundColor.Font = Enum.Font.SourceSans
+ResetBackgroundColor.Text = "Reset Background Color"
+ResetBackgroundColor.TextColor3 = Color3.fromRGB(0, 0, 0)
+ResetBackgroundColor.TextSize = 14.000
+ResetBackgroundColor.TextWrapped = true
+ResetBackgroundColor.MouseButton1Down:Connect(function()
+	Container.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.0784314)
+end)
+
+BackgroundColorBlue.Name = "BackgroundColorBlue"
+BackgroundColorBlue.Parent = VisibleToggle
+BackgroundColorBlue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BackgroundColorBlue.Position = UDim2.new(0.668447793, 0, 5.4070816, 0)
+BackgroundColorBlue.Size = UDim2.new(0, 200, 0, 50)
+BackgroundColorBlue.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+BackgroundColorBlue.Font = Enum.Font.SourceSans
+BackgroundColorBlue.Text = "BackgroundColor Blue "
+BackgroundColorBlue.TextColor3 = Color3.fromRGB(0, 0, 0)
+BackgroundColorBlue.TextSize = 14.000
+BackgroundColorBlue.TextWrapped = true
+BackgroundColorBlue.MouseButton1Down:Connect(function()
+	Container.BackgroundColor3 = Color3.new(0, 0, 1)
+end)
+
+Credits.Name = "Credits"
+Credits.Parent = VisibleToggle
+Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credits.Position = UDim2.new(0.668447793, 0, 6.62659359, 0)
+Credits.Size = UDim2.new(0, 200, 0, 50)
+Credits.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+Credits.Font = Enum.Font.SourceSans
+Credits.Text = "Credits"
+Credits.TextColor3 = Color3.fromRGB(0, 0, 0)
+Credits.TextSize = 14.000
+Credits.TextWrapped = true
+Credits.MouseButton1Down:Connect(function()
+	local Creditsui = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
-	local EspStatus = Instance.new("TextLabel")
-	local st1 = Instance.new("TextLabel")
-	local st1_2 = Instance.new("TextLabel")
-	local st1_3 = Instance.new("TextLabel")
-	local Name = Instance.new("TextLabel")
-	--Properties:
-	Gui.Name = "Gui"
-	Gui.Parent = plrs.LocalPlayer:WaitForChild("PlayerGui")
+	local CreditsTitle = Instance.new("TextLabel")
+	local OwnerCredits = Instance.new("TextLabel")
+	local Close = Instance.new("TextButton")
 
-	Move.Name = "Move"
-	Move.Parent = Gui
-	Move.BackgroundColor3 = Color3.new(0.631373, 0.631373, 0.631373)
-	Move.BackgroundTransparency = 0.40000000596046
-	Move.BorderSizePixel = 0
-	Move.Position = UDim2.new(0.005, 0,0.018, 0)
-	Move.Size = UDim2.new(0.28141585, 0, 0.0320388414, 0)
+	--Properties:
+
+	Creditsui.Name = "Credits-ui"
+	Creditsui.Parent = game.CoreGui
+	Creditsui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Main.Name = "Main"
-	Main.Parent = Move
-	Main.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-	Main.BackgroundTransparency = 0.69999998807907
-	Main.Position = UDim2.new(0, 0, 0.995670795, 0)
-	Main.Size = UDim2.new(1.0000006, 0, 9.79697132, 0)
+	Main.Parent = Creditsui
+	Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	Main.Position = UDim2.new(0.304571092, 0, 0.773675799, 0)
+	Main.Size = UDim2.new(0, 148, 0, 131)
 
-	EspStatus.Name = "EspStatus"
-	EspStatus.Parent = Main
-	EspStatus.BackgroundColor3 = Color3.new(1, 1, 1)
-	EspStatus.BackgroundTransparency = 1
-	EspStatus.Size = UDim2.new(0.272955924, 0, 0.161862016, 0)
-	EspStatus.Font = Enum.Font.SourceSansBold
-	EspStatus.Text = "Press T to update ESP"
-	EspStatus.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	EspStatus.TextScaled = true
-	EspStatus.TextSize = 14
-	EspStatus.TextWrapped = true
+	CreditsTitle.Name = "Credits-Title"
+	CreditsTitle.Parent = Main
+	CreditsTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CreditsTitle.BackgroundTransparency = 1.000
+	CreditsTitle.Size = UDim2.new(0, 125, 0, 26)
+	CreditsTitle.Font = Enum.Font.SourceSansBold
+	CreditsTitle.Text = "Credits"
+	CreditsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+	CreditsTitle.TextScaled = true
+	CreditsTitle.TextSize = 14.000
+	CreditsTitle.TextWrapped = true
 
-	st1.Name = "st1"
-	st1.Parent = Main
-	st1.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1.BackgroundTransparency = 1
-	st1.Position = UDim2.new(0.271787882, 0, 0, 0)
-	st1.Size = UDim2.new(0.728211343, 0, 0.161862016, 0)
-	st1.Font = Enum.Font.SourceSansBold
-	st1.Text = "Press "..aimkey.." to lock on a person inside ur view"
-	st1.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1.TextScaled = true
-	st1.TextSize = 14
-	st1.TextWrapped = true
+	OwnerCredits.Name = "Owner-Credits"
+	OwnerCredits.Parent = Main
+	OwnerCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OwnerCredits.BackgroundTransparency = 1.000
+	OwnerCredits.Position = UDim2.new(0, 0, 0.396946579, 0)
+	OwnerCredits.Size = UDim2.new(0, 148, 0, 26)
+	OwnerCredits.Font = Enum.Font.SourceSansBold
+	OwnerCredits.Text = "Made by me"
+	OwnerCredits.TextColor3 = Color3.fromRGB(85, 0, 255)
+	OwnerCredits.TextScaled = true
+	OwnerCredits.TextSize = 14.000
+	OwnerCredits.TextWrapped = true
 
-	st1_2.Name = "st1"
-	st1_2.Parent = Main
-	st1_2.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1_2.BackgroundTransparency = 1
-	st1_2.Position = UDim2.new(0, 0, 0.375590861, 0)
-	st1_2.Size = UDim2.new(0.999999881, 0, 0.161862016, 0)
-	st1_2.Font = Enum.Font.SourceSansBold
-	st1_2.Text = "Press L to enable ESP loop"
-	st1_2.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1_2.TextScaled = true
-	st1_2.TextSize = 14
-	st1_2.TextWrapped = true
+	Close.Name = "Close"
+	Close.Parent = Main
+	Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Close.BackgroundTransparency = 1.000
+	Close.Position = UDim2.new(0.67567569, 0, 0, 0)
+	Close.Size = UDim2.new(0, 48, 0, 34)
+	Close.Font = Enum.Font.ArialBold
+	Close.Text = "X"
+	Close.TextColor3 = Color3.fromRGB(255, 0, 0)
+	Close.TextScaled = true
+	Close.TextSize = 14.000
+	Close.TextWrapped = true
 
-	st1_3.Name = "st1"
-	st1_3.Parent = Main
-	st1_3.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1_3.BackgroundTransparency = 1
-	st1_3.Position = UDim2.new(0, 0, 0.18558608, 0)
-	st1_3.Size = UDim2.new(0.999999881, 0, 0.161862016, 0)
-	st1_3.Font = Enum.Font.SourceSansBold
-	st1_3.Text = "Press O to change team based mode"
-	st1_3.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1_3.TextScaled = true
-	st1_3.TextSize = 14
-	st1_3.TextWrapped = true
-	local teambasedstatus = st1_3:Clone()
-	teambasedstatus.Parent = st1_3
-	teambasedstatus.TextScaled = true
-	teambasedstatus.Position = UDim2.new(0, 0,0.694, 0)
-	teambasedstatus.Text = tostring(TeamBased)
-
-	Name.Name                   = "Name"
-	Name.Parent                 = Move
-	Name.BackgroundColor3       = Color3.new(1, 1, 1)
-	Name.BackgroundTransparency = 1
-	Name.Size                   = UDim2.new(0.838, 0, 0.980000019, 0)
-	Name.Font                   = Enum.Font.Cartoon
-	Name.Text                   = "Arsenal Aimbot + ESP by Frigid Exploits"
-	Name.TextColor3             = Color3.new(0, 0, 0)
-	Name.TextScaled             = true
-	Name.TextSize               = 14
-	Name.TextWrapped            = true
-	Name.TextXAlignment         = Enum.TextXAlignment.Left
 	-- Scripts:
 
+	local function TOAH_fake_script() -- Close.Close-Script 
+		local script = Instance.new('LocalScript', Close)
 
-	local plrsforaim = {}
+		script.Parent.MouseButton1Down:Connect(function()
+			script.Parent.Parent.Visible = false
+		end)
+	end
+	coroutine.wrap(TOAH_fake_script)()
+end)
 
-	local lplr = game:GetService("Players").LocalPlayer
-	Move.Draggable = true
-	Gui.ResetOnSpawn = false
-	Gui.Name = "Chat"
-	Gui.DisplayOrder = 999
+ScriptsTitle.Name = "Scripts-Title"
+ScriptsTitle.Parent = VisibleToggle
+ScriptsTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
+ScriptsTitle.Position = UDim2.new(0, 0, 1, 0)
+ScriptsTitle.Size = UDim2.new(0, 198, 0, 30)
+ScriptsTitle.Font = Enum.Font.SourceSans
+ScriptsTitle.Text = "Scripts"
+ScriptsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+ScriptsTitle.TextScaled = true
+ScriptsTitle.TextSize = 14.000
+ScriptsTitle.TextWrapped = true
 
-	Gui.Parent = plrs.LocalPlayer.PlayerGui
+TpTitle.Name = "Tp-Title"
+TpTitle.Parent = VisibleToggle
+TpTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
+TpTitle.Position = UDim2.new(0.337190092, 0, 1, 0)
+TpTitle.Size = UDim2.new(0, 198, 0, 30)
+TpTitle.Font = Enum.Font.SourceSans
+TpTitle.Text = "Tp"
+TpTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+TpTitle.TextScaled = true
+TpTitle.TextSize = 14.000
+TpTitle.TextWrapped = true
 
+SettingsTitle.Name = "Settings-Title"
+SettingsTitle.Parent = VisibleToggle
+SettingsTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
+SettingsTitle.Position = UDim2.new(0.668447733, 0, 1, 0)
+SettingsTitle.Size = UDim2.new(0, 200, 0, 30)
+SettingsTitle.Font = Enum.Font.SourceSans
+SettingsTitle.Text = "Settings"
+SettingsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+SettingsTitle.TextScaled = true
+SettingsTitle.TextSize = 14.000
+SettingsTitle.TextWrapped = true
 
-	f = {}
-	local espforlder
+ScriptNameTitle.Name = "ScriptName-Title"
+ScriptNameTitle.Parent = VisibleToggle
+ScriptNameTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
+ScriptNameTitle.BackgroundTransparency = 1.000
+ScriptNameTitle.Position = UDim2.new(0.0618361793, 0, 0.121951222, 0)
+ScriptNameTitle.Size = UDim2.new(0, 473, 0, 30)
+ScriptNameTitle.Font = Enum.Font.SourceSans
+ScriptNameTitle.Text = "PrisonHaxx"
+ScriptNameTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+ScriptNameTitle.TextScaled = true
+ScriptNameTitle.TextSize = 14.000
+ScriptNameTitle.TextWrapped = true
 
-	f.addesp = function()
-		--print("ESP ran")
-		if espforlder then
+-- Scripts:
+
+local function HXCUGDO_fake_script() -- Toggle.LocalScript 
+	local script = Instance.new('LocalScript', Toggle)
+
+	local toggled = false
+	
+	script.Parent.MouseButton1Down:Connect(function()
+		if toggled then
+			toggled = false
+			script.Parent.Parent.Parent:TweenSize(UDim2.new(0, 605,0, 41), "In", "Linear", 0.1)
+			script.Parent.Rotation = 270
 		else
-			espforlder = Instance.new("Folder")
-			espforlder.Parent = game.Workspace.CurrentCamera
-		end
-		for i, v in pairs(espforlder:GetChildren()) do
-			v:Destroy()
-		end
-		for _, plr in pairs(plrs:GetChildren()) do
-			if plr.Character and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name then
-				if TeamBased == true then
-					if plr.Team.Name ~= plrs.LocalPlayer.Team.Name  then
-						local e = espforlder:FindFirstChild(plr.Name)
-						if not e then
-							--print("Added ESP for team based")
-							local bill = Instance.new("BillboardGui", espforlder)
-							bill.Name = plr.Name
-							bill.AlwaysOnTop = true
-							bill.Size = UDim2.new(1,0,1,0)
-							bill.Adornee = plr.Character.Head
-							local Frame = Instance.new('Frame',bill)
-							Frame.Active = true
-							Frame.BackgroundColor3 = Color3.new(0/255,255/255,0/255)
-							Frame.BackgroundTransparency = 0
-							Frame.BorderSizePixel = 0
-							Frame.AnchorPoint = Vector2.new(.5, .5)
-							Frame.Position = UDim2.new (0.5,0,0.5,0)
-							Frame.Size = UDim2.new (1,0,1,0)
-							Frame.Rotation = 0
-							plr.Character.Humanoid.Died:Connect(function()
-								bill:Destroy()
-							end)
-						end
-					end
-				else
-					local e = espforlder:FindFirstChild(plr.Name)
-					if not e then
-						--print("Added esp")
-						local bill = Instance.new("BillboardGui", espforlder)
-						bill.Name = plr.Name
-						bill.AlwaysOnTop = true
-						bill.Size = UDim2.new(1,0,1,0)
-						bill.Adornee = plr.Character.Head
-						local Frame = Instance.new('Frame',bill)
-						Frame.Active = true
-						Frame.BackgroundColor3 = Color3.new(0/255,255/255,0/255)
-						Frame.BackgroundTransparency = 0
-						Frame.BorderSizePixel = 0
-						Frame.AnchorPoint = Vector2.new(.5, .5)
-						Frame.Position = UDim2.new (0.5,0,0.5,0)
-						Frame.Size = UDim2.new (1,0,1,0)
-						Frame.Rotation = 0
-						plr.Character.Humanoid.Died:Connect(function()
-							bill:Destroy()
-						end)
-					end
-				end
-
-
-			end
-		end
-	end
-	local cam = game.Workspace.CurrentCamera
-
-	local mouse = lplr:GetMouse()
-	local switch = false
-	local key = "k"
-	local aimatpart = nil
-	mouse.KeyDown:Connect(function(a)
-		if a == "t" then
-			print("worked1")
-			f.addesp()
-		elseif a == "u" then
-			if raycast == true then
-				raycast = false
-			else
-				raycast = true
-			end
-		elseif a == "l" then
-			if autoesp == false then
-				autoesp = true
-			else
-				autoesp = false
-			end
-		end
-		if a == "j" then
-			if mouse.Target then
-				mouse.Target:Destroy()
-			end
-		end
-		if a == key then
-			if switch == false then
-				switch = true
-			else
-				switch = false
-				if aimatpart ~= nil then
-					aimatpart = nil
-				end
-			end
-		elseif a == teambasedswitch then
-			if TeamBased == true then
-				TeamBased = false
-				teambasedstatus.Text = tostring(TeamBased)
-			else
-				TeamBased = true
-				teambasedstatus.Text = tostring(TeamBased)
-			end
-		elseif a == aimkey then
-			if not aimatpart then
-				local maxangle = math.rad(20)
-				for i, plr in pairs(plrs:GetChildren()) do
-					if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
-						if TeamBased == true then
-							if plr.Team.Name ~= lplr.Team.Name then
-								local an = checkfov(plr.Character.Head)
-								if an < maxangle then
-									maxangle = an
-									aimatpart = plr.Character.Head
-								end
-							end
-						else
-							local an = checkfov(plr.Character.Head)
-							if an < maxangle then
-								maxangle = an
-								aimatpart = plr.Character.Head
-							end
-							print(plr)
-						end
-						plr.Character.Humanoid.Died:Connect(function()
-							if aimatpart.Parent == plr.Character or aimatpart == nil then
-								aimatpart = nil
-							end
-						end)
-					end
-				end
-			else
-				aimatpart = nil
-			end
+			toggled = true
+			script.Parent.Parent.Parent:TweenSize(UDim2.new(0, 605,0, 328), "Out", "Linear", 0.1)
+			script.Parent.Rotation = 90
 		end
 	end)
-
-	function getfovxyz (p0, p1, deg)
-		local x1, y1, z1 = p0:ToOrientation()
-		local cf = CFrame.new(p0.p, p1.p)
-		local x2, y2, z2 = cf:ToOrientation()
-		--local d = math.deg
-		if deg then
-			--return Vector3.new(d(x1-x2), d(y1-y2), d(z1-z2))
-		else
-			return Vector3.new((x1-x2), (y1-y2), (z1-z2))
-		end
-	end
-
-	function getaimbotplrs()
-		plrsforaim = {}
-		for i, plr in pairs(plrs:GetChildren()) do
-			if plr.Character and plr.Character.Humanoid and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name and plr.Character.Head then
-
-				if TeamBased == true then
-					if plr.Team.Name ~= lplr.Team.Name then
-						local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
-						local r = Ray.new(cf, cf.LookVector * 10000)
-						local ign = {}
-						for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
-							if v:IsA("BasePart") then
-								table.insert(ign , v)
-							end
-						end
-						local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
-						if obj.Parent == plr.Character and obj.Parent ~= lplr.Character then
-							table.insert(plrsforaim, obj)
-						end
-					end
-				else
-					local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
-					local r = Ray.new(cf, cf.LookVector * 10000)
-					local ign = {}
-					for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
-						if v:IsA("BasePart") then
-							table.insert(ign , v)
-						end
-					end
-					local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
-					if obj.Parent == plr.Character and obj.Parent ~= lplr.Character then
-						table.insert(plrsforaim, obj)
-					end
-				end
-
-
-			end
-		end
-	end
-
-	function aimat(part)
-		cam.CFrame = CFrame.new(cam.CFrame.p, part.CFrame.p)
-	end
-	function checkfov (part)
-		local fov = getfovxyz(game.Workspace.CurrentCamera.CFrame, part.CFrame)
-		local angle = math.abs(fov.X) + math.abs(fov.Y)
-		return angle
-	end
-
-	game:GetService("RunService").RenderStepped:Connect(function()
-		if aimatpart then
-			aimat(aimatpart)
-			if aimatpart.Parent == plrs.LocalPlayer.Character then
-				aimatpart = nil
-			end
-		end
-
-
-		--  if switch == true then
-		--      local maxangle = 99999
-		--      
-		--      --print("Loop")
-		--      if true and raycast == false then
-		--          for i, plr in pairs(plrs:GetChildren()) do
-		--              if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
-		--                  if TeamBased then
-		--                      if plr.Team.Name ~= lplr.Team.Name or plr.Team.TeamColor ~= lplr.Team.TeamColor then
-		--                          local an = checkfov(plr.Character.Head)
-		--                          if an < maxangle then
-		--                              maxangle = an
-		--                              aimatpart = plr.Character.Head
-		--                              if an < lockangle then
-		--                                  break
-		--                              end
-		--                          end
-		--                      end
-		--                  else
-		--                      local an = checkfov(plr.Character.Head)
-		--                          if an < maxangle then
-		--                              maxangle = an
-		--                              aimatpart = plr.Character.Head
-		--                              if an < lockangle then
-		--                                  break
-		--                              end
-		--                          end
-		--                  end
-		--                  
-		--                  
-		--                  
-		--                  
-		--              end
-		--          end
-		--      elseif raycast == true then
-		--          
-		--      end
-
-		if raycast == true and switch == false and not aimatpart then
-			getaimbotplrs()
-			aimatpart = nil
-			local maxangle = 999
-			for i, v in ipairs(plrsforaim) do
-				if v.Parent ~= lplr.Character then
-					local an = checkfov(v)
-					if an < maxangle and v ~= lplr.Character.Head then
-						maxangle = an
-						aimatpart = v
-						print(v:GetFullName())
-						v.Parent.Humanoid.Died:connect(function()
-							aimatpart = nil
-						end)
-					end
-				end
-			end
-
-		end
-	end)
-	delay(0, function()
-		while wait(espupdatetime) do
-			if autoesp == true then
-				pcall(function()
-					f.addesp()
-				end)
-			end
-		end
-	end)
-	warn("loaded")
-end)
-
-Fly.Name = "Fly"
-Fly.Parent = Scripts
-Fly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Fly.Position = UDim2.new(-0.00389187969, 0, 0.0858019888, 0)
-Fly.Size = UDim2.new(0, 200, 0, 50)
-Fly.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Fly.Font = Enum.Font.SourceSans
-Fly.Text = "Fly"
-Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
-Fly.TextSize = 14.000
-Fly.MouseButton1Click:Connect(function()
-	repeat wait() 
-	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
-	local mouse = game.Players.LocalPlayer:GetMouse() 
-	repeat wait() until mouse
-	local plr = game.Players.LocalPlayer 
-	local torso = plr.Character.Head 
-	local flying = false
-	local deb = true 
-	local ctrl = {f = 0, b = 0, l = 0, r = 0} 
-	local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
-	local maxspeed = 400 
-	local speed = 5000 
-
-	function Fly() 
-		local bg = Instance.new("BodyGyro", torso) 
-		bg.P = 9e4 
-		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
-		bg.cframe = torso.CFrame 
-		local bv = Instance.new("BodyVelocity", torso) 
-		bv.velocity = Vector3.new(0,0.1,0) 
-		bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
-		repeat wait() 
-			plr.Character.Humanoid.PlatformStand = true 
-			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
-				speed = speed+.10+(speed/maxspeed) 
-				if speed > maxspeed then 
-					speed = maxspeed 
-				end 
-			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
-				speed = speed-1 
-				if speed < 0 then 
-					speed = 0 
-				end 
-			end 
-			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
-				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
-			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
-			else 
-				bv.velocity = Vector3.new(0,0.1,0) 
-			end 
-			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
-		until not flying 
-		ctrl = {f = 0, b = 0, l = 0, r = 0} 
-		lastctrl = {f = 0, b = 0, l = 0, r = 0} 
-		speed = 0 
-		bg:Destroy() 
-		bv:Destroy() 
-		plr.Character.Humanoid.PlatformStand = false 
-	end 
-	mouse.KeyDown:connect(function(key) 
-		if key:lower() == "f" then 
-			if flying then flying = false 
-			else 
-				flying = true 
-				Fly() 
-			end 
-		elseif key:lower() == "w" then 
-			ctrl.f = 1 
-		elseif key:lower() == "s" then 
-			ctrl.b = -1 
-		elseif key:lower() == "a" then 
-			ctrl.l = -1 
-		elseif key:lower() == "d" then 
-			ctrl.r = 1 
-		end 
-	end) 
-	mouse.KeyUp:connect(function(key) 
-		if key:lower() == "w" then 
-			ctrl.f = 0 
-		elseif key:lower() == "s" then 
-			ctrl.b = 0 
-		elseif key:lower() == "a" then 
-			ctrl.l = 0 
-		elseif key:lower() == "d" then 
-			ctrl.r = 0 
-		end 
-	end)
-	Fly()
-end)
-
-Open.Name = "Open"
-Open.Parent = Hub
-Open.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Open.Position = UDim2.new(0, 0, 0.421135634, 0)
-Open.Size = UDim2.new(0, 200, 0, 50)
-Open.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Open.Font = Enum.Font.SourceSans
-Open.Text = "Open"
-Open.TextColor3 = Color3.fromRGB(0, 0, 0)
-Open.TextSize = 14.000
-Open.MouseButton1Click:Connect(function()
-	Scripts.Visible = true
-	Open.Text = "Opened"
-end)
+end
+coroutine.wrap(HXCUGDO_fake_script)()
