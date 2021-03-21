@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local PrisonHaxx = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local VisibleToggle = Instance.new("Frame")
@@ -26,8 +21,6 @@ local ScriptsTitle = Instance.new("TextLabel")
 local TpTitle = Instance.new("TextLabel")
 local SettingsTitle = Instance.new("TextLabel")
 local ScriptNameTitle = Instance.new("TextLabel")
-
---Properties:
 
 PrisonHaxx.Name = "PrisonHaxx"
 PrisonHaxx.Parent = game.CoreGui
@@ -412,8 +405,6 @@ Credits.MouseButton1Down:Connect(function()
 	Close.TextSize = 14.000
 	Close.TextWrapped = true
 
-	-- Scripts:
-
 	local function TOAH_fake_script() -- Close.Close-Script 
 		local script = Instance.new('LocalScript', Close)
 
@@ -472,8 +463,6 @@ ScriptNameTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
 ScriptNameTitle.TextScaled = true
 ScriptNameTitle.TextSize = 14.000
 ScriptNameTitle.TextWrapped = true
-
--- Scripts:
 
 local function HXCUGDO_fake_script() -- Toggle.LocalScript 
 	local script = Instance.new('LocalScript', Toggle)
