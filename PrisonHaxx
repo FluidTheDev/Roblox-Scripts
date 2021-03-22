@@ -10,8 +10,8 @@ local Toggle = Instance.new("TextButton")
 local InfJump = Instance.new("TextButton")
 local SpeedHack = Instance.new("TextButton")
 local NoclipHack = Instance.new("TextButton")
-local Aimbot = Instance.new("TextButton")
-local InfAmmo = Instance.new("TextButton")
+local SuperPunch = Instance.new("TextButton")
+local KillAura = Instance.new("TextButton")
 local YardTp = Instance.new("TextButton")
 local GuardBaseTp = Instance.new("TextButton")
 local GuardTower = Instance.new("TextButton")
@@ -91,23 +91,23 @@ SpeedHack.TextWrapped = true
 SpeedHack.MouseButton1Down:Connect(function()
 	local gmt = getrawmetatable(game)
 	setreadonly(gmt,false)
-	
+
 	local oldindex = gmt._index
-	
+
 	gmt._index = newcclosure(function(self,k)
 		if k == "WalkSpeed" then
 			return 20;
 		end
 		return oldindex(self,k)
 	end)
-	
+
 	print("meta")
-	
+
 	while true do
 		wait()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
 	end
-	end)
+end)
 
 NoclipHack.Name = "Noclip Hack"
 NoclipHack.Parent = VisibleToggle
@@ -124,40 +124,62 @@ NoclipHack.MouseButton1Down:Connect(function()
 	loadstring(game:HttpGet("https://pastebin.com/raw/9LBsfRkD"))()
 end)
 
-Aimbot.Name = "Aimbot"
-Aimbot.Parent = VisibleToggle
-Aimbot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Aimbot.Position = UDim2.new(-0.00248779356, 0, 5.40708208, 0)
-Aimbot.Size = UDim2.new(0, 200, 0, 50)
-Aimbot.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Aimbot.Font = Enum.Font.SourceSans
-Aimbot.Text = "Aimbot"
-Aimbot.TextColor3 = Color3.fromRGB(0, 0, 0)
-Aimbot.TextSize = 14.000
-Aimbot.TextWrapped = true
-Aimbot.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/4CdHwkxj"))()
+SuperPunch.Name = "SuperPunch"
+SuperPunch.Parent = VisibleToggle
+SuperPunch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SuperPunch.Position = UDim2.new(-0.00248779356, 0, 5.40708208, 0)
+SuperPunch.Size = UDim2.new(0, 200, 0, 50)
+SuperPunch.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+SuperPunch.Font = Enum.Font.SourceSans
+SuperPunch.Text = "SuperPunch"
+SuperPunch.TextColor3 = Color3.fromRGB(0, 0, 0)
+SuperPunch.TextSize = 14.000
+SuperPunch.TextWrapped = true
+SuperPunch.MouseButton1Down:Connect(function()
+	mainRemotes = game.ReplicatedStorage meleeRemote = mainRemotes['meleeEvent'] mouse = game.Players.LocalPlayer:GetMouse() punching = false cooldown = false function punch() cooldown = true local part = Instance.new("Part", game.Players.LocalPlayer.Character) part.Transparency = 1 part.Size = Vector3.new(5, 2, 3) part.CanCollide = false local w1 = Instance.new("Weld", part) w1.Part0 = game.Players.LocalPlayer.Character.Torso w1.Part1 = part w1.C1 = CFrame.new(0,0,2) part.Touched:connect(function(hit) if game.Players:FindFirstChild(hit.Parent.Name) then local plr = game.Players:FindFirstChild(hit.Parent.Name) if plr.Name ~= game.Players.LocalPlayer.Name then part:Destroy() for i = 1,100 do meleeRemote:FireServer(plr) end end end end) wait(1) cooldown = false part:Destroy() end mouse.KeyDown:connect(function(key) if cooldown == false then if key:lower() == "f" then punch() end end end)
 end)
 
-InfAmmo.Name = "InfAmmo"
-InfAmmo.Parent = VisibleToggle
-InfAmmo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfAmmo.Position = UDim2.new(-0.00248779356, 0, 6.62659454, 0)
-InfAmmo.Size = UDim2.new(0, 200, 0, 50)
-InfAmmo.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-InfAmmo.Font = Enum.Font.SourceSans
-InfAmmo.Text = "Inf Ammo"
-InfAmmo.TextColor3 = Color3.fromRGB(0, 0, 0)
-InfAmmo.TextSize = 14.000
-InfAmmo.TextWrapped = true
-InfAmmo.MouseButton1Click:Connect(function()
-local gun = game.Players.LocalPlayer.Backpack.M9.GunStates
+KillAura.Name = "KillAura"
+KillAura.Parent = VisibleToggle
+KillAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KillAura.Position = UDim2.new(-0.00248779356, 0, 6.62659454, 0)
+KillAura.Size = UDim2.new(0, 200, 0, 50)
+KillAura.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+KillAura.Font = Enum.Font.SourceSans
+KillAura.Text = "KillAura"
+KillAura.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillAura.TextSize = 14.000
+KillAura.TextWrapped = true
+KillAura.MouseButton1Click:Connect(function()
+	mainRemotes = game.ReplicatedStorage
+	meleeRemote = mainRemotes['meleeEvent']
 
-a = require(gun)
-a.MaxAmmo = math.huge
-a.CurrentAmmo = math.huge
-a.ReloadTime = 0.1
-a.Damage = math.huge
+	killAura = true
+
+	contextactionservice = game.ContextActionService
+
+	function toggleKillAura(actionName, inputState, inputObject)
+		print('Doing the action : ' .. actionName)
+		if inputState == Enum.UserInputState.Begin then
+			if killAura == true then
+				killAura = false
+			else
+				killAura = true
+			end
+		end
+	end
+
+	contextactionservice:BindAction('ToggleKillAura', toggleKillAura, false, Enum.KeyCode.K)
+
+	while wait() do
+		if killAura == true then
+			for _, plr in pairs (game:GetService('Players'):GetChildren()) do
+				if plr.Name ~= game.Players.LocalPlayer.Name then
+					meleeRemote:FireServer(plr)
+				end
+			end
+		end
+	end
 end)
 
 YardTp.Name = "YardTp"
@@ -173,15 +195,15 @@ YardTp.TextSize = 14.000
 YardTp.TextWrapped = true
 YardTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(763.5419931, 97.9999466, 2487.10791)
-		
-		local ts = game:GetService("TweenService")
-		local char = game.Players.LocalPlayer.Character
-		
-		local part = char.HumanoidRootPart
-		local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-		local tp = {CFrame = new_CFrame}
-		ts:Create(part, ti, tp):Play()
-		end)
+
+	local ts = game:GetService("TweenService")
+	local char = game.Players.LocalPlayer.Character
+
+	local part = char.HumanoidRootPart
+	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+	local tp = {CFrame = new_CFrame}
+	ts:Create(part, ti, tp):Play()
+end)
 
 GuardBaseTp.Name = "GuardBaseTp"
 GuardBaseTp.Parent = VisibleToggle
@@ -195,15 +217,15 @@ GuardBaseTp.TextColor3 = Color3.fromRGB(0, 0, 0)
 GuardBaseTp.TextSize = 14.000
 GuardBaseTp.TextWrapped = true
 GuardBaseTp.MouseButton1Down:Connect(function()
-local new_CFrame = CFrame.new(835.180176, 99.9900055, 2268.19165)
+	local new_CFrame = CFrame.new(835.180176, 99.9900055, 2268.19165)
 
-local ts = game:GetService("TweenService")
-local char = game.Players.LocalPlayer.Character
+	local ts = game:GetService("TweenService")
+	local char = game.Players.LocalPlayer.Character
 
-local part = char.HumanoidRootPart
-local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
-local tp = {CFrame = new_CFrame}
-ts:Create(part, ti, tp):Play()
+	local part = char.HumanoidRootPart
+	local ti = TweenInfo.new(1, Enum.EasingStyle.Linear)
+	local tp = {CFrame = new_CFrame}
+	ts:Create(part, ti, tp):Play()
 end)
 
 GuardTower.Name = "GuardTower"
@@ -471,7 +493,7 @@ local function HXCUGDO_fake_script() -- Toggle.LocalScript
 	local script = Instance.new('LocalScript', Toggle)
 
 	local toggled = false
-	
+
 	script.Parent.MouseButton1Down:Connect(function()
 		if toggled then
 			toggled = false
