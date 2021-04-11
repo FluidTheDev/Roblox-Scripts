@@ -84,20 +84,6 @@ SpeedHack.TextColor3 = Color3.fromRGB(0, 0, 0)
 SpeedHack.TextSize = 14.000
 SpeedHack.TextWrapped = true
 SpeedHack.MouseButton1Down:Connect(function()
-	local gmt = getrawmetatable(game)
-	setreadonly(gmt,false)
-
-	local oldindex = gmt._index
-
-	gmt._index = newcclosure(function(self,k)
-		if k == "WalkSpeed" then
-			return 20;
-		end
-		return oldindex(self,k)
-	end)
-
-	print("meta")
-
 	while true do
 		wait()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
