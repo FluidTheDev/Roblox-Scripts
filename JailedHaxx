@@ -1,9 +1,4 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local UI = Instance.new("ScreenGui")
+local JailedHaxx = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Top = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
@@ -23,11 +18,11 @@ local WalkSpeedToggle = Instance.new("TextButton")
 
 --Properties:
 
-UI.Name = "UI"
-UI.Parent = game.CoreGui
+JailedHaxx.Name = "JailedHaxx"
+JailedHaxx.Parent = game.CoreGui
 
 Main.Name = "Main"
-Main.Parent = UI
+Main.Parent = JailedHaxx
 Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Main.Position = UDim2.new(0.340549558, 0, 0.245704368, 0)
 Main.Size = UDim2.new(0, 472, 0, 365)
