@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local PrisonHaxx = Instance.new("ScreenGui")
 local VisibleToggle = Instance.new("Frame")
 local Toggle = Instance.new("TextButton")
@@ -33,8 +28,6 @@ local DestroyGui = Instance.new("TextButton")
 local DestroyGuiImage = Instance.new("ImageLabel")
 local GuiSettingsTitle = Instance.new("TextLabel")
 local Title = Instance.new("TextLabel")
-
---Properties:
 
 PrisonHaxx.Name = "PrisonHaxx"
 PrisonHaxx.Parent = game.CoreGui
@@ -668,8 +661,6 @@ Title.Text = "PrisonHaxx Revamped UI"
 Title.TextColor3 = Color3.fromRGB(85, 0, 255)
 Title.TextSize = 14.000
 Title.TextWrapped = true
-
--- Scripts:
 
 local function UASPYO_fake_script() -- Toggle.LocalScript 
 	local script = Instance.new('LocalScript', Toggle)
