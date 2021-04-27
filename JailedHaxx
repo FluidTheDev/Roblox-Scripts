@@ -193,7 +193,7 @@ WalkSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
 WalkSpeed.TextSize = 14.000
 WalkSpeed.MouseButton1Down:Connect(function()
 	while true do
-		wait()
+		wait(0.00000000001)
 		if game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed < 50 then
 			game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 100
 		end
