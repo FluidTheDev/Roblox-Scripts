@@ -1,136 +1,321 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local PrisonHaxx = Instance.new("ScreenGui")
-local Container = Instance.new("Frame")
 local VisibleToggle = Instance.new("Frame")
 local Toggle = Instance.new("TextButton")
-local InfJump = Instance.new("TextButton")
-local SpeedHack = Instance.new("TextButton")
-local NoclipHack = Instance.new("TextButton")
-local SuperPunch = Instance.new("TextButton")
-local KillAura = Instance.new("TextButton")
-local YardTp = Instance.new("TextButton")
-local GuardBaseTp = Instance.new("TextButton")
-local GuardTower = Instance.new("TextButton")
-local CrimBaseTp = Instance.new("TextButton")
-local PrisonOutTp = Instance.new("TextButton")
-local DestroyGui = Instance.new("TextButton")
-local BackgroundColorRed = Instance.new("TextButton")
-local ResetBackgroundColor = Instance.new("TextButton")
-local BackgroundColorBlue = Instance.new("TextButton")
-local Credits = Instance.new("TextButton")
+local Container = Instance.new("Frame")
 local ScriptsTitle = Instance.new("TextLabel")
+local InfJump = Instance.new("TextButton")
+local InfJumpImage = Instance.new("ImageLabel")
+local Noclip = Instance.new("TextButton")
+local NoclipImage = Instance.new("ImageLabel")
+local SuperpPunch = Instance.new("TextButton")
+local SuperPunchImage = Instance.new("ImageLabel")
+local KillAura = Instance.new("TextButton")
+local KillAuraImage = Instance.new("ImageLabel")
+local WalkSpeed = Instance.new("TextButton")
+local WalkSpeedImage = Instance.new("ImageLabel")
+local YardTp = Instance.new("TextButton")
+local YardTpImage = Instance.new("ImageLabel")
+local GuardBaseTp = Instance.new("TextButton")
+local GuardBaseTpImage = Instance.new("ImageLabel")
+local GuardTowerTp = Instance.new("TextButton")
+local GuardTowerTpImage = Instance.new("ImageLabel")
+local CrimBaseTp = Instance.new("TextButton")
+local CrimbaseTpImage = Instance.new("ImageLabel")
+local PrisonOutTp = Instance.new("TextButton")
+local PrisonOutTpImage = Instance.new("ImageLabel")
 local TpTitle = Instance.new("TextLabel")
-local SettingsTitle = Instance.new("TextLabel")
-local ScriptNameTitle = Instance.new("TextLabel")
+local DestroyGui = Instance.new("TextButton")
+local DestroyGuiImage = Instance.new("ImageLabel")
+local GuiSettingsTitle = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
 
 --Properties:
 
 PrisonHaxx.Name = "PrisonHaxx"
 PrisonHaxx.Parent = game.CoreGui
 
-Container.Name = "Container"
-Container.Parent = PrisonHaxx
-Container.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Container.ClipsDescendants = true
-Container.Position = UDim2.new(0.224, 0,0.224, 0)
-Container.Size = UDim2.new(0, 605,0, 41)
-Container.Active = true
-Container.Draggable = true
-
 VisibleToggle.Name = "VisibleToggle"
-VisibleToggle.Parent = Container
-VisibleToggle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-VisibleToggle.Size = UDim2.new(0, 605, 0, 41)
+VisibleToggle.Parent = PrisonHaxx
+VisibleToggle.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+VisibleToggle.BorderSizePixel = 0
+VisibleToggle.Position = UDim2.new(0.171544135, 0, 0.295451045, 0)
+VisibleToggle.Size = UDim2.new(0, 643, 0, 26)
+VisibleToggle.Active = true
+VisibleToggle.Draggable = true
 
 Toggle.Name = "Toggle"
 Toggle.Parent = VisibleToggle
-Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 Toggle.BackgroundTransparency = 1.000
-Toggle.Position = UDim2.new(0.940839708, 0, 0, 0)
-Toggle.Size = UDim2.new(0, 31, 0, 34)
+Toggle.Position = UDim2.new(0.957654715, 0, -0.15384616, 0)
+Toggle.Rotation = 270.000
+Toggle.Size = UDim2.new(0, 26, 0, 30)
 Toggle.Font = Enum.Font.SourceSansBold
 Toggle.Text = ">"
 Toggle.TextColor3 = Color3.fromRGB(0, 255, 0)
 Toggle.TextScaled = true
 Toggle.TextSize = 14.000
 Toggle.TextWrapped = true
-Toggle.Rotation = 270
+
+Container.Name = "Container"
+Container.Parent = VisibleToggle
+Container.BackgroundColor3 = Color3.fromRGB(20, 20, 2)
+Container.BorderSizePixel = 0
+Container.ClipsDescendants = true
+Container.Position = UDim2.new(0, 0, 0.999999404, 0)
+Container.Size = UDim2.new(0, 643, 0, 0)
+
+ScriptsTitle.Name = "Scripts-Title"
+ScriptsTitle.Parent = Container
+ScriptsTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScriptsTitle.BackgroundTransparency = 1.000
+ScriptsTitle.Size = UDim2.new(0, 200, 0, 50)
+ScriptsTitle.Font = Enum.Font.SourceSans
+ScriptsTitle.Text = "Scripts"
+ScriptsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+ScriptsTitle.TextScaled = true
+ScriptsTitle.TextSize = 14.000
+ScriptsTitle.TextWrapped = true
 
 InfJump.Name = "InfJump"
-InfJump.Parent = VisibleToggle
-InfJump.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfJump.Position = UDim2.new(-0.000834901002, 0, 1.74854517, 0)
+InfJump.Parent = Container
+InfJump.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+InfJump.BackgroundTransparency = 1.000
+InfJump.BorderColor3 = Color3.fromRGB(27, 42, 53)
+InfJump.BorderSizePixel = 0
+InfJump.Position = UDim2.new(0.0179153085, 0, 0.169590622, 0)
 InfJump.Size = UDim2.new(0, 200, 0, 50)
-InfJump.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+InfJump.ZIndex = 2
 InfJump.Font = Enum.Font.SourceSans
-InfJump.Text = "Inf Jump"
+InfJump.Text = "InfJump"
 InfJump.TextColor3 = Color3.fromRGB(0, 0, 0)
 InfJump.TextSize = 14.000
-InfJump.TextWrapped = true
 InfJump.MouseButton1Down:Connect(function()
 	game:GetService("UserInputService").JumpRequest:connect(function()
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
 	end)
 end)
 
-SpeedHack.Name = "SpeedHack"
-SpeedHack.Parent = VisibleToggle
-SpeedHack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SpeedHack.Position = UDim2.new(-0.00248779356, 0, 2.96805739, 0)
-SpeedHack.Size = UDim2.new(0, 200, 0, 50)
-SpeedHack.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-SpeedHack.Font = Enum.Font.SourceSans
-SpeedHack.Text = "Speed Hack"
-SpeedHack.TextColor3 = Color3.fromRGB(0, 0, 0)
-SpeedHack.TextSize = 14.000
-SpeedHack.TextWrapped = true
-SpeedHack.MouseButton1Down:Connect(function()
-	while true do
-		wait()
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-	end
+InfJumpImage.Name = "InfJumpImage"
+InfJumpImage.Parent = InfJump
+InfJumpImage.Active = true
+InfJumpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+InfJumpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfJumpImage.BackgroundTransparency = 1.000
+InfJumpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+InfJumpImage.Selectable = true
+InfJumpImage.Size = UDim2.new(1, 0, 1, 0)
+InfJumpImage.Image = "rbxassetid://3570695787"
+InfJumpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+InfJumpImage.ScaleType = Enum.ScaleType.Slice
+InfJumpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+InfJumpImage.SliceScale = 0.120
+
+Noclip.Name = "Noclip"
+Noclip.Parent = Container
+Noclip.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+Noclip.BackgroundTransparency = 1.000
+Noclip.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Noclip.BorderSizePixel = 0
+Noclip.Position = UDim2.new(0.0179153103, 0, 0.336257279, 0)
+Noclip.Size = UDim2.new(0, 200, 0, 50)
+Noclip.ZIndex = 2
+Noclip.Font = Enum.Font.SourceSans
+Noclip.Text = "Noclip"
+Noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+Noclip.TextSize = 14.000
+Noclip.MouseButton1Down:Connect(function()
+	local Workspace = game:GetService("Workspace")
+	local CoreGui = game:GetService("CoreGui")
+	local Players = game:GetService("Players")
+	local Noclip = Instance.new("ScreenGui")
+	local BG = Instance.new("Frame")
+	local Title = Instance.new("TextLabel")
+	local Toggle = Instance.new("TextButton")
+	local StatusPF = Instance.new("TextLabel")
+	local Status = Instance.new("TextLabel")
+	local Credit = Instance.new("TextLabel")
+	local Plr = Players.LocalPlayer
+	local Clipon = false
+
+	Noclip.Name = "Noclip"
+	Noclip.Parent = game.CoreGui
+
+	BG.Name = "BG"
+	BG.Parent = Noclip
+	BG.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+	BG.BorderColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
+	BG.BorderSizePixel = 2
+	BG.Position = UDim2.new(0.149479166, 0, 0.82087779, 0)
+	BG.Size = UDim2.new(0, 210, 0, 127)
+	BG.Active = true
+	BG.Draggable = true
+
+	Title.Name = "Title"
+	Title.Parent = BG
+	Title.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+	Title.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+	Title.BorderSizePixel = 2
+	Title.Size = UDim2.new(0, 210, 0, 33)
+	Title.Font = Enum.Font.Highway
+	Title.Text = "Noclip"
+	Title.TextColor3 = Color3.new(1, 1, 1)
+	Title.FontSize = Enum.FontSize.Size32
+	Title.TextSize = 30
+	Title.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Title.TextStrokeTransparency = 0
+
+	Toggle.Parent = BG
+	Toggle.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+	Toggle.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+	Toggle.BorderSizePixel = 2
+	Toggle.Position = UDim2.new(0.152380958, 0, 0.374192119, 0)
+	Toggle.Size = UDim2.new(0, 146, 0, 36)
+	Toggle.Font = Enum.Font.Highway
+	Toggle.FontSize = Enum.FontSize.Size28
+	Toggle.Text = "Toggle"
+	Toggle.TextColor3 = Color3.new(1, 1, 1)
+	Toggle.TextSize = 25
+	Toggle.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Toggle.TextStrokeTransparency = 0
+
+	StatusPF.Name = "StatusPF"
+	StatusPF.Parent = BG
+	StatusPF.BackgroundColor3 = Color3.new(1, 1, 1)
+	StatusPF.BackgroundTransparency = 1
+	StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
+	StatusPF.Size = UDim2.new(0, 56, 0, 20)
+	StatusPF.Font = Enum.Font.Highway
+	StatusPF.FontSize = Enum.FontSize.Size24
+	StatusPF.Text = "Status:"
+	StatusPF.TextColor3 = Color3.new(1, 1, 1)
+	StatusPF.TextSize = 20
+	StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
+	StatusPF.TextStrokeTransparency = 0
+	StatusPF.TextWrapped = true
+
+	Status.Name = "Status"
+	Status.Parent = BG
+	Status.BackgroundColor3 = Color3.new(1, 1, 1)
+	Status.BackgroundTransparency = 1
+	Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
+	Status.Size = UDim2.new(0, 56, 0, 20)
+	Status.Font = Enum.Font.Highway
+	Status.FontSize = Enum.FontSize.Size14
+	Status.Text = "off"
+	Status.TextColor3 = Color3.new(0.666667, 0, 0)
+	Status.TextScaled = true
+	Status.TextSize = 14
+	Status.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+	Status.TextWrapped = true
+	Status.TextXAlignment = Enum.TextXAlignment.Left
+
+	Credit.Name = "Credit"
+	Credit.Parent = BG
+	Credit.BackgroundColor3 = Color3.new(1, 1, 1)
+	Credit.BackgroundTransparency = 1
+	Credit.Position = UDim2.new(0.195238099, 0, 0.866141737, 0)
+	Credit.Size = UDim2.new(0, 128, 0, 17)
+	Credit.Font = Enum.Font.SourceSans
+	Credit.FontSize = Enum.FontSize.Size18
+	Credit.Text = "Created by KingLuna"
+	Credit.TextColor3 = Color3.new(1, 1, 1)
+	Credit.TextSize = 16
+	Credit.TextStrokeColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+	Credit.TextStrokeTransparency = 0
+	Credit.TextWrapped = true
+
+	Toggle.MouseButton1Click:connect(function()
+		if Status.Text == "off" then
+			Clipon = true
+			Status.Text = "on"
+			Status.TextColor3 = Color3.new(0,185,0)
+			Stepped = game:GetService("RunService").Stepped:Connect(function()
+				if not Clipon == false then
+					for a, b in pairs(Workspace:GetChildren()) do
+						if b.Name == Plr.Name then
+							for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+								if v:IsA("BasePart") then
+									v.CanCollide = false
+								end end end end
+				else
+					Stepped:Disconnect()
+				end
+			end)
+		elseif Status.Text == "on" then
+			Clipon = false
+			Status.Text = "off"
+			Status.TextColor3 = Color3.new(170,0,0)
+		end
+	end)
 end)
 
-NoclipHack.Name = "Noclip Hack"
-NoclipHack.Parent = VisibleToggle
-NoclipHack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-NoclipHack.Position = UDim2.new(-0.000834901002, 0, 4.18756962, 0)
-NoclipHack.Size = UDim2.new(0, 200, 0, 50)
-NoclipHack.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-NoclipHack.Font = Enum.Font.SourceSans
-NoclipHack.Text = "Noclip Hack"
-NoclipHack.TextColor3 = Color3.fromRGB(0, 0, 0)
-NoclipHack.TextSize = 14.000
-NoclipHack.TextWrapped = true
-NoclipHack.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/9LBsfRkD"))()
-end)
+NoclipImage.Name = "NoclipImage"
+NoclipImage.Parent = Noclip
+NoclipImage.Active = true
+NoclipImage.AnchorPoint = Vector2.new(0.5, 0.5)
+NoclipImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NoclipImage.BackgroundTransparency = 1.000
+NoclipImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+NoclipImage.Selectable = true
+NoclipImage.Size = UDim2.new(1, 0, 1, 0)
+NoclipImage.Image = "rbxassetid://3570695787"
+NoclipImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+NoclipImage.ScaleType = Enum.ScaleType.Slice
+NoclipImage.SliceCenter = Rect.new(100, 100, 100, 100)
+NoclipImage.SliceScale = 0.120
 
-SuperPunch.Name = "SuperPunch"
-SuperPunch.Parent = VisibleToggle
-SuperPunch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SuperPunch.Position = UDim2.new(-0.00248779356, 0, 5.40708208, 0)
-SuperPunch.Size = UDim2.new(0, 200, 0, 50)
-SuperPunch.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-SuperPunch.Font = Enum.Font.SourceSans
-SuperPunch.Text = "SuperPunch"
-SuperPunch.TextColor3 = Color3.fromRGB(0, 0, 0)
-SuperPunch.TextSize = 14.000
-SuperPunch.TextWrapped = true
-SuperPunch.MouseButton1Down:Connect(function()
+SuperpPunch.Name = "SuperpPunch"
+SuperpPunch.Parent = Container
+SuperpPunch.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+SuperpPunch.BackgroundTransparency = 1.000
+SuperpPunch.BorderColor3 = Color3.fromRGB(27, 42, 53)
+SuperpPunch.BorderSizePixel = 0
+SuperpPunch.Position = UDim2.new(0.0179153103, 0, 0.502923906, 0)
+SuperpPunch.Size = UDim2.new(0, 200, 0, 50)
+SuperpPunch.ZIndex = 2
+SuperpPunch.Font = Enum.Font.SourceSans
+SuperpPunch.Text = "SuperPunch"
+SuperpPunch.TextColor3 = Color3.fromRGB(0, 0, 0)
+SuperpPunch.TextSize = 14.000
+SuperpPunch.MouseButton1Down:Connect(function()
 	mainRemotes = game.ReplicatedStorage meleeRemote = mainRemotes['meleeEvent'] mouse = game.Players.LocalPlayer:GetMouse() punching = false cooldown = false function punch() cooldown = true local part = Instance.new("Part", game.Players.LocalPlayer.Character) part.Transparency = 1 part.Size = Vector3.new(5, 2, 3) part.CanCollide = false local w1 = Instance.new("Weld", part) w1.Part0 = game.Players.LocalPlayer.Character.Torso w1.Part1 = part w1.C1 = CFrame.new(0,0,2) part.Touched:connect(function(hit) if game.Players:FindFirstChild(hit.Parent.Name) then local plr = game.Players:FindFirstChild(hit.Parent.Name) if plr.Name ~= game.Players.LocalPlayer.Name then part:Destroy() for i = 1,100 do meleeRemote:FireServer(plr) end end end end) wait(1) cooldown = false part:Destroy() end mouse.KeyDown:connect(function(key) if cooldown == false then if key:lower() == "f" then punch() end end end)
 end)
 
+
+SuperPunchImage.Name = "SuperPunchImage"
+SuperPunchImage.Parent = SuperpPunch
+SuperPunchImage.Active = true
+SuperPunchImage.AnchorPoint = Vector2.new(0.5, 0.5)
+SuperPunchImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SuperPunchImage.BackgroundTransparency = 1.000
+SuperPunchImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+SuperPunchImage.Selectable = true
+SuperPunchImage.Size = UDim2.new(1, 0, 1, 0)
+SuperPunchImage.Image = "rbxassetid://3570695787"
+SuperPunchImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+SuperPunchImage.ScaleType = Enum.ScaleType.Slice
+SuperPunchImage.SliceCenter = Rect.new(100, 100, 100, 100)
+SuperPunchImage.SliceScale = 0.120
+
 KillAura.Name = "KillAura"
-KillAura.Parent = VisibleToggle
-KillAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-KillAura.Position = UDim2.new(-0.00248779356, 0, 6.62659454, 0)
+KillAura.Parent = Container
+KillAura.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+KillAura.BackgroundTransparency = 1.000
+KillAura.BorderColor3 = Color3.fromRGB(27, 42, 53)
+KillAura.BorderSizePixel = 0
+KillAura.Position = UDim2.new(0.0179153103, 0, 0.666666627, 0)
 KillAura.Size = UDim2.new(0, 200, 0, 50)
-KillAura.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+KillAura.ZIndex = 2
 KillAura.Font = Enum.Font.SourceSans
 KillAura.Text = "KillAura"
 KillAura.TextColor3 = Color3.fromRGB(0, 0, 0)
 KillAura.TextSize = 14.000
-KillAura.TextWrapped = true
 KillAura.MouseButton1Click:Connect(function()
 	mainRemotes = game.ReplicatedStorage
 	meleeRemote = mainRemotes['meleeEvent']
@@ -163,17 +348,70 @@ KillAura.MouseButton1Click:Connect(function()
 	end
 end)
 
+KillAuraImage.Name = "KillAuraImage"
+KillAuraImage.Parent = KillAura
+KillAuraImage.Active = true
+KillAuraImage.AnchorPoint = Vector2.new(0.5, 0.5)
+KillAuraImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KillAuraImage.BackgroundTransparency = 1.000
+KillAuraImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+KillAuraImage.Selectable = true
+KillAuraImage.Size = UDim2.new(1, 0, 1, 0)
+KillAuraImage.Image = "rbxassetid://3570695787"
+KillAuraImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+KillAuraImage.ScaleType = Enum.ScaleType.Slice
+KillAuraImage.SliceCenter = Rect.new(100, 100, 100, 100)
+KillAuraImage.SliceScale = 0.120
+
+WalkSpeed.Name = "WalkSpeed"
+WalkSpeed.Parent = Container
+WalkSpeed.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+WalkSpeed.BackgroundTransparency = 1.000
+WalkSpeed.BorderColor3 = Color3.fromRGB(27, 42, 53)
+WalkSpeed.BorderSizePixel = 0
+WalkSpeed.Position = UDim2.new(0.0179153103, 0, 0.833333313, 0)
+WalkSpeed.Size = UDim2.new(0, 200, 0, 50)
+WalkSpeed.ZIndex = 2
+WalkSpeed.Font = Enum.Font.SourceSans
+WalkSpeed.Text = "WalkSpeed"
+WalkSpeed.TextColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeed.TextSize = 14.000
+WalkSpeed.MouseButton1Down:Connect(function()
+	while true do
+		wait()
+		local hum = game.Players.LocalPlayer.Character.Humanoid
+		hum.WalkSpeed = 100
+	end
+end)
+
+WalkSpeedImage.Name = "WalkSpeedImage"
+WalkSpeedImage.Parent = WalkSpeed
+WalkSpeedImage.Active = true
+WalkSpeedImage.AnchorPoint = Vector2.new(0.5, 0.5)
+WalkSpeedImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WalkSpeedImage.BackgroundTransparency = 1.000
+WalkSpeedImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+WalkSpeedImage.Selectable = true
+WalkSpeedImage.Size = UDim2.new(1, 0, 1, 0)
+WalkSpeedImage.Image = "rbxassetid://3570695787"
+WalkSpeedImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+WalkSpeedImage.ScaleType = Enum.ScaleType.Slice
+WalkSpeedImage.SliceCenter = Rect.new(100, 100, 100, 100)
+WalkSpeedImage.SliceScale = 0.120
+
 YardTp.Name = "YardTp"
-YardTp.Parent = VisibleToggle
-YardTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-YardTp.Position = UDim2.new(0.334563494, 0, 1.74854517, 0)
+YardTp.Parent = Container
+YardTp.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+YardTp.BackgroundTransparency = 1.000
+YardTp.BorderColor3 = Color3.fromRGB(27, 42, 53)
+YardTp.BorderSizePixel = 0
+YardTp.Position = UDim2.new(0.344456196, 0, 0.169590622, 0)
 YardTp.Size = UDim2.new(0, 200, 0, 50)
-YardTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+YardTp.ZIndex = 2
 YardTp.Font = Enum.Font.SourceSans
-YardTp.Text = "Yard Tp"
+YardTp.Text = "YardTp"
 YardTp.TextColor3 = Color3.fromRGB(0, 0, 0)
 YardTp.TextSize = 14.000
-YardTp.TextWrapped = true
 YardTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(763.5419931, 97.9999466, 2487.10791)
 
@@ -186,17 +424,34 @@ YardTp.MouseButton1Down:Connect(function()
 	ts:Create(part, ti, tp):Play()
 end)
 
+YardTpImage.Name = "YardTpImage"
+YardTpImage.Parent = YardTp
+YardTpImage.Active = true
+YardTpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+YardTpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+YardTpImage.BackgroundTransparency = 1.000
+YardTpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+YardTpImage.Selectable = true
+YardTpImage.Size = UDim2.new(1, 0, 1, 0)
+YardTpImage.Image = "rbxassetid://3570695787"
+YardTpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+YardTpImage.ScaleType = Enum.ScaleType.Slice
+YardTpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+YardTpImage.SliceScale = 0.120
+
 GuardBaseTp.Name = "GuardBaseTp"
-GuardBaseTp.Parent = VisibleToggle
-GuardBaseTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GuardBaseTp.Position = UDim2.new(0.334563494, 0, 2.96805739, 0)
+GuardBaseTp.Parent = Container
+GuardBaseTp.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+GuardBaseTp.BackgroundTransparency = 1.000
+GuardBaseTp.BorderColor3 = Color3.fromRGB(27, 42, 53)
+GuardBaseTp.BorderSizePixel = 0
+GuardBaseTp.Position = UDim2.new(0.344456196, 0, 0.336257279, 0)
 GuardBaseTp.Size = UDim2.new(0, 200, 0, 50)
-GuardBaseTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+GuardBaseTp.ZIndex = 2
 GuardBaseTp.Font = Enum.Font.SourceSans
-GuardBaseTp.Text = "Guard Base Tp"
+GuardBaseTp.Text = "GuardBaseTp"
 GuardBaseTp.TextColor3 = Color3.fromRGB(0, 0, 0)
 GuardBaseTp.TextSize = 14.000
-GuardBaseTp.TextWrapped = true
 GuardBaseTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(835.180176, 99.9900055, 2268.19165)
 
@@ -209,18 +464,35 @@ GuardBaseTp.MouseButton1Down:Connect(function()
 	ts:Create(part, ti, tp):Play()
 end)
 
-GuardTower.Name = "GuardTower"
-GuardTower.Parent = VisibleToggle
-GuardTower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GuardTower.Position = UDim2.new(0.334563494, 0, 4.18756962, 0)
-GuardTower.Size = UDim2.new(0, 200, 0, 50)
-GuardTower.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-GuardTower.Font = Enum.Font.SourceSans
-GuardTower.Text = "Guard Tower Tp"
-GuardTower.TextColor3 = Color3.fromRGB(0, 0, 0)
-GuardTower.TextSize = 14.000
-GuardTower.TextWrapped = true
-GuardTower.MouseButton1Down:Connect(function()
+GuardBaseTpImage.Name = "GuardBaseTpImage"
+GuardBaseTpImage.Parent = GuardBaseTp
+GuardBaseTpImage.Active = true
+GuardBaseTpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+GuardBaseTpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuardBaseTpImage.BackgroundTransparency = 1.000
+GuardBaseTpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+GuardBaseTpImage.Selectable = true
+GuardBaseTpImage.Size = UDim2.new(1, 0, 1, 0)
+GuardBaseTpImage.Image = "rbxassetid://3570695787"
+GuardBaseTpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+GuardBaseTpImage.ScaleType = Enum.ScaleType.Slice
+GuardBaseTpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+GuardBaseTpImage.SliceScale = 0.120
+
+GuardTowerTp.Name = "GuardTowerTp"
+GuardTowerTp.Parent = Container
+GuardTowerTp.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+GuardTowerTp.BackgroundTransparency = 1.000
+GuardTowerTp.BorderColor3 = Color3.fromRGB(27, 42, 53)
+GuardTowerTp.BorderSizePixel = 0
+GuardTowerTp.Position = UDim2.new(0.344456196, 0, 0.49999997, 0)
+GuardTowerTp.Size = UDim2.new(0, 200, 0, 50)
+GuardTowerTp.ZIndex = 2
+GuardTowerTp.Font = Enum.Font.SourceSans
+GuardTowerTp.Text = "GuardTowerTP"
+GuardTowerTp.TextColor3 = Color3.fromRGB(0, 0, 0)
+GuardTowerTp.TextSize = 14.000
+GuardTowerTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(818.790405, 130.039948, 2572.03345)
 
 	local ts = game:GetService("TweenService")
@@ -232,17 +504,34 @@ GuardTower.MouseButton1Down:Connect(function()
 	ts:Create(part, ti, tp):Play()
 end)
 
+GuardTowerTpImage.Name = "GuardTowerTpImage"
+GuardTowerTpImage.Parent = GuardTowerTp
+GuardTowerTpImage.Active = true
+GuardTowerTpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+GuardTowerTpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuardTowerTpImage.BackgroundTransparency = 1.000
+GuardTowerTpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+GuardTowerTpImage.Selectable = true
+GuardTowerTpImage.Size = UDim2.new(1, 0, 1, 0)
+GuardTowerTpImage.Image = "rbxassetid://3570695787"
+GuardTowerTpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+GuardTowerTpImage.ScaleType = Enum.ScaleType.Slice
+GuardTowerTpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+GuardTowerTpImage.SliceScale = 0.120
+
 CrimBaseTp.Name = "CrimBaseTp"
-CrimBaseTp.Parent = VisibleToggle
-CrimBaseTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CrimBaseTp.Position = UDim2.new(0.334563494, 0, 5.4070816, 0)
+CrimBaseTp.Parent = Container
+CrimBaseTp.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+CrimBaseTp.BackgroundTransparency = 1.000
+CrimBaseTp.BorderColor3 = Color3.fromRGB(27, 42, 53)
+CrimBaseTp.BorderSizePixel = 0
+CrimBaseTp.Position = UDim2.new(0.344456196, 0, 0.666666627, 0)
 CrimBaseTp.Size = UDim2.new(0, 200, 0, 50)
-CrimBaseTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+CrimBaseTp.ZIndex = 2
 CrimBaseTp.Font = Enum.Font.SourceSans
-CrimBaseTp.Text = "Crim Base Tp"
+CrimBaseTp.Text = "CrimbaseTp"
 CrimBaseTp.TextColor3 = Color3.fromRGB(0, 0, 0)
 CrimBaseTp.TextSize = 14.000
-CrimBaseTp.TextWrapped = true
 CrimBaseTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(-900, 94, 2050)
 
@@ -255,17 +544,34 @@ CrimBaseTp.MouseButton1Down:Connect(function()
 	ts:Create(part, ti, tp):Play()
 end)
 
+CrimbaseTpImage.Name = "CrimbaseTpImage"
+CrimbaseTpImage.Parent = CrimBaseTp
+CrimbaseTpImage.Active = true
+CrimbaseTpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+CrimbaseTpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CrimbaseTpImage.BackgroundTransparency = 1.000
+CrimbaseTpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+CrimbaseTpImage.Selectable = true
+CrimbaseTpImage.Size = UDim2.new(1, 0, 1, 0)
+CrimbaseTpImage.Image = "rbxassetid://3570695787"
+CrimbaseTpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+CrimbaseTpImage.ScaleType = Enum.ScaleType.Slice
+CrimbaseTpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+CrimbaseTpImage.SliceScale = 0.120
+
 PrisonOutTp.Name = "PrisonOutTp"
-PrisonOutTp.Parent = VisibleToggle
-PrisonOutTp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-PrisonOutTp.Position = UDim2.new(0.334563494, 0, 6.62659359, 0)
+PrisonOutTp.Parent = Container
+PrisonOutTp.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+PrisonOutTp.BackgroundTransparency = 1.000
+PrisonOutTp.BorderColor3 = Color3.fromRGB(27, 42, 53)
+PrisonOutTp.BorderSizePixel = 0
+PrisonOutTp.Position = UDim2.new(0.344456196, 0, 0.833333313, 0)
 PrisonOutTp.Size = UDim2.new(0, 200, 0, 50)
-PrisonOutTp.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+PrisonOutTp.ZIndex = 2
 PrisonOutTp.Font = Enum.Font.SourceSans
-PrisonOutTp.Text = "Prison Out Tp"
+PrisonOutTp.Text = "PrisonOutTp"
 PrisonOutTp.TextColor3 = Color3.fromRGB(0, 0, 0)
 PrisonOutTp.TextSize = 14.000
-PrisonOutTp.TextWrapped = true
 PrisonOutTp.MouseButton1Down:Connect(function()
 	local new_CFrame = CFrame.new(	284.616882, 72.5167236, 2221.65234)
 
@@ -278,164 +584,27 @@ PrisonOutTp.MouseButton1Down:Connect(function()
 	ts:Create(part, ti, tp):Play()
 end)
 
-DestroyGui.Name = "DestroyGui"
-DestroyGui.Parent = VisibleToggle
-DestroyGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DestroyGui.Position = UDim2.new(0.668447793, 0, 1.74854469, 0)
-DestroyGui.Size = UDim2.new(0, 200, 0, 50)
-DestroyGui.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-DestroyGui.Font = Enum.Font.SourceSans
-DestroyGui.Text = "DestroyGui"
-DestroyGui.TextColor3 = Color3.fromRGB(0, 0, 0)
-DestroyGui.TextSize = 14.000
-DestroyGui.TextWrapped = true
-DestroyGui.MouseButton1Down:Connect(function()
-	VisibleToggle.Visible = false
-	Container.Visible = false
-end)
-
-BackgroundColorRed.Name = "BackgroundColorRed"
-BackgroundColorRed.Parent = VisibleToggle
-BackgroundColorRed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BackgroundColorRed.Position = UDim2.new(0.668447793, 0, 2.96805692, 0)
-BackgroundColorRed.Size = UDim2.new(0, 200, 0, 50)
-BackgroundColorRed.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-BackgroundColorRed.Font = Enum.Font.SourceSans
-BackgroundColorRed.Text = "Background Color Red"
-BackgroundColorRed.TextColor3 = Color3.fromRGB(0, 0, 0)
-BackgroundColorRed.TextSize = 14.000
-BackgroundColorRed.TextWrapped = true
-BackgroundColorRed.MouseButton1Down:Connect(function()
-	Container.BackgroundColor3 = Color3.new(1, 0, 0)
-end)
-
-ResetBackgroundColor.Name = "ResetBackgroundColor"
-ResetBackgroundColor.Parent = VisibleToggle
-ResetBackgroundColor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ResetBackgroundColor.Position = UDim2.new(0.668447793, 0, 4.18756914, 0)
-ResetBackgroundColor.Size = UDim2.new(0, 200, 0, 50)
-ResetBackgroundColor.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-ResetBackgroundColor.Font = Enum.Font.SourceSans
-ResetBackgroundColor.Text = "Reset Background Color"
-ResetBackgroundColor.TextColor3 = Color3.fromRGB(0, 0, 0)
-ResetBackgroundColor.TextSize = 14.000
-ResetBackgroundColor.TextWrapped = true
-ResetBackgroundColor.MouseButton1Down:Connect(function()
-	Container.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.0784314)
-end)
-
-BackgroundColorBlue.Name = "BackgroundColorBlue"
-BackgroundColorBlue.Parent = VisibleToggle
-BackgroundColorBlue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BackgroundColorBlue.Position = UDim2.new(0.668447793, 0, 5.4070816, 0)
-BackgroundColorBlue.Size = UDim2.new(0, 200, 0, 50)
-BackgroundColorBlue.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-BackgroundColorBlue.Font = Enum.Font.SourceSans
-BackgroundColorBlue.Text = "BackgroundColor Blue "
-BackgroundColorBlue.TextColor3 = Color3.fromRGB(0, 0, 0)
-BackgroundColorBlue.TextSize = 14.000
-BackgroundColorBlue.TextWrapped = true
-BackgroundColorBlue.MouseButton1Down:Connect(function()
-	Container.BackgroundColor3 = Color3.new(0, 0, 1)
-end)
-
-Credits.Name = "Credits"
-Credits.Parent = VisibleToggle
-Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Credits.Position = UDim2.new(0.668447793, 0, 6.62659359, 0)
-Credits.Size = UDim2.new(0, 200, 0, 50)
-Credits.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
-Credits.Font = Enum.Font.SourceSans
-Credits.Text = "Credits"
-Credits.TextColor3 = Color3.fromRGB(0, 0, 0)
-Credits.TextSize = 14.000
-Credits.TextWrapped = true
-Credits.MouseButton1Down:Connect(function()
-	local Creditsui = Instance.new("ScreenGui")
-	local Main = Instance.new("Frame")
-	local CreditsTitle = Instance.new("TextLabel")
-	local OwnerCredits = Instance.new("TextLabel")
-	local Close = Instance.new("TextButton")
-
-	--Properties:
-
-	Creditsui.Name = "Credits-ui"
-	Creditsui.Parent = game.CoreGui
-	Creditsui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-	Main.Name = "Main"
-	Main.Parent = Creditsui
-	Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-	Main.Position = UDim2.new(0.304571092, 0, 0.773675799, 0)
-	Main.Size = UDim2.new(0, 148, 0, 131)
-
-	CreditsTitle.Name = "Credits-Title"
-	CreditsTitle.Parent = Main
-	CreditsTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	CreditsTitle.BackgroundTransparency = 1.000
-	CreditsTitle.Size = UDim2.new(0, 125, 0, 26)
-	CreditsTitle.Font = Enum.Font.SourceSansBold
-	CreditsTitle.Text = "Credits"
-	CreditsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
-	CreditsTitle.TextScaled = true
-	CreditsTitle.TextSize = 14.000
-	CreditsTitle.TextWrapped = true
-
-	OwnerCredits.Name = "Owner-Credits"
-	OwnerCredits.Parent = Main
-	OwnerCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	OwnerCredits.BackgroundTransparency = 1.000
-	OwnerCredits.Position = UDim2.new(0, 0, 0.396946579, 0)
-	OwnerCredits.Size = UDim2.new(0, 148, 0, 26)
-	OwnerCredits.Font = Enum.Font.SourceSansBold
-	OwnerCredits.Text = "Made by me"
-	OwnerCredits.TextColor3 = Color3.fromRGB(85, 0, 255)
-	OwnerCredits.TextScaled = true
-	OwnerCredits.TextSize = 14.000
-	OwnerCredits.TextWrapped = true
-
-	Close.Name = "Close"
-	Close.Parent = Main
-	Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Close.BackgroundTransparency = 1.000
-	Close.Position = UDim2.new(0.67567569, 0, 0, 0)
-	Close.Size = UDim2.new(0, 48, 0, 34)
-	Close.Font = Enum.Font.ArialBold
-	Close.Text = "X"
-	Close.TextColor3 = Color3.fromRGB(255, 0, 0)
-	Close.TextScaled = true
-	Close.TextSize = 14.000
-	Close.TextWrapped = true
-
-	-- Scripts:
-
-	local function TOAH_fake_script() -- Close.Close-Script 
-		local script = Instance.new('LocalScript', Close)
-
-		script.Parent.MouseButton1Down:Connect(function()
-			script.Parent.Parent.Visible = false
-		end)
-	end
-	coroutine.wrap(TOAH_fake_script)()
-end)
-
-ScriptsTitle.Name = "Scripts-Title"
-ScriptsTitle.Parent = VisibleToggle
-ScriptsTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
-ScriptsTitle.Position = UDim2.new(0, 0, 1, 0)
-ScriptsTitle.Size = UDim2.new(0, 198, 0, 30)
-ScriptsTitle.Font = Enum.Font.SourceSans
-ScriptsTitle.Text = "Scripts"
-ScriptsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
-ScriptsTitle.TextScaled = true
-ScriptsTitle.TextSize = 14.000
-ScriptsTitle.TextWrapped = true
+PrisonOutTpImage.Name = "PrisonOutTpImage"
+PrisonOutTpImage.Parent = PrisonOutTp
+PrisonOutTpImage.Active = true
+PrisonOutTpImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PrisonOutTpImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PrisonOutTpImage.BackgroundTransparency = 1.000
+PrisonOutTpImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+PrisonOutTpImage.Selectable = true
+PrisonOutTpImage.Size = UDim2.new(1, 0, 1, 0)
+PrisonOutTpImage.Image = "rbxassetid://3570695787"
+PrisonOutTpImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+PrisonOutTpImage.ScaleType = Enum.ScaleType.Slice
+PrisonOutTpImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PrisonOutTpImage.SliceScale = 0.120
 
 TpTitle.Name = "Tp-Title"
-TpTitle.Parent = VisibleToggle
-TpTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
-TpTitle.Position = UDim2.new(0.337190092, 0, 1, 0)
-TpTitle.Size = UDim2.new(0, 198, 0, 30)
+TpTitle.Parent = Container
+TpTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TpTitle.BackgroundTransparency = 1.000
+TpTitle.Position = UDim2.new(0.361563534, 0, 0, 0)
+TpTitle.Size = UDim2.new(0, 200, 0, 50)
 TpTitle.Font = Enum.Font.SourceSans
 TpTitle.Text = "Tp"
 TpTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
@@ -443,34 +612,66 @@ TpTitle.TextScaled = true
 TpTitle.TextSize = 14.000
 TpTitle.TextWrapped = true
 
-SettingsTitle.Name = "Settings-Title"
-SettingsTitle.Parent = VisibleToggle
-SettingsTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
-SettingsTitle.Position = UDim2.new(0.668447733, 0, 1, 0)
-SettingsTitle.Size = UDim2.new(0, 200, 0, 30)
-SettingsTitle.Font = Enum.Font.SourceSans
-SettingsTitle.Text = "Settings"
-SettingsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
-SettingsTitle.TextScaled = true
-SettingsTitle.TextSize = 14.000
-SettingsTitle.TextWrapped = true
+DestroyGui.Name = "DestroyGui"
+DestroyGui.Parent = Container
+DestroyGui.BackgroundColor3 = Color3.fromRGB(57, 196, 255)
+DestroyGui.BackgroundTransparency = 1.000
+DestroyGui.BorderColor3 = Color3.fromRGB(27, 42, 53)
+DestroyGui.BorderSizePixel = 0
+DestroyGui.Position = UDim2.new(0.671, 0,0.17, 0)
+DestroyGui.Size = UDim2.new(0, 200,0, 50)
+DestroyGui.ZIndex = 2
+DestroyGui.Font = Enum.Font.SourceSans
+DestroyGui.Text = "DestroyGui"
+DestroyGui.TextColor3 = Color3.fromRGB(0, 0, 0)
+DestroyGui.TextSize = 14.000
+DestroyGui.MouseButton1Down:Connect(function()
+	VisibleToggle.Visible = false
+end)
 
-ScriptNameTitle.Name = "ScriptName-Title"
-ScriptNameTitle.Parent = VisibleToggle
-ScriptNameTitle.BackgroundColor3 = Color3.fromRGB(9, 144, 206)
-ScriptNameTitle.BackgroundTransparency = 1.000
-ScriptNameTitle.Position = UDim2.new(0.0618361793, 0, 0.121951222, 0)
-ScriptNameTitle.Size = UDim2.new(0, 473, 0, 30)
-ScriptNameTitle.Font = Enum.Font.SourceSans
-ScriptNameTitle.Text = "PrisonHaxx"
-ScriptNameTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
-ScriptNameTitle.TextScaled = true
-ScriptNameTitle.TextSize = 14.000
-ScriptNameTitle.TextWrapped = true
+DestroyGuiImage.Name = "DestroyGuiImage"
+DestroyGuiImage.Parent = DestroyGui
+DestroyGuiImage.Active = true
+DestroyGuiImage.AnchorPoint = Vector2.new(0.5, 0.5)
+DestroyGuiImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DestroyGuiImage.BackgroundTransparency = 1.000
+DestroyGuiImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+DestroyGuiImage.Selectable = true
+DestroyGuiImage.Size = UDim2.new(1, 0, 1, 0)
+DestroyGuiImage.Image = "rbxassetid://3570695787"
+DestroyGuiImage.ImageColor3 = Color3.fromRGB(57, 196, 255)
+DestroyGuiImage.ScaleType = Enum.ScaleType.Slice
+DestroyGuiImage.SliceCenter = Rect.new(100, 100, 100, 100)
+DestroyGuiImage.SliceScale = 0.120
+
+GuiSettingsTitle.Name = "GuiSettings-Title"
+GuiSettingsTitle.Parent = Container
+GuiSettingsTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuiSettingsTitle.BackgroundTransparency = 1.000
+GuiSettingsTitle.Position = UDim2.new(0.67105031, 0, 0, 0)
+GuiSettingsTitle.Size = UDim2.new(0, 200, 0, 50)
+GuiSettingsTitle.Font = Enum.Font.SourceSans
+GuiSettingsTitle.Text = "Gui settings"
+GuiSettingsTitle.TextColor3 = Color3.fromRGB(85, 0, 255)
+GuiSettingsTitle.TextScaled = true
+GuiSettingsTitle.TextSize = 14.000
+GuiSettingsTitle.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = VisibleToggle
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0.412824631, 0, 0.0384615399, 0)
+Title.Size = UDim2.new(0, 134, 0, 25)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "PrisonHaxx Revamped UI"
+Title.TextColor3 = Color3.fromRGB(85, 0, 255)
+Title.TextSize = 14.000
+Title.TextWrapped = true
 
 -- Scripts:
 
-local function HXCUGDO_fake_script() -- Toggle.LocalScript 
+local function UASPYO_fake_script() -- Toggle.LocalScript 
 	local script = Instance.new('LocalScript', Toggle)
 
 	local toggled = false
@@ -478,13 +679,13 @@ local function HXCUGDO_fake_script() -- Toggle.LocalScript
 	script.Parent.MouseButton1Down:Connect(function()
 		if toggled then
 			toggled = false
-			script.Parent.Parent.Parent:TweenSize(UDim2.new(0, 605,0, 41), "In", "Linear", 0.1)
+			script.Parent.Parent.Container:TweenSize(UDim2.new(0, 643,0, 0), "In", "Linear", 0.1)
 			script.Parent.Rotation = 270
 		else
 			toggled = true
-			script.Parent.Parent.Parent:TweenSize(UDim2.new(0, 605,0, 328), "Out", "Linear", 0.1)
+			script.Parent.Parent.Container:TweenSize(UDim2.new(0, 643,0, 342), "Out", "Linear", 0.1)
 			script.Parent.Rotation = 90
 		end
 	end)
 end
-coroutine.wrap(HXCUGDO_fake_script)()
+coroutine.wrap(UASPYO_fake_script)()
