@@ -1,5 +1,5 @@
 	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-	local Window = Library.CreateLib("MoonHaxx", "Sentinel")
+	local Window = Library.CreateLib("PrisonHaxx", "Sentinel")
 	local Main = Window:NewTab("Main")
 local Credits = Window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("Credits")
