@@ -1,10 +1,4 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local MoonHub = Library.CreateLib("MoonHub", "Sentinel")
-local section = MoonHub:NewTab("Hubs")
-local Hubs = section:NewSection("Hubs")
-
-Hubs:NewButton("MoonHaxx", "Executes MoonHaxx Script", function()
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local MoonHaxx = Library.CreateLib("MoonHaxx", "Sentinel")
 local Player = MoonHaxx:NewTab("Player")
 local GunMods = MoonHaxx:NewTab("Gun Mods")
@@ -193,5 +187,4 @@ Character:NewToggle("Noclip", "Allw you walk through walls", function(state)
 	else
 		Stepped:Disconnect()
 	end
-end)
 end)
