@@ -1,0 +1,192 @@
+game.Players.LocalPlayer.PlayerGui.IntroGui.Frame.TextLabel.Text = "Welcome by MoonHaxx Developed by discord: GrannyTheDev#6786"
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local MoonHaxx = Library.CreateLib("MoonHaxx", "Sentinel")
+local Player = MoonHaxx:NewTab("Player")
+local GunMods = MoonHaxx:NewTab("Gun Mods")
+local Character = Player:NewSection("Character")
+local Gun = GunMods:NewSection("Gun Mods")
+local Credit = MoonHaxx:NewTab("Credits")
+local Credits = Credit:NewSection("Credits")
+
+Credits:NewButton("GrannyTheDev#6786", "Discord: GrannyTheDev#6786", function()
+setclipboard("GrannyTheDev#6786")
+end)
+
+Gun:NewButton("Inf Ammo M9", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["M9"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["M9"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Sniper", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["The Devastator"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["The Devastator"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Burst", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Cataclysm Cannon"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Cataclysm Cannon"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Rainbow Rifle", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Rainbow Rifle"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Rainbow Rifle"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Inferno", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Inferno"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Inferno"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Arcaster", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Arcaster"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Arcaster"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Zomvert", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Zomvert"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Zomvert"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Gravolator", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Gravolator"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Gravolator"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Assassin Pistol", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Assassin Pistol"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Assassin Pistol"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo RayGun", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["RayGun"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["RayGun"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Spas-12", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Spas-12"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Spas-12"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo The Law", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["The Law"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["The Law"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo The Decimator", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["The Decimator"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["The Decimator"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo R870", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["R870"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["R870"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo M4A4", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["M4A4"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["M4A4"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo MP5A3", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["MP5A3"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["MP5A3"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo GLOCK 18", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["GLOCK 18"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["GLOCK 18"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Deagle.44", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Deagle.44"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Deagle.44"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Pulse Pistol", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Pulse Pistol"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Pulse Pistol"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo Raycaster", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["Raycaster"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["Raycaster"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo The Atomizer", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["The Atomizer"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["The Atomizer"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo AWP", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["AWP"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["AWP"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo DSR 50", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["DSR 50"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["DSR 50"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo HAMR", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["HAMR"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["HAMR"].StoredAmmo.Value = 999999
+end)
+
+Gun:NewButton("Inf Ammo M249", "Gives you inf ammo", function()
+	game.Players.LocalPlayer.Backpack["M249"].Ammo.Value = 999999
+	game.Players.LocalPlayer.Backpack["M249"].StoredAmmo.Value = 999999
+end)
+
+Character:NewButton("Instant Heal", "Heal you each second", function()
+	while wait() do
+		game.ReplicatedStorage.DamageEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, -math.huge)
+
+	end
+end)
+
+Character:NewButton("WalkSpeed", "Increase your walkspeed", function()
+	local gmt = getrawmetatable(game)
+	setreadonly(gmt, false)
+	local oldindex = gmt.__index
+	gmt.__index = newcclosure(function(self, b)
+		if b == "WalkSpeed" then
+			return 100
+		end
+		return oldindex(self, b)
+	end)
+
+	while wait() do
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=100
+	end
+end)
+
+Character:NewButton("Inf Jump", "Allow you to jump inf", function()
+	game:GetService("UserInputService").JumpRequest:connect(function()
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
+	end)
+end)
+
+Character:NewToggle("Noclip", "Allw you walk through walls", function(state)
+	local Workspace = game:GetService("Workspace")
+	local CoreGui = game:GetService("CoreGui")
+	local Players = game:GetService("Players")
+	local Plr = Players.LocalPlayer
+	local Clipon = false
+
+	if state then
+		Clipon = true
+		Stepped = game:GetService("RunService").Stepped:Connect(function()
+			if not Clipon == false then
+				for a, b in pairs(Workspace:GetChildren()) do
+					if b.Name == Plr.Name then
+						for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false
+							end end end end
+			end
+		end)
+	else
+		Stepped:Disconnect()
+	end
+end)
