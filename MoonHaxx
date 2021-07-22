@@ -1,4 +1,4 @@
-game.Players.LocalPlayer.PlayerGui.IntroGui.Frame.TextLabel.Text = "Welcome by MoonHaxx Developed by discord: GrannyTheDev#6786"
+game.Players.LocalPlayer.PlayerGui.IntroGui.Frame.TextLabel.Text = "Welcome by MoonHaxx"
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local MoonHaxx = Library.CreateLib("MoonHaxx", "Sentinel")
@@ -6,12 +6,6 @@ local Player = MoonHaxx:NewTab("Player")
 local GunMods = MoonHaxx:NewTab("Gun Mods")
 local Character = Player:NewSection("Character")
 local Gun = GunMods:NewSection("Gun Mods")
-local Credit = MoonHaxx:NewTab("Credits")
-local Credits = Credit:NewSection("Credits")
-
-Credits:NewButton("GrannyTheDev#6786", "Discord: GrannyTheDev#6786", function()
-setclipboard("GrannyTheDev#6786")
-end)
 
 Gun:NewButton("Inf Ammo M9", "Gives you inf ammo", function()
 	game.Players.LocalPlayer.Backpack["M9"].Ammo.Value = 999999
