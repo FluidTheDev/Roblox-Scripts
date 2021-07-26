@@ -1,0 +1,31 @@
+function CreateMessage(text)
+local MessageGui = Instance.new("ScreenGui")
+local MessageFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local MessageText = Instance.new("TextLabel")
+
+MessageGui.Name = "MessageGui"
+MessageGui.Parent = game.CoreGui
+
+MessageFrame.Name = "MessageFrame"
+MessageFrame.Parent = MessageGui
+MessageFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+MessageFrame.Position = UDim2.new(0.397508502, 0, 0.15569824, 0)
+MessageFrame.Size = UDim2.new(0, 129, 0, 25)
+
+UICorner.Parent = MessageFrame
+
+MessageText.Name = "MessageText"
+MessageText.Parent = MessageFrame
+MessageText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MessageText.BackgroundTransparency = 1.000
+MessageText.BorderSizePixel = 0
+MessageText.Size = UDim2.new(0, 129, 0, 25)
+MessageText.Font = Enum.Font.SourceSans
+MessageText.Text = text
+MessageText.TextColor3 = Color3.fromRGB(255, 255, 255)
+MessageText.TextSize = 14.000
+
+wait(5)
+game.CoreGui:WaitForChild("MessageGui"):Remove()
+end
