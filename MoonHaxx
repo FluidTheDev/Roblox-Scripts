@@ -24,10 +24,6 @@ Songs:NewButton("Russian hardbass", "Plays The Clicked Song", function()
     game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://2508725733"
         end)
 
-Songs:NewButton("Dance", "Plays The Clicked Song", function()
-    game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://1906262858"
-        end)
-
         Songs:NewButton("Solved The Problem", "Plays The Clicked Song", function()
             game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://6537079450"
                 end)
