@@ -1,0 +1,342 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local NinjaHaxx = Library.CreateLib("NinjaHaxx", "Sentinel")
+local Player = NinjaHaxx:NewTab("Player")
+local AutoFarm = NinjaHaxx:NewTab("AutoFarm")
+local Character = Player:NewSection("Character")
+local AutoFarm = AutoFarm:NewSection("AutoFarm")
+local Pet = NinjaHaxx:NewTab("Pets")
+local Pets = Pet:NewSection("Pets")
+local Tp = NinjaHaxx:NewTab("Teleport")
+local Teleport = Tp:NewSection("Teleport")
+local BossTab = NinjaHaxx:NewTab("Boss")
+local Boss = BossTab:NewSection("Boss")
+
+Character:NewToggle("Noclip", "Allow you to walk through walls", function(state)
+	local Workspace = game:GetService("Workspace")
+	local CoreGui = game:GetService("CoreGui")
+	local Players = game:GetService("Players")
+	local Plr = Players.LocalPlayer
+	local Clipon = false
+
+	if state then
+		Clipon = true
+		Stepped = game:GetService("RunService").Stepped:Connect(function()
+			if not Clipon == false then
+				for a, b in pairs(Workspace:GetChildren()) do
+					if b.Name == Plr.Name then
+						for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false
+							end end end end
+			end
+		end)
+	else
+		Stepped:Disconnect()
+	end
+end)
+
+AutoFarm:NewToggle("Auto buy Rank ", "Auto buys rank", function(v)
+	getgenv().autobuyrank = v
+while true do
+if not getgenv().autobuyrank then return end
+wait()
+if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+local oh1 = "buyRank"
+local oh2 = game:GetService("ReplicatedStorage").Ranks.Ground:GetChildren()
+for i = 1,#oh2 do
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i].Name)
+end
+end
+end
+end)
+Character:NewToggle("Auto Invisible", "Makes your Character Invisible", function(v)
+	getgenv().autoinvisible = v
+while true do
+if not getgenv().autoinvisible then return end
+wait()
+local A_1 = "goInvisible"
+local Event = game.Players.LocalPlayer.ninjaEvent
+Event:FireServer(A_1)
+end
+end)
+
+Boss:NewToggle("Auto Tp to Lavaboss", "Auto TP to the boss", function(v)
+	getgenv().autofarmboss = v
+while true do
+if not getgenv().autofarmboss then return end
+wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.bossFolder.AncientMagmaBoss.HumanoidRootPart.CFrame
+end
+end)
+
+Boss:NewToggle("Auto Tp to EternalBoss", "Auto TP to the boss", function(v)
+	getgenv().autofarmboss = v
+while true do
+if not getgenv().autofarmboss then return end
+wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.bossFolder.EternalBoss.HumanoidRootPart.CFrame
+end
+end)
+
+Boss:NewToggle("Auto Tp to RobotBoss", "Auto TP to the boss", function(v)
+	getgenv().autofarmboss = v
+while true do
+if not getgenv().autofarmboss then return end
+wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.bossFolder.RobotBoss.HumanoidRootPart.CFrame
+end
+end)
+
+Pets:NewButton("Auto Sell pets", "Auto Sell Pets", function()
+	while wait() do
+	local A_1 = "sellPet"
+	local A_2 = game:GetService("Players").scriptwrit.petsFolder.Unique["Thunder Strike Falcon"]
+	local Event = game:GetService("ReplicatedStorage").rEvents.sellPetEvent
+	Event:FireServer(A_1, A_2, A_3, A_4)
+
+	local A_1 = "sellPet"
+	local A_2 = game:GetService("Players").scriptwrit.petsFolder.Unique["Thunder Strike Falcon"]
+	local Event = game:GetService("ReplicatedStorage").rEvents.sellPetEvent
+	Event:FireServer(A_1, A_2)
+	
+	local A_1 = "sellPet"
+	local A_2 = game:GetService("Players").scriptwrit.petsFolder.Omega["Eternal Abyss Wyvern"]
+	local Event = game:GetService("ReplicatedStorage").rEvents.sellPetEvent
+	Event:FireServer(A_1, A_2)
+	
+	local A_1 = "sellPet"
+	local A_2 = game:GetService("Players").scriptwrit.petsFolder.Elite["Dawn Horizon Birdie"]
+	local Event = game:GetService("ReplicatedStorage").rEvents.sellPetEvent
+	Event:FireServer(A_1, A_2)	
+end
+end)
+
+Pets:NewToggle("Auto Buy pets", "Auto Buys Pets", function(v)
+getgenv().autobuypets = v
+while true do
+if not getgenv().autobuypets then return end
+wait()
+local A_1 = "openCrystal"
+local A_2 = "Thunder Crystal"
+local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+Event:InvokeServer(A_1, A_2)
+end
+end)
+
+Pets:NewToggle("Auto Evo pets", "Auto Evo all pets", function(v)
+	getgenv().autoevo = v
+	while true do
+	if not getgenv().autoevo then return end
+	wait()
+	local A_1 = "autoEvolvePets"
+	local Event = game:GetService("ReplicatedStorage").rEvents.autoEvolveRemote
+	Event:InvokeServer(A_1)
+	end
+	end)
+
+Teleport:NewToggle("TP to all Hoops", "TP you to all Hoops", function(v)
+getgenv().autohooptp = v
+while true do
+if not getgenv().autohooptp then return end
+ wait()
+for i, v in pairs(game.Workspace.Hoops:GetChildren()) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+end)
+
+Teleport:NewToggle("TP to all coins", "TP you to all coins", function(v)
+getgenv().autocointp = v
+while true do
+if not getgenv().autocointp then return end
+wait()
+for i, v in pairs(game.Workspace.spawnedCoins.Valley:GetChildren()) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+end)
+
+Teleport:NewButton("Spawn", "TP you to spawn", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(22.8184242, 3.42284203, 33.3990021)
+end)
+
+Teleport:NewButton("Enchanted Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Enchanted Island"].CFrame
+end)
+
+Teleport:NewButton("Astral Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Astral Island"].CFrame
+end)
+
+Teleport:NewButton("Mystical Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Mystical Island"].CFrame
+end)
+
+Teleport:NewButton("Space Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Space Island"].CFrame
+end)
+
+Teleport:NewButton("Tundra Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Tundra Island"].CFrame
+end)
+
+Teleport:NewButton("Eternal Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Eternal Island"].CFrame
+end)
+
+Teleport:NewButton("Sandstorm", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Sandstorm"].CFrame
+end)
+
+Teleport:NewButton("Thunderstorm", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Thunderstorm"].CFrame
+end)
+
+Teleport:NewButton("Ancient Inferno Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Ancient Inferno Island"].CFrame
+end)
+
+Teleport:NewButton("Midnight Souls Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Midnight Shadow Island"].CFrame
+end)
+
+Teleport:NewButton("Mythical Souls Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Mythical Souls Island"].CFrame
+end)
+
+Teleport:NewButton("Winter Wonder Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Winter Wonder Island"].CFrame
+end)
+
+Teleport:NewButton("Golden Master Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Golden Master Island"].CFrame
+end)
+
+Teleport:NewButton("Dragon Legend Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Dragon Legend Island"].CFrame
+end)
+
+Teleport:NewButton("Skystorm Ultraus Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Skystorm Ultraus Island"].CFrame
+end)
+
+Teleport:NewButton("Chaos Legends Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Chaos Legends Island"].CFrame
+end)
+
+Teleport:NewButton("Soul Fusion Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Soul Fusion Island"].CFrame
+end)
+
+Teleport:NewButton("Dark Elements Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Dark Elements Island"].CFrame
+end)
+
+Teleport:NewButton("Inner Peace Island", "TP you to island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts["Inner Peace Island"].CFrame
+end)
+
+AutoFarm:NewToggle("Auto Swing", "Make your player autoswing", function(v)
+getgenv().autoswing = v
+while true do
+if not getgenv().autoswing then return end
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v:FindFirstChild("ninjitsuGain") then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+break
+end
+end
+local A_1 = "swingKatana"
+local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+Event:FireServer(A_1)
+wait(0.1)
+end
+end)
+
+AutoFarm:NewToggle("AutoSell", "Make your player autosell", function(v)
+getgenv().autosell = v
+while true do
+if getgenv().autosell == false then return end
+game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.1)
+game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = CFrame.new(0,0,0)
+wait(0.1)
+end
+end)
+
+AutoFarm:NewButton("Unlock all islands", "Unlocks all island", function()
+local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+wait(0.1)
+end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+end)
+
+AutoFarm:NewToggle("Auto buy all swords", "Auto Buys all swords", function(v)
+getgenv().buyswords = v
+while true do
+if not getgenv().buyswords then return end
+local A_1 = "buyAllSwords"
+local A_2 = "Inner Peace Island"
+local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+Event:FireServer(A_1, A_2)
+wait(0.5)
+end
+end)
+
+ AutoFarm:NewToggle("Auto buy all belts", "Auto buys all belts", function(v)
+getgenv().buybelts = v
+while true do
+if not getgenv().buybelts then return end
+local A_1 = "buyAllBelts"
+local A_2 = "Inner Peace Island"
+local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+Event:FireServer(A_1, A_2)
+wait(0.5)
+end
+end)
+
+AutoFarm:NewToggle("Auto buy all Skills", "Auto buys all skills", function(v)
+getgenv().buyskills = v
+while true do
+if not getgenv().buyskills then return end
+local A_1 = "buyAllSkills"
+local A_2 = "Inner Peace Island"
+local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+Event:FireServer(A_1, A_2)
+wait(0.5)
+end
+end)
+
+AutoFarm:NewToggle("Auto buy all shurikens", "Auto buy all shurikens", function(v)
+getgenv().buyshurikens = v
+while true do
+if not getgenv().buyrank then return end
+local A_1 = "buyAllShurikens"
+local A_2 = "Acient Inferno Island"
+local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+Event:FireServer(A_1, A_2)
+wait(0.5)
+end
+end)
+
+Character:NewButton("WalkSpeed", "Increase your walkspeed", function()
+local gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+local oldindex = gmt.__index
+gmt.__index = newcclosure(function(self, b)
+    if b == "WalkSpeed" then
+        return 16
+    end
+    return oldindex(self, b)
+end)
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=100
+end
+end)
+
+Character:NewSlider("Inf Double Jump", "Increase your Double Jump", 9999999999, 1, function(v)
+game.Players.LocalPlayer.multiJumpCount.Value = v
+end)
