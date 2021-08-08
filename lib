@@ -291,7 +291,9 @@ function Kavo.CreateLib(kavName, themeList)
 	sideCorner.CornerRadius = UDim.new(0, 4)
 	sideCorner.Name = "sideCorner"
 	sideCorner.Parent = MainSide
-
+	
+	
+	
 	coverup_2.Name = "coverup"
 	coverup_2.Parent = MainSide
 	coverup_2.BackgroundColor3 = themeList.Header
