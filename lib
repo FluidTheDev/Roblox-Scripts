@@ -281,7 +281,7 @@ function Kavo.Createlib(kavName, themeList, CreditTitle)
 	title.Text = kavName
 	title.TextSize = 16.000
 	title.TextXAlignment = Enum.TextXAlignment.Left
-	title.TextColor3 = Rainbow()
+	title.TextColor3 = UDim2.new(245,245,245)
 
 	CreditsLabel.Name = "CreditsLabel"
 	CreditsLabel.Parent = MainHeader
@@ -294,7 +294,7 @@ function Kavo.Createlib(kavName, themeList, CreditTitle)
 	CreditsLabel.TextSize = 16.000
 	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
 	CreditsLabel.Text = CreditTitle
-	CreditsLabel.TextColor3 = Rainbow()
+	CreditsLabel.TextColor3 = UDim2.new(245,245,245)
 
 	close.Name = "close"
 	close.Parent = MainHeader
