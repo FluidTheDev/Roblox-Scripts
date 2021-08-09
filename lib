@@ -154,9 +154,9 @@ function Kavo:ToggleUI()
 		game.CoreGui[LibName].Enabled = true
 	end
 end
-while wait() do
-local LibName = "".. math.random()
-end
+
+local LibName = "Lib"
+
 
 function Kavo.Createlib(kavName, themeList, CreditTitle)
 	if not themeList then
