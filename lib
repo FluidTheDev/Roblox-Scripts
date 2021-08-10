@@ -378,14 +378,14 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	CreditsLabel.Font = Enum.Font.GothamSemibold
 	CreditsLabel.TextSize = 16.000
 	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
-	CreditsLabel.Text = CreditTitle
+	CreditsLabel.Text = CreditsLabel
 	
 	ver.Name = "ver"
 	ver.Parent = MainHeader
 	ver.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
 	ver.BackgroundTransparency = 1.000
 	ver.BorderSizePixel = 0
-	ver.Position = UDim2.new(0,500,0,172)
+	ver.Position = UDim2.new(0.408,0,0.345,0)
 	ver.Size = UDim2.new(0, 35, 0, 19)
 	ver.Font = Enum.Font.GothamSemibold
 	ver.TextSize = 16.000
