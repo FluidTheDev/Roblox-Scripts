@@ -1269,25 +1269,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 						viewDe = false
 					end
 				end)
-				function TogFunction:UpdateToggle(newText, isTogOn)
-					isTogOn = isTogOn or toggle
-					if newText ~= nil then 
-						togName.Text = newText
-					end
-					if isTogOn then
-						toggled = true
-						game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
-							ImageTransparency = 0
-						}):Play()
-						pcall(callback, toggled)
-					else
-						toggled = false
-						game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
-							ImageTransparency = 1
-						}):Play()
-						pcall(callback, toggled)
-					end
-				end
 				return TogFunction
 			end
 
