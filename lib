@@ -1048,7 +1048,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				local TogFunction = {}
 				callback = callback or function() end
 				local toggled = false
-				table.insert(SettingsT)
 				
 				local ToggleElement = Instance.new("TextButton")
 				local UICorner = Instance.new("UICorner")
