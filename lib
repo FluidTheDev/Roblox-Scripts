@@ -138,13 +138,12 @@ pcall(function()
 end)
 
 local LibName = "Lib"
-local lib = game.CoreGui.Lib
 
 function Kavo:ToggleUI()
-	if lib.Enabled then
-		lib.Enabled = true
+	if game.CoreGui[LibName].Enabled then
+		game.CoreGui[LibName].Enabled = true
 		else
-		lib.Enabled = false
+		game.CoreGui[LibName].Enabled = false
 	end
 end	
 function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
