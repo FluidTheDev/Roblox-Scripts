@@ -147,7 +147,7 @@ function Kavo:ToggleUI()
 	end
 end
 
-function Kavo.CreateLib(kavName, themeList, CreditTitle)
+function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	if not themeList then
 		themeList = themes
 	end
@@ -209,6 +209,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	local Pages = Instance.new("Folder")
 	local infoContainer = Instance.new("Frame")
 	local CreditsLabel = Instance.new("TextLabel")
+	local ver = Instance.new("TextLabel")
 
 	local blurFrame = Instance.new("Frame")
 
@@ -263,7 +264,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	title.BorderSizePixel = 0
 	title.Position = UDim2.new(0.0171428565, 0, 0.344827592, 0)
 	title.Size = UDim2.new(0, 204, 0, 8)
-	title.Font = Enum.Font.Gotham
+	title.Font = Enum.Font.GothamSemibold
 	title.Text = kavName
 	title.TextSize = 16.000
 	title.TextXAlignment = Enum.TextXAlignment.Left
@@ -301,7 +302,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	end
 	coroutine.wrap(ZLAEN_fake_script)()
 	
-	local function ZLAEE_fake_script() -- CreditLabel.Rainbower 
+	local function ZLAEE_fake_script() -- title.Rainbower 
 		local script = Instance.new('LocalScript', title)
 
 		while wait() do
@@ -334,7 +335,38 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	end
 	coroutine.wrap(ZLAEE_fake_script)()
 	
+	local function ZLAER_fake_script() -- ScriptVersion.Rainbower 
+		local script = Instance.new('LocalScript', ver)
 
+		while wait() do
+			script.Parent.TextColor3 = Color3.new(1,0,0)
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
+			end
+		end
+	end
+	coroutine.wrap(ZLAER_fake_script)()
 	
 	CreditsLabel.Name = "CreditsLabel"
 	CreditsLabel.Parent = MainHeader
@@ -343,13 +375,22 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	CreditsLabel.BorderSizePixel = 0
 	CreditsLabel.Position = UDim2.new(0.408,0,0.345,0)
 	CreditsLabel.Size = UDim2.new(0, 204, 0, 8)
-	CreditsLabel.Font = Enum.Font.Gotham
+	CreditsLabel.Font = Enum.Font.GothamSemibold
 	CreditsLabel.TextSize = 16.000
 	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
 	CreditsLabel.Text = CreditTitle
 	
-	
-
+	ver.Name = "ScriptVersion"
+	ver.Parent = MainHeader
+	ver.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ver.BackgroundTransparency = 1.000
+	ver.BorderSizePixel = 0
+	ver.Position = UDim2.new(0.408,0,0.345,0)
+	ver.Size = UDim2.new(0, 204, 0, 8)
+	ver.Font = Enum.Font.GothamSemibold
+	ver.TextSize = 16.000
+	ver.TextXAlignment = Enum.TextXAlignment.Left
+	ver.Text = ScriptVersion
 
 	close.Name = "close"
 	close.Parent = MainHeader
