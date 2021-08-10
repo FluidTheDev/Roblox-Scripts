@@ -1305,7 +1305,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 
 				MaxValue.Name = "MaxValue"
 				MaxValue.Parent = sliderElement
-				MaxValue.BackgroundColor3 = themeStyles.YellowTheme
+				MaxValue.BackgroundColor3 = themeStyles.YellowTheme.Background
 				MaxValue.BackgroundTransparency = 1.000
 				MaxValue.BorderSizePixel = 0
 				MaxValue.Position = UDim2.new(0.846704543, 0, 0.575757623, 0)
@@ -1318,7 +1318,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 
 				MinValue.Name = "MinValue"
 				MinValue.Parent = sliderElement
-				MinValue.BackgroundColor3 = themeStyles.YellowTheme
+				MinValue.BackgroundColor3 = themeStyles.YellowTheme.Background
 				MinValue.BackgroundTransparency = 1.000
 				MinValue.BorderSizePixel = 0
 				MinValue.Position = UDim2.new(0.514318049, 0, 0.575757563, 0)
