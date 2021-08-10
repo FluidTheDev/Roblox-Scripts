@@ -1312,7 +1312,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				local val = Instance.new("TextLabel")
 				local MaxValue = Instance.new("TextButton")
 				local MinValue = Instance.new("TextButton")
-				
+
 				MaxValue.Name = "MaxValue"
 				MaxValue.Parent = sliderElement
 				MaxValue.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
