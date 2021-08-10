@@ -279,7 +279,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 	
 	local function ZLAEN_fake_script() -- CreditLabel.Rainbower 
 		local script = Instance.new('LocalScript', CreditsLabel)
-		local script = Instance.new('LocalScript', title)
 		
 		while wait() do
 			script.Parent.TextColor3 = Color3.new(1,0,0)
@@ -310,6 +309,39 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 		end
 	end
 	coroutine.wrap(ZLAEN_fake_script)()
+	
+	local function ZLAEE_fake_script() -- CreditLabel.Rainbower 
+		local script = Instance.new('LocalScript', title)
+
+		while wait() do
+			script.Parent.TextColor3 = Color3.new(1,0,0)
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+			end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
+			end
+		end
+	end
+	coroutine.wrap(ZLAEE_fake_script)()
 	
 
 	
