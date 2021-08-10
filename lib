@@ -141,7 +141,6 @@ local LibName = "Lib"
 
 function Kavo:ToggleUI()
 	if game.CoreGui[LibName].Enabled then
-		game.CoreGui[LibName].Enabled = false
 		game.CoreGui[LibName].Main.Transparency = 0
 		wait(0.1)
 		game.CoreGui[LibName].Main.Transparency = 0.1
@@ -165,7 +164,6 @@ function Kavo:ToggleUI()
 		game.CoreGui[LibName].Main.Transparency = 1
 		wait(0.1)
 	else
-		game.CoreGui[LibName].Enabled = true
 		game.CoreGui[LibName].Main.Transparency = 1
 		wait(0.1)
 		game.CoreGui[LibName].Main.Transparency = 0.9
