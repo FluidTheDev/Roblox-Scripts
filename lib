@@ -1060,7 +1060,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				local off = Instance.new("TextLabel")
 
 				ToggleElement.Name = "ToggleElement"
-				ToggleElement.Parent = game.StarterGui.ScreenGui.Main.Container
+				ToggleElement.Parent = sectionInners
 				ToggleElement.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 				ToggleElement.ClipsDescendants = true
 				ToggleElement.Position = UDim2.new(0, 0, 0.114186853, 0)
