@@ -309,19 +309,8 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 		end
 	end
 	coroutine.wrap(LIORQKS_fake_script)()
-
 	
-	CreditsLabel.Name = "CreditsLabel"
-	CreditsLabel.Parent = MainHeader
-	CreditsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	CreditsLabel.BackgroundTransparency = 1.000
-	CreditsLabel.BorderSizePixel = 0
-	CreditsLabel.Position = UDim2.new(0.408,0,0.345,0)
-	CreditsLabel.Size = UDim2.new(0, 204, 0, 8)
-	CreditsLabel.Font = Enum.Font.Gotham
-	CreditsLabel.TextSize = 16.000
-	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
-	CreditsLabel.Text = CreditTitle
+	local CreditLabel = CreditsLabel
 	
 	local function ZLAEN_fake_script() -- CreditLabel.Rainbower 
 		local script = Instance.new('LocalScript', CreditLabel)
@@ -355,6 +344,21 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 		end
 	end
 	coroutine.wrap(ZLAEN_fake_script)()
+
+	
+	CreditsLabel.Name = "CreditsLabel"
+	CreditsLabel.Parent = MainHeader
+	CreditsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CreditsLabel.BackgroundTransparency = 1.000
+	CreditsLabel.BorderSizePixel = 0
+	CreditsLabel.Position = UDim2.new(0.408,0,0.345,0)
+	CreditsLabel.Size = UDim2.new(0, 204, 0, 8)
+	CreditsLabel.Font = Enum.Font.Gotham
+	CreditsLabel.TextSize = 16.000
+	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
+	CreditsLabel.Text = CreditTitle
+	
+	
 
 
 	close.Name = "close"
