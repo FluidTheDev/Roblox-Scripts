@@ -1044,7 +1044,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 
 			end
 
-			function Elements:NewToggle(callback)
+			function Elements:NewToggle(txt, callback)
 				local TogFunction = {}
 				callback = callback or function() end
 				
@@ -1081,7 +1081,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				togName.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
 				togName.Size = UDim2.new(0, 138, 0, 14)
 				togName.Font = Enum.Font.GothamSemibold
-				togName.Text = "Toggle"
+				togName.Text = txt
 				togName.TextColor3 = Color3.fromRGB(119, 209, 138)
 				togName.TextSize = 14.000
 				togName.TextXAlignment = Enum.TextXAlignment.Left
