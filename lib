@@ -259,7 +259,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 
 	title.Name = "title"
 	title.Parent = MainHeader
-	title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	title.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
 	title.BackgroundTransparency = 1.000
 	title.BorderSizePixel = 0
 	title.Position = UDim2.new(0.0171428565, 0, 0.344827592, 0)
@@ -370,7 +370,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	
 	CreditsLabel.Name = "CreditsLabel"
 	CreditsLabel.Parent = MainHeader
-	CreditsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CreditsLabel.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
 	CreditsLabel.BackgroundTransparency = 1.000
 	CreditsLabel.BorderSizePixel = 0
 	CreditsLabel.Position = UDim2.new(0.408,0,0.345,0)
@@ -380,13 +380,13 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
 	CreditsLabel.Text = CreditTitle
 	
-	ver.Name = "ScriptVersion"
+	ver.Name = "ver"
 	ver.Parent = MainHeader
-	ver.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ver.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
 	ver.BackgroundTransparency = 1.000
 	ver.BorderSizePixel = 0
-	ver.Position = UDim2.new(0.408,0,0.345,0)
-	ver.Size = UDim2.new(0, 204, 0, 8)
+	ver.Position = UDim2.new(0,905,0,19)
+	ver.Size = UDim2.new(0, 35, 0, 19)
 	ver.Font = Enum.Font.GothamSemibold
 	ver.TextSize = 16.000
 	ver.TextXAlignment = Enum.TextXAlignment.Left
