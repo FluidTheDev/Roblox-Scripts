@@ -1047,7 +1047,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 			function Elements:NewToggle(callback)
 				local TogFunction = {}
 				callback = callback or function() end
-				local toggled = false
 				
 				local ToggleElement = Instance.new("TextButton")
 				local UICorner = Instance.new("UICorner")
@@ -1156,24 +1155,24 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 					print(state)
 				end
 
-				script.Parent.Parent.ToggleElement.TogBackground.MouseButton1Click:Connect(function()
+			TogBackground.MouseButton1Click:Connect(function()
 					if debounce == false then
 						if toggled == true then
 							debounce = true
-							game:GetService("TweenService"):Create(script.Parent.Parent.ToggleElement.TogCircle, TweenInfo.new(0.25), {Position = UDim2.new(0.716, 0,0.152, 0)}):Play()
-							game:GetService("TweenService"):Create(script.Parent.Parent.ToggleElement.TogBackground, TweenInfo.new(0.25), {BackgroundColor3 = Color3.fromRGB(42,203,85)}):Play()		
-							script.Parent.Parent.ToggleElement.on.Visible = true
-							script.Parent.Parent.ToggleElement.off.Visible = false
+							game:GetService("TweenService"):Create(TogCircle, TweenInfo.new(0.25), {Position = UDim2.new(0.716, 0,0.152, 0)}):Play()
+							game:GetService("TweenService"):Create(TogBackground, TweenInfo.new(0.25), {BackgroundColor3 = Color3.fromRGB(42,203,85)}):Play()		
+							on.Visible = true
+							off.Visible = false
 							wait(0.25)
 							debounce = false
 							toggled = false
 							pcall(callback, toggled)
 						elseif toggled == false then
 							debounce = true
-							game:GetService("TweenService"):Create(script.Parent.Parent.ToggleElement.TogCircle, TweenInfo.new(0.25), {Position = UDim2.new( 0.605, 0,0.152, 0)}):Play()
-							game:GetService("TweenService"):Create(script.Parent.Parent.ToggleElement.TogBackground, TweenInfo.new(0.25), {BackgroundColor3 = Color3.fromRGB(200,200,200)}):Play()		
-							script.Parent.Parent.ToggleElement.on.Visible = false
-							script.Parent.Parent.ToggleElement.off.Visible = true
+							game:GetService("TweenService"):Create(TogCircle, TweenInfo.new(0.25), {Position = UDim2.new( 0.605, 0,0.152, 0)}):Play()
+							game:GetService("TweenService"):Create(TogBackground, TweenInfo.new(0.25), {BackgroundColor3 = Color3.fromRGB(200,200,200)}):Play()		
+							on.Visible = false
+							off.Visible = true
 							wait(0.25)
 							debounce = false
 							toggled = true
