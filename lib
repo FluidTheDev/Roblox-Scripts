@@ -1066,7 +1066,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				LabFunction.Size = UDim2.new(0, 288, 0, 14)
 				LabFunction.Font = Enum.Font.GothamSemibold
 				LabFunction.Text = tname
-				LabFunction.TextColor3 =  Color3.fromRGB(255,255,255)
+				LabFunction.TextColor3 =  Color3.fromRGB(119, 209, 138)
 				LabFunction.TextSize = 14.000
 				LabFunction.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1079,7 +1079,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				LabelIcon.Font = Enum.Font.SourceSansBold
 				LabelIcon.TextScaled = true
 				LabelIcon.Text = "info"
-				LabelIcon.TextColor3 = Color3.fromRGB(255,255,255)
+				LabelIcon.TextColor3 = Color3.fromRGB(230, 35, 69)
 				LabelIcon.TextSize = 14.000
 				LabelIcon.TextXAlignment = Enum.TextXAlignment.Left
 
