@@ -1046,8 +1046,8 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 
 			function Elements:NewToggle(txt, callback)
 				local TogFunction = {}
-				callback = callback or function() end
-				
+				txt = txt or "Toggle"
+  	         	callback = callback or function() end
 				local ToggleElement = Instance.new("TextButton")
 				local UICorner = Instance.new("UICorner")
 				local togName = Instance.new("TextLabel")
