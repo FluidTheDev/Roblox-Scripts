@@ -385,7 +385,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	ver.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
 	ver.BackgroundTransparency = 1.000
 	ver.BorderSizePixel = 0
-	ver.Position = UDim2.new(0,600,0,172)
+	ver.Position = UDim2.new(0,500,0,172)
 	ver.Size = UDim2.new(0, 35, 0, 19)
 	ver.Font = Enum.Font.GothamSemibold
 	ver.TextSize = 16.000
