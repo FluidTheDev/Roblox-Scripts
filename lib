@@ -1310,6 +1310,34 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle)
 				local UICorner_3 = Instance.new("UICorner")
 				local write = Instance.new("ImageLabel")
 				local val = Instance.new("TextLabel")
+				local MaxValue = Instance.new("TextButton")
+				local MinValue = Instance.new("TextButton")
+				
+				MaxValue.Name = "MaxValue"
+				MaxValue.Parent = sliderElement
+				MaxValue.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
+				MaxValue.BackgroundTransparency = 1.000
+				MaxValue.BorderSizePixel = 0
+				MaxValue.Position = UDim2.new(0.846704543, 0, 0.575757623, 0)
+				MaxValue.Size = UDim2.new(0, 15, 0, 10)
+				MaxValue.AutoButtonColor = false
+				MaxValue.Font = Enum.Font.GothamSemibold
+				MaxValue.Text = "Max"
+				MaxValue.TextColor3 = Color3.fromRGB(119, 209, 138)
+				MaxValue.TextSize = 14.000
+
+				MinValue.Name = "MinValue"
+				MinValue.Parent = sliderElement
+				MinValue.BackgroundColor3 = Color3.fromRGB(230, 35, 69)
+				MinValue.BackgroundTransparency = 1.000
+				MinValue.BorderSizePixel = 0
+				MinValue.Position = UDim2.new(0.514318049, 0, 0.575757563, 0)
+				MinValue.Size = UDim2.new(0, 15, 0, 10)
+				MinValue.AutoButtonColor = false
+				MinValue.Font = Enum.Font.GothamSemibold
+				MinValue.Text = "Min"
+				MinValue.TextColor3 = Color3.fromRGB(119, 209, 138)
+				MinValue.TextSize = 14.000
 
 				sliderElement.Name = "sliderElement"
 				sliderElement.Parent = sectionInners
