@@ -142,8 +142,6 @@ local LibName = "Lib"
 function Kavo:ToggleUI()
 	if game.CoreGui[LibName].Enabled then
 		for i,v in pairs(game.CoreGui[LibName].Main:GetDescendants()) do
-		v.Transparency = 0
-		wait(0.1)
 		v.Transparency = 0.1
 		wait(0.1)
 		v.Transparency = 0.2
@@ -167,8 +165,6 @@ function Kavo:ToggleUI()
 		end
 	else
 		for i,v in pairs(game.CoreGui[LibName].Main:GetDescendants()) do
-			v.Transparency = 1
-			wait(0.1)
 			v.Transparency = 0.9
 			wait(0.1)
 			v.Transparency = 0.8
