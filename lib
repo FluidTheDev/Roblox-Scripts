@@ -141,51 +141,55 @@ local LibName = "Lib"
 
 function Kavo:ToggleUI()
 	if game.CoreGui[LibName].Enabled then
-		game.CoreGui[LibName].Main.Transparency = 0
+		for i,v in pairs(game.CoreGui[LibName].Main:GetDescendants()) do
+		v.Transparency = 0
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.1
+		v.Transparency = 0.1
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.2
+		v.Transparency = 0.2
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.3
+		v.Transparency = 0.3
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.4
+		v.Transparency = 0.4
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.5
+		v.Transparency = 0.5
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.6
+		v.Transparency = 0.6
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.7
+		v.Transparency = 0.7
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.8
+		v.Transparency = 0.8
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.9
+		v.Transparency = 0.9
 		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 1
+		v.Transparency = 1
 		wait(0.1)
+		end
 	else
-		game.CoreGui[LibName].Main.Transparency = 1
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.9
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.8
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.7
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.6
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.5
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.4
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.3
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.2
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0.1
-		wait(0.1)
-		game.CoreGui[LibName].Main.Transparency = 0
-		wait(0.1)
+		for i,v in pairs(game.CoreGui[LibName].Main:GetDescendants()) do
+			v.Transparency = 1
+			wait(0.1)
+			v.Transparency = 0.9
+			wait(0.1)
+			v.Transparency = 0.8
+			wait(0.1)
+			v.Transparency = 0.7
+			wait(0.1)
+			v.Transparency = 0.6
+			wait(0.1)
+			v.Transparency = 0.5
+			wait(0.1)
+			v.Transparency = 0.4
+			wait(0.1)
+			v.Transparency = 0.3
+			wait(0.1)
+			v.Transparency = 0.2
+			wait(0.1)
+			v.Transparency = 0.1
+			wait(0.1)
+			v.Transparency = 0
+			wait(0.1)
+		end
 	end
 end
 function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
