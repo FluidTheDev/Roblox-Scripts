@@ -147,7 +147,7 @@ pcall(function()
 	Settings = game:service'HttpService':JSONEncode(readfile(Name))
 end)
 
-function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
+function Kavo.CreateLib(kavName, themeList)
 	if not themeList then
 		themeList = themes
 	end
@@ -402,18 +402,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	end
 	coroutine.wrap(ZLAET_fake_script)()
 
-	CreditsLabel.Name = "CreditsLabel"
-	CreditsLabel.Parent = MainHeader
-	CreditsLabel.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
-	CreditsLabel.BackgroundTransparency = 1.000
-	CreditsLabel.BorderSizePixel = 0
-	CreditsLabel.Position = UDim2.new(0.204,0,0.344827592,0)
-	CreditsLabel.Size = UDim2.new(0, 204, 0, 8)
-	CreditsLabel.Font = Enum.Font.GothamSemibold
-	CreditsLabel.TextSize = 16.000
-	CreditsLabel.TextXAlignment = Enum.TextXAlignment.Left
-	CreditsLabel.Text = CreditTitle
-
 	ver.Name = "ver"
 	ver.Parent = MainHeader
 	ver.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
@@ -425,19 +413,6 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	ver.TextSize = 16.000
 	ver.TextXAlignment = Enum.TextXAlignment.Left
 	ver.Text = "v1"
-
-	IsUpdatedLabel.Name = "IsUpdatedLabel"
-	IsUpdatedLabel.Parent = MainHeader
-	IsUpdatedLabel.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
-	IsUpdatedLabel.BackgroundTransparency = 1.000
-	IsUpdatedLabel.BorderSizePixel = 0
-	IsUpdatedLabel.Position = UDim2.new(0,360, 0, 5)
-	IsUpdatedLabel.Size = UDim2.new(0, 35, 0, 19)
-	IsUpdatedLabel.Font = Enum.Font.GothamSemibold
-	IsUpdatedLabel.TextSize = 16.000
-	IsUpdatedLabel.TextXAlignment = Enum.TextXAlignment.Left
-	IsUpdatedLabel.Text = "Updated"
-
 
 	close.Name = "close"
 	close.Parent = MainHeader
