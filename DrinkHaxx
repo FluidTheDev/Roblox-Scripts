@@ -1,0 +1,637 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/moddedhacker/Roblox-Scripts/main/lib"))()
+local DrinkHaxx = Library.CreateLib("DrinkHaxx", "Sentinel")
+local Player = DrinkHaxx:NewTab("Player")
+local AutoFarm = DrinkHaxx:NewTab("AutoFarm")
+local Character = Player:NewSection("Character")
+local SoundSetting = DrinkHaxx:NewTab("Sound")
+local SoundSettings = SoundSetting:NewSection("SoundSettings")
+local Songs = SoundSetting:NewSection("Songs")
+local AutoFarm = AutoFarm:NewSection("AutoFarm")
+local Tp = DrinkHaxx:NewTab("Teleport")
+local Teleport = Tp:NewSection("Teleport")
+local Pet = DrinkHaxx:NewTab("Pets")
+local Pets = Pet:NewSection("Pets")
+local Setting = DrinkHaxx:NewTab("Settings")
+local Settings = Setting:NewSection("Settings")
+local Credit = DrinkHaxx:NewTab("Credits")
+local Credits = Credit:NewSection("Credits")
+
+Settings:NewKeybind("ToggleUI", "Toggles The Gui", Enum.KeyCode.T, function()
+	Library:ToggleUI()
+end)
+
+Character:NewButton("Display Prestige", "Displays the prestiges you have", function()
+	local Gui = Instance.new("ScreenGui")
+	local Value = Instance.new("TextLabel")
+
+	Gui.Parent = game.CoreGui
+	Gui.Name = "Gui"
+
+	Value.Parent = game.CoreGui.Gui
+	Value.Name = "Value"
+	while wait() do
+		Value.Text = "Prestige:"..game.Players.LocalPlayer.leaderstats.Prestige.Value
+		Value.Size = UDim2.new(0, 193,0, 38)
+		Value.BackgroundTransparency = 1
+		Value.TextColor3 = Color3.fromRGB(255,255,255)
+		Value.Font = Enum.Font.GothamSemibold
+		Value.TextSize = 20
+
+	end
+end)
+
+Character:NewToggle("Auto Equip Pickaxe", "Auto Equips Pickaxe", function(v)
+	getgenv().pickaxe = v
+	while true do
+		if not getgenv().pickaxe then return end
+		wait()
+		local Players = game:GetService("Players")
+
+		local player = Players:FindFirstChildOfClass("Player")
+		if player and player.Character then
+			local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				local tool = Players.LocalPlayer.Backpack:FindFirstChild("Pickaxe")
+				if tool then
+					humanoid:EquipTool(tool)
+				end
+			end
+		end
+	end
+end)
+
+Character:NewButton("Rejoin Game", "Rejoins the game", function()
+	game:GetService("TeleportService"):Teleport(game.PlaceId)
+end)
+
+Character:NewButton("ESP", "Enables ESP", function()
+	local lplr = game.Players.LocalPlayer
+	local camera = game:GetService("Workspace").CurrentCamera
+	local CurrentCamera = workspace.CurrentCamera
+	local worldToViewportPoint = CurrentCamera.WorldToViewportPoint
+
+	_G.TeamCheck = false
+
+	for i,v in pairs(game.Players:GetChildren()) do
+		local Tracer = Drawing.new("Line")
+		Tracer.Visible = false
+		Tracer.Color = Color3.new(1,1,1)
+		Tracer.Thickness = 1
+		Tracer.Transparency = 1
+		function lineesp()
+			game:GetService("RunService").RenderStepped:Connect(function()
+				if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+					local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+					if OnScreen then
+						Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+						Tracer.To = Vector2.new(Vector.X, Vector.Y)
+
+						if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+
+							Tracer.Visible = false
+						else
+
+							Tracer.Visible = true
+						end
+					else
+						Tracer.Visible = false
+					end
+				else
+					Tracer.Visible = false
+				end
+			end)
+		end
+		coroutine.wrap(lineesp)()
+	end
+
+	game.Players.PlayerAdded:Connect(function(v)
+		local Tracer = drawing.new("Line")
+		Tracer.Visible = false
+		Tracer.Color = Color3.new(1,1,1)
+		Tracer.Thickness = 1
+		Tracer.Transparency = 1
+		function lineesp()
+			game:GetService("RunService").RenderStepped:Connect(function()
+				if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+					local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+					if OnScreen then
+						Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+						Tracer.To = Vector2.new(Vector.X, Vector.Y)
+
+						if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+
+							Tracer.Visible = false
+						else
+
+							Tracer.Visible = true
+						end
+					else
+						Tracer.Visible = false
+					end
+				else
+					Tracer.Visible = false
+				end
+			end)
+		end
+		coroutine.wrap(lineesp)()
+	end)
+end)
+
+game.Players.PlayerAdded:Connect(function()
+	local gui = Instance.new("BillboardGui");
+	gui.Parent = game.CoreGui
+	gui.Name = "";
+	gui.AlwaysOnTop = true;
+	gui.LightInfluence = 0;
+	gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+	local frame = Instance.new("Frame", gui);
+	frame.BackgroundColor3 = Color3.fromRGB(170, 0, 0);
+	frame.Size = UDim2.new(1, 0, 1, 0);
+	frame.BorderSizePixel = 4;
+	frame.BorderColor3 = Color3.fromRGB(0, 0, 0);
+	local gi = gui:Clone();
+	local body = frame:Clone();
+	body.Parent = gi;
+	body.BackgroundColor3 = Color3.fromRGB(0, 170, 170);
+
+	for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+		if v.Name ~= game:GetService("Players").LocalPlayer.Name and v.Character and v.Character:FindFirstChild("Head") then
+			gui:Clone().Parent = v.Character.Head;
+		end
+	end
+end)
+
+SoundSettings:NewTextBox("SoundId", "Input SongId", function(txt)
+	game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://".. txt
+end)
+
+
+SoundSettings:NewToggle("Play", "PlayS the song", function(v)
+	if v then
+		game.Players.LocalPlayer.Sound.Playing = true
+	else
+		game.Players.LocalPlayer.Sound.Playing = false
+	end
+end)
+
+SoundSettings:NewSlider("Volume", "Increase Or Decrease The Volume Of The Sound", 10, 1, function(v)
+	game.Players.LocalPlayer.Sound.Volume = v
+end)
+
+SoundSettings:NewToggle("Loop", "Loops Or Run Once", function(v)
+	game.Players.LocalPlayer.Sound.Looped = v
+end)
+
+
+Songs:NewDropdown("Songs", "Select a Song To Play", {"Russianhardbass", "SolvedTheProblem", "SummerVibes"}, function(currentOption)
+	if currentOption == "Russianhardbass" then
+		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://2508725733"
+	end
+	if currentOption == "SolvedTheProblem" then
+		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://6537079450"
+	end
+	if currentOption == "SummerVibes" then
+		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://1836869650"
+	end
+end)
+
+
+Character:NewButton("Fly", "Makes you character fly", function()
+
+	local player = game.Players.LocalPlayer
+	local character = player.Character
+	local humanoid = character:WaitForChild("Humanoid")
+	local torso = character:WaitForChild("LowerTorso")
+	local mouse = player:GetMouse()
+
+	local enabled = false
+
+	mouse.KeyDown:Connect(function(key)
+		if key == "e" then
+			if enabled == false then
+				enabled = true
+				local bodyvelocity = Instance.new("BodyVelocity", torso)
+				bodyvelocity.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+
+				while enabled == true do
+					bodyvelocity.Velocity = mouse.Hit.lookVector * 200
+					wait()
+				end
+
+			end
+
+			if enabled == true then
+				enabled = false
+				torso:FindFirstChildOfClass("BodyVelocity"):Destroy()
+			end
+
+		end
+	end)
+end)
+
+Character:NewToggle("Auto equip best drink", "Auto equip the best drink in your backpack", function(v)
+	getgenv().autoequip = v
+	while true do
+		if not getgenv().autoequip then return end
+		wait()
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value == 0 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Starter Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 150 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Second Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 600 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Third Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 1600 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Fourth Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 3500 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Fifth Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 10000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Sixth Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 25000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Seventh Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 60000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Eighth Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 150000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Ninth Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 230000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Atomic Drink")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+
+		if game.Players.LocalPlayer.leaderstats["Burp points"].Value >= 500000 then
+			local Players = game:GetService("Players")
+
+			local player = Players:FindFirstChildOfClass("Player")
+			if player and player.Character then
+				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Omega Burp Juice")
+					if tool then
+						humanoid:EquipTool(tool)
+					end
+				end
+			end
+		end
+	end
+end)
+
+AutoFarm:NewToggle("Auto Mine", "Auto Mines", function(v)
+	getgenv().automine = v
+	while true do
+		if not getgenv().automine then return end
+		wait()
+		local A_1 = game.Workspace.. tostring(game.Players.LocalPlayer.Name).Pickaxe
+		local Event = game.Workspace.. tostring(game.Players.LocalPlayer.Name).Pickaxe.Server.Mine
+		Event:FireServer(A_1)
+	end
+end)
+
+Pets:NewButton("Buy Small Blue", "Buys the Pet", function()
+	local A_1 = "Small Blue"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Small Red", "Buys the Pet", function()
+	local A_1 = "Small Red"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Blue", "Buys the Pet", function()
+	local A_1 = "Blue"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Purple", "Buys the Pet", function()
+	local A_1 = "Purple"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Green", "Buys the Pet", function()
+	local A_1 = "Green"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Orange", "Buys the Pet", function()
+	local A_1 = "Orange"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Winged Blue", "Buys the Pet", function()
+	local A_1 = "Winged Blue"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Winged Purple", "Buys the Pet", function()
+	local A_1 = "Winged Purple"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Winged Green", "Buys the Pet", function()
+	local A_1 = "Winged Green"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Winged Orange", "Buys the Pet", function()
+	local A_1 = "Winged Orange"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Fire", "Buys the Pet", function()
+	local A_1 = "Fire"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Flower", "Buys the Pet", function()
+	local A_1 = "Flower"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Wizard", "Buys the Pet", function()
+	local A_1 = "Wizard"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Vampire", "Buys the Pet", function()
+	local A_1 = "Vampire"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Cool Dude", "Buys the Pet", function()
+	local A_1 = "Cool Dude"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Rainbow", "Buys the Pet", function()
+	local A_1 = "Rainbow"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Triplet", "Buys the Pet", function()
+	local A_1 = "Triplet"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Radioactive", "Buys the Pet", function()
+	local A_1 = "Radioactive"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Volcanic", "Buys the Pet", function()
+	local A_1 = "Volcanic"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Pets:NewButton("Buy Cyborg", "Buys the Pet", function()
+	local A_1 = "Cyborg"
+	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+	Event:InvokeServer(A_1)
+end)
+
+Teleport:NewButton("Safe Zone", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2261353, 49.3965607, -14.7153053)
+end)
+
+Teleport:NewButton("Pet Shop", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(311.173431, 51.67733, 103.252586)
+end)
+
+Teleport:NewButton("Disco Island", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.326767, 57.8280067, 636.143311)
+end)
+
+Teleport:NewButton("Cloud One", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(296.072845, 578.587952, 689.323914)
+end)
+
+Teleport:NewButton("Cloud Second", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1224.30969, 569.08551, -318.371063)
+end)
+
+Teleport:NewButton("Sky Island", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2131.95117, 1468.90979, -1033.56641)
+end)
+
+Teleport:NewButton("Sky Island Roof", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2137.84351, 1755.90881, -1385.93677)
+end)
+
+Teleport:NewButton("Second Island Portal", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.32132, 60.3405838, -23.2665043)
+end)
+
+Teleport:NewButton("Sky Island Portal", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1243.97876, 60.0078888, -257.224762)
+end)
+
+Teleport:NewButton("Second Island Hotel Roof", "Tp you to the place you clicked", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
+end)
+
+AutoFarm:NewToggle("Tp to all Diamonds", "Auto collect all diamonds", function(v)
+	getgenv().autogem = v
+	while true do
+		if not getgenv().autogem then return end 
+		wait()
+		game.Workspace.Diamonds:WaitForChild("Diamond").CFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+	end
+end)
+
+AutoFarm:NewToggle("Auto Prestige", "Prestige auto without clicking prestige button", function(v)
+	getgenv().prestige = v
+	while true do
+		if not getgenv().prestige then return end
+		wait()
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PrestigeEvent
+		Event:FireServer(A_1)
+	end
+end)
+
+Character:NewButton("Infinity Yield", "Execute Infinity Yield", function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+Credits:NewButton("GrannyTheDev#6786", "Discord: GrannyTheDev#6786", function()
+	setclipboard("GrannyTheDev#6786")
+end)
+
+Character:NewButton("WalkSpeed", "Toggles walkspeed", function()
+	while wait() do
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 700
+	end
+end)
+
+Character:NewButton("Inf Jump", "Allow you to jump inf", function()
+	game:GetService("UserInputService").JumpRequest:connect(function()
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")		
+	end)
+end)
+
+Character:NewToggle("Noclip", "Allow you walk through walls", function(state)
+	local Workspace = game:GetService("Workspace")
+	local CoreGui = game:GetService("CoreGui")
+	local Players = game:GetService("Players")
+	local Plr = Players.LocalPlayer
+	local Clipon = false
+
+	if state then
+		Clipon = true
+		Stepped = game:GetService("RunService").Stepped:Connect(function()
+			if not Clipon == false then
+				for a, b in pairs(Workspace:GetChildren()) do
+					if b.Name == Plr.Name then
+						for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false
+							end end end end
+			end
+		end)
+	else
+		Stepped:Disconnect()
+	end
+end)
