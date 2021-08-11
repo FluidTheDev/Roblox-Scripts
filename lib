@@ -1177,7 +1177,7 @@ function Kavo.CreateLib(kavName, themeList)
 
 			end
 			
-			function Elements:LoopTextLabel(tname)
+			function Elements:LoopLabel(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
 				table.insert(SettingsT, tname)
