@@ -1,6 +1,6 @@
 game.Players.LocalPlayer.PlayerGui.IntroGui.Frame.TextLabel.Text = "Welcome by MoonHaxx"
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/moddedhacker/UI-lib/main/library"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/moddedhacker/Roblox-Scripts/main/lib"))()
 local MoonHaxx = Library.CreateLib("MoonHaxx", "Sentinel")
 local Player = MoonHaxx:NewTab("Player")
 local Sound = MoonHaxx:NewTab("Sound")
