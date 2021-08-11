@@ -1121,7 +1121,7 @@ function Kavo.CreateLib(kavName, themeList)
 
 
 
-			function Elements:NewLabel(tname, loop)
+			function Elements:NewLabel(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
 				table.insert(SettingsT, tname)
@@ -1157,14 +1157,63 @@ function Kavo.CreateLib(kavName, themeList)
 				LabFunction.TextSize = 14.000
 				LabFunction.TextXAlignment = Enum.TextXAlignment.Left
 				
-				if loop == "True" then
-					while wait() do
-						LabelFunction.Text = tname
-					end
+				LabelIcon.Name = "LabelIcon"
+				LabelIcon.Parent = LabelElement
+				LabelIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				LabelIcon.BackgroundTransparency = 1.000
+				LabelIcon.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+				LabelIcon.Size = UDim2.new(0, 288, 0, 14)
+				LabelIcon.Font = Enum.Font.SourceSansBold
+				LabelIcon.TextScaled = true
+				LabelIcon.Text = "info"
+				LabelIcon.TextColor3 = Color3.fromRGB(230, 35, 69)
+				LabelIcon.TextSize = 14.000
+				LabelIcon.TextXAlignment = Enum.TextXAlignment.Left
+
+				local UICorner = Instance.new("UICorner")
+
+				SectionFrame()
+				Size()
+
+			end
+			
+			function Elements:LoopTextLabel(tname)
+				local LabelFunction = {}
+				tname = tname or "Label"
+				table.insert(SettingsT, tname)
+
+				local LabelElement = Instance.new("TextLabel")
+				local LabelIcon = Instance.new("TextLabel")
+				local UICorner = Instance.new("UICorner")
+				local LabFunction = Instance.new("TextLabel")
+				local Sample = Instance.new("ImageLabel")
+
+				LabelElement.Name = "LabelElement"
+				LabelElement.Parent = sectionInners
+				LabelElement.BackgroundColor3 = themeList.ElementColor
+				LabelElement.ClipsDescendants = true
+				LabelElement.Size = UDim2.new(0, 352, 0, 33)
+				LabelElement.Font = Enum.Font.SourceSans
+				LabelElement.Text = ""
+				LabelElement.TextColor3 = Color3.fromRGB(0, 0, 0)
+				LabelElement.TextSize = 14.000
+
+				UICorner.CornerRadius = UDim.new(0, 4)
+				UICorner.Parent = LabelElement
+
+				LabFunction.Name = "LabFunction"
+				LabFunction.Parent = LabelElement
+				LabFunction.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				LabFunction.BackgroundTransparency = 1.000
+				LabFunction.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
+				LabFunction.Size = UDim2.new(0, 288, 0, 14)
+				LabFunction.Font = Enum.Font.GothamSemibold
+				while wait() do
+				LabFunction.Text = tname
 				end
-				if loop == "False" then
-					LabelFunction.Text = tname
-				end
+				LabFunction.TextColor3 =  Color3.fromRGB(119, 209, 138)
+				LabFunction.TextSize = 14.000
+				LabFunction.TextXAlignment = Enum.TextXAlignment.Left
 
 				LabelIcon.Name = "LabelIcon"
 				LabelIcon.Parent = LabelElement
