@@ -1120,7 +1120,7 @@ function Kavo.CreateLib(kavName, themeList)
 			end 
 
 
-				
+
 			function Elements:NewLabel(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
@@ -1176,7 +1176,7 @@ function Kavo.CreateLib(kavName, themeList)
 				Size()
 
 			end
-			
+
 			function Elements:NewToggle(tname, nTip, callback)
 				local TogFunction = {}
 				tname = tname or "Toggle"
@@ -2803,3 +2803,5 @@ function Kavo.CreateLib(kavName, themeList)
 	end  
 	return Tabs
 end
+
+return Kavo
