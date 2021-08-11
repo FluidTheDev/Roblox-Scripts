@@ -208,9 +208,7 @@ function Kavo.CreateLib(kavName, themeList)
 	local pages = Instance.new("Frame")
 	local Pages = Instance.new("Folder")
 	local infoContainer = Instance.new("Frame")
-	local CreditsLabel = Instance.new("TextLabel")
 	local ver = Instance.new("TextLabel")
-	local IsUpdatedLabel = Instance.new("TextLabel")
 
 	local blurFrame = Instance.new("Frame")
 
