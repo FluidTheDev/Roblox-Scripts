@@ -573,15 +573,6 @@ Teleport:NewButton("Second Island Hotel Roof", "Tp you to the place you clicked"
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
 end)
 
-AutoFarm:NewToggle("Tp to all Diamonds", "Auto collect all diamonds", function(v)
-	getgenv().autogem = v
-	while true do
-		if not getgenv().autogem then return end 
-		wait()
-		game.Workspace.Diamonds:WaitForChild("Diamond").CFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
-	end
-end)
-
 AutoFarm:NewToggle("Auto Prestige", "Prestige auto without clicking prestige button", function(v)
 	getgenv().prestige = v
 	while true do
