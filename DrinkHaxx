@@ -1,11 +1,60 @@
+local SoundFolder = Instance.new("Folder", game.Players.LocalPlayer)
+SoundFolder.Name = "SoundFolder"
+local Sound = Instance.new("Sound", game.Players.LocalPlayer.SoundFolder)
+Sound.Name = "Sound"
+
+local safeplace = Instance.new("Folder")
+local floor = Instance.new("Part")
+local wall1 = Instance.new("Part")
+local wall2 = Instance.new("Part")
+local wall3 = Instance.new("Part")
+local wall4 = Instance.new("Part")
+
+floor.Name = "floor"
+wall1.Name = "wall1"
+wall2.Name = "wall2"
+wall3.Name = "wall3"
+wall4.Name = "wall4"
+safeplace.Name = "safeplace"
+safeplace.Parent = game.Workspace
+floor.Position = Vector3.new(-4016.9104003906, 5881.552734375, -11955.133789063)
+floor.Size = Vector3.new(512, 5, 512)
+floor.Anchored = true
+floor.Parent = game.Workspace.safeplace
+wall1.Position = Vector3.new(-3760.41, 6257.053, -11955.134)
+wall1.Size = Vector3.new(5, 752, 512)
+wall1.Anchored = true
+wall1.Transparency = 1
+wall1.Parent = game.Workspace.safeplace
+wall2.Position = Vector3.new(-4273.41, 6257.053, -11954.634)
+wall2.Size = Vector3.new(5, 752, 513)
+wall2.Anchored = true
+wall2.Transparency = 1
+wall2.Parent = game.Workspace.safeplace
+wall3.Position = Vector3.new(-4016.41, 6257.053, -12211.634)
+wall3.Size = Vector3.new(5, 752, 514)
+wall3.Anchored = true
+wall3.Transparency = 1
+wall3.Orientation = Vector3.new(0, 90, 0)
+wall3.Parent = game.Workspace.safeplace
+wall4.Position = Vector3.new(-4016.41, 6257.053, -11698.634)
+wall4.Size = Vector3.new(5, 752, 513)
+wall4.Anchored = true
+wall4.Transparency = 1
+wall4.Orientation = Vector3.new(0, 90, 0)
+wall4.Parent = game.Workspace.safeplace
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/moddedhacker/Roblox-Scripts/main/lib"))()
 local DrinkHaxx = Library.CreateLib("DrinkHaxx", "Sentinel")
-local Player = DrinkHaxx:NewTab("Player")
-local AutoFarm = DrinkHaxx:NewTab("AutoFarm")
-local Character = Player:NewSection("Character")
+local main = DrinkHaxx:NewTab("game")
+local LocalPlayer = main:NewSection("LocalPlayer")
+local RandomScripts = main:NewSection("Random Scripts")
+local DrinkPoperties = main:NewSection("DrinkProperties")
+local FEScripts = main:NewSection("FE")
 local SoundSetting = DrinkHaxx:NewTab("Sound")
 local SoundSettings = SoundSetting:NewSection("SoundSettings")
 local Songs = SoundSetting:NewSection("Songs")
+local AutoFarm = DrinkHaxx:NewTab("AutoFarm")
 local AutoFarm = AutoFarm:NewSection("AutoFarm")
 local Tp = DrinkHaxx:NewTab("Teleport")
 local Teleport = Tp:NewSection("Teleport")
@@ -16,31 +65,351 @@ local Settings = Setting:NewSection("Settings")
 local Credit = DrinkHaxx:NewTab("Credits")
 local Credits = Credit:NewSection("Credits")
 
+DrinkPoperties:NewButton("Starter Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Second Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Second Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Second Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Third Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Third Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Third Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Fourth Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Fifth Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b)
+			end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Fourth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Fifth Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Sixth Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Sixth Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Seventh Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Seventh Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Eighth Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Eighth Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Ninth Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Ninth Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Atomic Drink Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.r,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.g,game.Workspace.ienxdfgooi["Atomic Drink"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+DrinkPoperties:NewButton("Omega Burp juice Rainbow", "Makes your drink rainbow", function()
+	while wait() do
+		game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g+(17/255),game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r-(17/255),game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g-(17/255),game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r+(17/255),game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color = Color3.new(game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.r,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.g,game.Workspace.ienxdfgooi["Omega Burp juice"].Handle.Color.b-(17/255))
+		end
+	end
+end)
+
+LocalPlayer:NewToggle("Float Character", "Makes you stay in the sky", function(state)
+	if state then
+		Stepped = game:GetService("RunService").Stepped:Connect(function()
+			game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid"):ChangeState(11)
+		end)
+	else
+		Stepped:Disconnect()
+	end
+end)
+
 Settings:NewKeybind("ToggleUI", "Toggles The Gui", Enum.KeyCode.T, function()
 	Library:ToggleUI()
 end)
 
-Character:NewButton("Display Prestige", "Displays the prestiges you have", function()
-	local Gui = Instance.new("ScreenGui")
-	local Value = Instance.new("TextLabel")
-
-	Gui.Parent = game.CoreGui
-	Gui.Name = "Gui"
-
-	Value.Parent = game.CoreGui.Gui
-	Value.Name = "Value"
-	while wait() do
-		Value.Text = "Prestige:"..game.Players.LocalPlayer.leaderstats.Prestige.Value
-		Value.Size = UDim2.new(0, 193,0, 38)
-		Value.BackgroundTransparency = 1
-		Value.TextColor3 = Color3.fromRGB(255,255,255)
-		Value.Font = Enum.Font.GothamSemibold
-		Value.TextSize = 20
-
-	end
-end)
-
-Character:NewToggle("Auto Equip Pickaxe", "Auto Equips Pickaxe", function(v)
+AutoFarm:NewToggle("Auto Equip Pickaxe", "Auto Equips Pickaxe", function(v)
 	getgenv().pickaxe = v
 	while true do
 		if not getgenv().pickaxe then return end
@@ -60,11 +429,11 @@ Character:NewToggle("Auto Equip Pickaxe", "Auto Equips Pickaxe", function(v)
 	end
 end)
 
-Character:NewButton("Rejoin Game", "Rejoins the game", function()
+RandomScripts:NewButton("Rejoin Game", "Rejoins the game", function()
 	game:GetService("TeleportService"):Teleport(game.PlaceId)
 end)
 
-Character:NewButton("ESP", "Enables ESP", function()
+LocalPlayer:NewButton("ESP", "Enables ESP", function()
 	local lplr = game.Players.LocalPlayer
 	local camera = game:GetService("Workspace").CurrentCamera
 	local CurrentCamera = workspace.CurrentCamera
@@ -164,41 +533,41 @@ game.Players.PlayerAdded:Connect(function()
 end)
 
 SoundSettings:NewTextBox("SoundId", "Input SongId", function(txt)
-	game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://".. txt
+	game.Players.LocalPlayer.SoundFolder.Sound.SoundId = "rbxassetid://".. txt
 end)
 
 
 SoundSettings:NewToggle("Play", "PlayS the song", function(v)
 	if v then
-		game.Players.LocalPlayer.Sound.Playing = true
+		game.Players.LocalPlayer.SoundFolder.Sound.Playing = true
 	else
-		game.Players.LocalPlayer.Sound.Playing = false
+		game.Players.LocalPlayer.SoundFolder.Sound.Playing = false
 	end
 end)
 
 SoundSettings:NewSlider("Volume", "Increase Or Decrease The Volume Of The Sound", 10, 1, function(v)
-	game.Players.LocalPlayer.Sound.Volume = v
+	game.Players.LocalPlayer.SoundFolder.Sound.Volume = v
 end)
 
 SoundSettings:NewToggle("Loop", "Loops Or Run Once", function(v)
-	game.Players.LocalPlayer.Sound.Looped = v
+	game.Players.LocalPlayer.SoundFolder.Sound.Looped = v
 end)
 
 
 Songs:NewDropdown("Songs", "Select a Song To Play", {"Russianhardbass", "SolvedTheProblem", "SummerVibes"}, function(currentOption)
 	if currentOption == "Russianhardbass" then
-		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://2508725733"
+		game.Players.LocalPlayer.SoundFolder.Sound.SoundId = "rbxassetid://2508725733"
 	end
 	if currentOption == "SolvedTheProblem" then
-		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://6537079450"
+		game.Players.LocalPlayer.SoundFolder.Sound.SoundId = "rbxassetid://6537079450"
 	end
 	if currentOption == "SummerVibes" then
-		game.Players.LocalPlayer.Sound.SoundId = "rbxassetid://1836869650"
+		game.Players.LocalPlayer.SoundFolder.Sound.SoundId = "rbxassetid://1836869650"
 	end
 end)
 
 
-Character:NewButton("Fly", "Makes you character fly", function()
+LocalPlayer:NewButton("Fly", "Makes you character fly", function()
 
 	local player = game.Players.LocalPlayer
 	local character = player.Character
@@ -231,7 +600,7 @@ Character:NewButton("Fly", "Makes you character fly", function()
 	end)
 end)
 
-Character:NewToggle("Auto equip best drink", "Auto equip the best drink in your backpack", function(v)
+AutoFarm:NewToggle("Auto equip best drink", "Auto equip the best drink in your backpack", function(v)
 	getgenv().autoequip = v
 	while true do
 		if not getgenv().autoequip then return end
@@ -402,175 +771,143 @@ Character:NewToggle("Auto equip best drink", "Auto equip the best drink in your 
 	end
 end)
 
-AutoFarm:NewToggle("Auto Mine", "Auto Mines", function(v)
-	getgenv().automine = v
-	while true do
-		if not getgenv().automine then return end
-		wait()
-		local A_1 = game.Workspace.. tostring(game.Players.LocalPlayer.Name).Pickaxe
-		local Event = game.Workspace.. tostring(game.Players.LocalPlayer.Name).Pickaxe.Server.Mine
-		Event:FireServer(A_1)
+Pets:NewDropdown("Buy Pets", "Buys The Selected Pet", {"Small Blue", "Small Red", "Blue", "Purple","Green", "Orange", "Winged Blue", "Winged Purple", "Winged Green", "Winged Orange", "Fire", "Flower", "Wizard", "Vampire", "Cool Dude", "Rainbow", "Triplet", "Radioactive", "Volcanic", "Cyborg",}, function(currentOption)
+	if currentOption == "Small Blue" then
+		local A_1 = "Small Blue"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Small Red" then
+		local A_1 = "Small Red"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Blue" then
+		local A_1 = "Blue"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Purple" then
+		local A_1 = "Purple"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Green" then
+		local A_1 = "Green"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Orange" then
+		local A_1 = "Orange"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Winged Blue" then
+		local A_1 = "Winged Blue"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Winged Purple" then
+		local A_1 = "Winged Purple"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Winged Green" then
+		local A_1 = "Winged Green"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Winged Orange" then
+		local A_1 = "Winged Orange"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Fire" then
+		local A_1 = "Fire"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Flower" then
+		local A_1 = "Flower"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Wizard" then
+		local A_1 = "Wizard"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Vampire" then
+		local A_1 = "Vampire"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Cool Dude" then
+		local A_1 = "Cool Dude"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Rainbow" then
+		local A_1 = "Rainbow"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Triplet" then
+		local A_1 = "Triplet"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Radioactive" then
+		local A_1 = "Radioactive"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Volcanic" then
+		local A_1 = "Volcanic"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
+	end
+	if currentOption == "Cyborg" then
+		local A_1 = "Cyborg"
+		local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
+		Event:InvokeServer(A_1)
 	end
 end)
 
-Pets:NewButton("Buy Small Blue", "Buys the Pet", function()
-	local A_1 = "Small Blue"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Small Red", "Buys the Pet", function()
-	local A_1 = "Small Red"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Blue", "Buys the Pet", function()
-	local A_1 = "Blue"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Purple", "Buys the Pet", function()
-	local A_1 = "Purple"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Green", "Buys the Pet", function()
-	local A_1 = "Green"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Orange", "Buys the Pet", function()
-	local A_1 = "Orange"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Winged Blue", "Buys the Pet", function()
-	local A_1 = "Winged Blue"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Winged Purple", "Buys the Pet", function()
-	local A_1 = "Winged Purple"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Winged Green", "Buys the Pet", function()
-	local A_1 = "Winged Green"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Winged Orange", "Buys the Pet", function()
-	local A_1 = "Winged Orange"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Fire", "Buys the Pet", function()
-	local A_1 = "Fire"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Flower", "Buys the Pet", function()
-	local A_1 = "Flower"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Wizard", "Buys the Pet", function()
-	local A_1 = "Wizard"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Vampire", "Buys the Pet", function()
-	local A_1 = "Vampire"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Cool Dude", "Buys the Pet", function()
-	local A_1 = "Cool Dude"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Rainbow", "Buys the Pet", function()
-	local A_1 = "Rainbow"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Triplet", "Buys the Pet", function()
-	local A_1 = "Triplet"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Radioactive", "Buys the Pet", function()
-	local A_1 = "Radioactive"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Volcanic", "Buys the Pet", function()
-	local A_1 = "Volcanic"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Pets:NewButton("Buy Cyborg", "Buys the Pet", function()
-	local A_1 = "Cyborg"
-	local Event = game:GetService("ReplicatedStorage").RemoteEvents.PetPurchase
-	Event:InvokeServer(A_1)
-end)
-
-Teleport:NewButton("Safe Zone", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2261353, 49.3965607, -14.7153053)
-end)
-
-Teleport:NewButton("Pet Shop", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(311.173431, 51.67733, 103.252586)
-end)
-
-Teleport:NewButton("Disco Island", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.326767, 57.8280067, 636.143311)
-end)
-
-Teleport:NewButton("Cloud One", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(296.072845, 578.587952, 689.323914)
-end)
-
-Teleport:NewButton("Cloud Second", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1224.30969, 569.08551, -318.371063)
-end)
-
-Teleport:NewButton("Sky Island", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2131.95117, 1468.90979, -1033.56641)
-end)
-
-Teleport:NewButton("Sky Island Roof", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2137.84351, 1755.90881, -1385.93677)
-end)
-
-Teleport:NewButton("Second Island Portal", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.32132, 60.3405838, -23.2665043)
-end)
-
-Teleport:NewButton("Sky Island Portal", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1243.97876, 60.0078888, -257.224762)
-end)
-
-Teleport:NewButton("Second Island Hotel Roof", "Tp you to the place you clicked", function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
+Teleport:NewDropdown("Teleport", "Select a place you want to tp to", {"SafeZone", "PetShop", "DiscoIsland", "CloudOne","CloudSecond", "SkyIsland", "SkyIslandRoof", "SecondIslandPortal", "SkyIslandPortal", "SecondislandHotelRoof", "SafePlace",}, function(currentOption)
+	if currentOption == "SafeZone" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2261353, 49.3965607, -14.7153053)
+	end
+	if currentOption == "PetShop" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(311.173431, 51.67733, 103.252586)
+	end
+	if currentOption == "DiscoIsland" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.326767, 57.8280067, 636.143311)
+	end
+	if currentOption == "CloudOne" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(296.072845, 578.587952, 689.323914)
+	end
+	if currentOption == "CloudSecond" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1224.30969, 569.08551, -318.371063)
+	end
+	if currentOption == "SkyIsland" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2131.95117, 1468.90979, -1033.56641)
+	end
+	if currentOption == "SkyIslandRoof" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2137.84351, 1755.90881, -1385.93677)
+	end
+	if currentOption == "SecondIslandPortal" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.32132, 60.3405838, -23.2665043)
+	end
+	if currentOption == "SkyIslandPortal" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1243.97876, 60.0078888, -257.224762)
+	end
+	if currentOption == "SecondislandHotelRoof" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
+	end
+	if currentOption == "SafePlace" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4022.9074707031, 5931.6162109375, -11967.360351563)
+	end
 end)
 
 AutoFarm:NewToggle("Auto Prestige", "Prestige auto without clicking prestige button", function(v)
@@ -583,7 +920,7 @@ AutoFarm:NewToggle("Auto Prestige", "Prestige auto without clicking prestige but
 	end
 end)
 
-Character:NewButton("Infinity Yield", "Execute Infinity Yield", function()
+FEScripts:NewButton("Infinity Yield", "Execute Infinity Yield", function()
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 end)
 
@@ -591,19 +928,19 @@ Credits:NewButton("GrannyTheDev#6786", "Discord: GrannyTheDev#6786", function()
 	setclipboard("GrannyTheDev#6786")
 end)
 
-Character:NewButton("WalkSpeed", "Toggles walkspeed", function()
+LocalPlayer:NewButton("WalkSpeed", "Toggles walkspeed", function()
 	while wait() do
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 700
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 300
 	end
 end)
 
-Character:NewButton("Inf Jump", "Allow you to jump inf", function()
+LocalPlayer:NewButton("Inf Jump", "Allow you to jump inf", function()
 	game:GetService("UserInputService").JumpRequest:connect(function()
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")		
 	end)
 end)
 
-Character:NewToggle("Noclip", "Allow you walk through walls", function(state)
+LocalPlayer:NewToggle("Noclip", "Allow you walk through walls", function(state)
 	local Workspace = game:GetService("Workspace")
 	local CoreGui = game:GetService("CoreGui")
 	local Players = game:GetService("Players")
