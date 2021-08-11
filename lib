@@ -1121,7 +1121,7 @@ function Kavo.CreateLib(kavName, themeList)
 
 
 
-			function Elements:NewLabel(tname)
+			function Elements:NewLabel(tname, loop)
 				local LabelFunction = {}
 				tname = tname or "Label"
 				table.insert(SettingsT, tname)
@@ -1145,7 +1145,7 @@ function Kavo.CreateLib(kavName, themeList)
 				UICorner.CornerRadius = UDim.new(0, 4)
 				UICorner.Parent = LabelElement
 
-				LabFunction.Name = "togName"
+				LabFunction.Name = "LabFunction"
 				LabFunction.Parent = LabelElement
 				LabFunction.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				LabFunction.BackgroundTransparency = 1.000
@@ -1156,6 +1156,15 @@ function Kavo.CreateLib(kavName, themeList)
 				LabFunction.TextColor3 =  Color3.fromRGB(119, 209, 138)
 				LabFunction.TextSize = 14.000
 				LabFunction.TextXAlignment = Enum.TextXAlignment.Left
+				
+				if loop == "True" then
+					while wait() do
+						LabelFunction.Text = tname
+					end
+				end
+				if loop == "False" then
+					LabelFunction.Text = tname
+				end
 
 				LabelIcon.Name = "LabelIcon"
 				LabelIcon.Parent = LabelElement
