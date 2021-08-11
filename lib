@@ -43,10 +43,19 @@ function Kavo:DraggingEnabled(frame, parent)
 	end)
 end
 
+local LibName = "Lib"
+
 function Utility:TweenObject(obj, properties, duration, ...)
 	tween:Create(obj, tweeninfo(duration, ...), properties):Play()
 end
 
+function Kavo:ToggleUI()
+	if game.CoreGui[LibName].Enabled then
+		game.CoreGui[LibName].Enabled = false
+	else
+		game.CoreGui[LibName].Enabled = true
+	end
+end
 
 local themes = {
 	SchemeColor = Color3.fromRGB(74, 99, 135),
@@ -138,24 +147,7 @@ pcall(function()
 	Settings = game:service'HttpService':JSONEncode(readfile(Name))
 end)
 
-local LibName = "Lib"
-
-
-local uis = game:GetService("UserInputService")
-
-uis.InputBegan:Connect(function(Key, gameProccsedEvent)
-
-	if Key.KeyCode == Enum.KeyCode.T then
-		if game.CoreGui[LibName].Enabled then
-			game.CoreGui[LibName].Enabled = false
-		else
-			game.CoreGui[LibName].Enabled = true
-		end
-	end
-
-end)
-
-function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdated, PressedKey)
+function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion)
 	if not themeList then
 		themeList = themes
 	end
@@ -432,7 +424,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdate
 	ver.Font = Enum.Font.GothamSemibold
 	ver.TextSize = 16.000
 	ver.TextXAlignment = Enum.TextXAlignment.Left
-	ver.Text = ScriptVersion
+	ver.Text = "v1"
 
 	IsUpdatedLabel.Name = "IsUpdatedLabel"
 	IsUpdatedLabel.Parent = MainHeader
@@ -442,9 +434,10 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdate
 	IsUpdatedLabel.Position = UDim2.new(0,360, 0, 5)
 	IsUpdatedLabel.Size = UDim2.new(0, 35, 0, 19)
 	IsUpdatedLabel.Font = Enum.Font.GothamSemibold
-	IsUpdatedLabel.Text = IsUpdated
 	IsUpdatedLabel.TextSize = 16.000
 	IsUpdatedLabel.TextXAlignment = Enum.TextXAlignment.Left
+	IsUpdatedLabel.Text = "Updated"
+
 
 	close.Name = "close"
 	close.Parent = MainHeader
@@ -1153,6 +1146,8 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdate
 				end)()
 			end 
 
+
+				
 			function Elements:NewLabel(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
@@ -1208,7 +1203,7 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdate
 				Size()
 
 			end
-
+			
 			function Elements:NewToggle(tname, nTip, callback)
 				local TogFunction = {}
 				tname = tname or "Toggle"
@@ -2214,6 +2209,14 @@ function Kavo.CreateLib(kavName, themeList, CreditTitle, ScriptVersion, IsUpdate
 							focusing = false
 						end
 						Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+					end
+				end)
+
+				game:GetService("UserInputService").InputBegan:connect(function(current, ok) 
+					if not ok then 
+						if current.KeyCode.Name == oldKey then 
+							callback()
+						end
 					end
 				end)
 
