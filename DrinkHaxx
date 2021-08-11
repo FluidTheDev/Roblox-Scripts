@@ -963,3 +963,21 @@ LocalPlayer:NewToggle("Noclip", "Allow you walk through walls", function(state)
 		Stepped:Disconnect()
 	end
 end)
+
+local Gui = Instance.new("ScreenGui")
+local Value = Instance.new("TextLabel")
+
+Gui.Parent = game.CoreGui
+Gui.Name = "Gui"
+
+Value.Parent = game.CoreGui.Gui
+Value.Name = "Value"
+while wait() do
+	Value.Text = "Prestige: ".. game.Players.LocalPlayer.leaderstats.Prestige.Value
+	Value.Position = UDim2.new(-0.001, 0,0.260, 0)
+	Value.Size = UDim2.new(0, 193,0, 38)
+	Value.BackgroundTransparency = 1
+	Value.TextColor3 = Color3.fromRGB(255, 255, 138)
+	Value.Font = Enum.Font.GothamBold
+	Value.TextSize = 20
+end
