@@ -143,6 +143,39 @@ local Settings = Setting:NewSection("Settings")
 local Credit = DrinkHaxx:NewTab("Credits")
 local Credits = Credit:NewSection("Credits")
 
+RandomScripts:NewButton("Anti Kick", "You Cant Get Kicked by the afk kick system of this game", function()
+		local mt = getrawmetatable(game)
+		local old = mt.__namecall
+		local protect = newcclosure or protect_function
+
+		setreadonly(mt, false)
+		mt.__namecall = protect(function(self, ...)
+			local method = getnamecallmethod()
+			if method == "Kick" then
+				wait(9e9)
+				return
+			end
+			return old(self, ...)
+		end)
+		hookfunction(game.Players.LocalPlayer.Kick,protect(function() wait(9e9) end))
+	end)
+	
+	LocalPlayer:NewButton("Click To Tp", "Tp to the mouse target", function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/vDGMGkvg"))()
+	end)
+	
+	RandomScripts:NewToggle("Night", "Make it day or night", function(v)
+		if v then
+			game.Lighting.TimeOfDay = "0:0:0:0"
+		else
+			game.Lighting.TimeOfDay = "12:0:0:0"
+		end
+	end)
+	
+	LocalPlayer:NewTextBox("Teleport To Player", "Input The Player Name", function(plr)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[plr].Character.HumanoidRootPart.CFrame
+	end)
+
 DrinkPoperties:NewButton("Starter Drink Rainbow", "Makes your drink rainbow", function()
 	while wait() do
 		game.Workspace.ienxdfgooi["Starter Drink"].Handle.Color = Color3.new(1,0,0)
