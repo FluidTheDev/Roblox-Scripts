@@ -392,7 +392,7 @@ AutoFarm:NewToggle("Auto equip best drink", "Auto equip the best drink in your b
 			if player and player.Character then
 				local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
 				if humanoid then
-					local tool = Players.LocalPlayer.Backpack:WaitForChild("Starter Drink")
+					local tool = Players.LocalPlayer.Backpack:FindFirstChild("Starter Drink")
 					if tool then
 						humanoid:EquipTool(tool)
 					end
