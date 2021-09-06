@@ -1077,7 +1077,7 @@ function Kavo.CreateLib(kavName, themeList)
 				LabelIcon.Size = UDim2.new(0, 288, 0, 14)
 				LabelIcon.Font = Enum.Font.SourceSansBold
 				LabelIcon.TextScaled = true
-				LabelIcon.Text = "?"
+				LabelIcon.Text = "Info"
 				LabelIcon.TextColor3 = Color3.fromRGB(230, 35, 69)
 				LabelIcon.TextSize = 14.000
 				LabelIcon.TextXAlignment = Enum.TextXAlignment.Left
