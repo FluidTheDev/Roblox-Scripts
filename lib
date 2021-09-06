@@ -208,7 +208,10 @@ function Kavo.CreateLib(kavName, themeList)
 	local pages = Instance.new("Frame")
 	local Pages = Instance.new("Folder")
 	local infoContainer = Instance.new("Frame")
-	local ver = Instance.new("TextLabel")
+	local Avatar = Instance.new("ImageLabel")
+	local AvatarCorner = Instance.new("UICorner")
+	local ProfileCorner = Instance.new("UICorner")
+	local PlayerName = Instance.new("TextLabel")
 
 	local blurFrame = Instance.new("Frame")
 
@@ -266,85 +269,8 @@ function Kavo.CreateLib(kavName, themeList)
 	title.Font = Enum.Font.GothamSemibold
 	title.Text = kavName
 	title.TextSize = 16.000
+	title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	title.TextXAlignment = Enum.TextXAlignment.Left
-
-	local function ZLAEE_fake_script() -- title.Rainbower 
-		local script = Instance.new('LocalScript', title)
-
-		while wait() do
-			script.Parent.TextColor3 = Color3.new(1,0,0)
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
-			end
-		end
-	end
-	coroutine.wrap(ZLAEE_fake_script)()
-
-	local function ZLAER_fake_script() -- ScriptVersion.Rainbower 
-		local script = Instance.new('LocalScript', ver)
-
-		while wait() do
-			script.Parent.TextColor3 = Color3.new(1,0,0)
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
-			end
-			for i=1,15 do
-				game:GetService("RunService").RenderStepped:wait()
-				script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
-			end
-		end
-	end
-	coroutine.wrap(ZLAER_fake_script)()
-
-	ver.Name = "ver"
-	ver.Parent = MainHeader
-	ver.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
-	ver.BackgroundTransparency = 1.000
-	ver.BorderSizePixel = 0
-	ver.Position = UDim2.new(0,440, 0, 5)
-	ver.Size = UDim2.new(0, 35, 0, 19)
-	ver.Font = Enum.Font.GothamSemibold
-	ver.TextSize = 16.000
-	ver.TextXAlignment = Enum.TextXAlignment.Left
-	ver.Text = "v1"
 
 	close.Name = "close"
 	close.Parent = MainHeader
@@ -356,17 +282,60 @@ function Kavo.CreateLib(kavName, themeList)
 	close.ImageRectOffset = Vector2.new(284, 4)
 	close.ImageRectSize = Vector2.new(24, 24)
 	close.MouseButton1Click:Connect(function()
-		   game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
-            ImageTransparency = 1
-        }):Play()
-        wait()
-        game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+		game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+			ImageTransparency = 1
+		}):Play()
+		wait()
+		game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 			Size = UDim2.new(0,0,0,0),
 			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
 		}):Play()
-        wait(1)
-        ScreenGui:Destroy()
+		wait(1)
+		ScreenGui:Destroy()
 	end)
+
+	Avatar.Name = "Avatar"
+	Avatar.Parent = MainSide
+	Avatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Avatar.Position = UDim2.new(0.104,0,0.767,0)
+	Avatar.Size = UDim2.new(0, 71, 0, 47)
+	Avatar.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+	Avatar.BackgroundTransparency = 1
+
+	AvatarCorner.CornerRadius = UDim.new(1, 0)
+	AvatarCorner.Name = "AvatarCorner"
+	AvatarCorner.Parent = Avatar
+
+	PlayerName.Name = "PlayerName"
+	PlayerName.Parent = MainSide
+	PlayerName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	PlayerName.BackgroundTransparency = 1.000
+	PlayerName.Position = UDim2.new(0.023,0,0.903,0)
+	PlayerName.Size = UDim2.new(0, 131, 0, 20)
+	PlayerName.Font = Enum.Font.SourceSansBold
+	PlayerName.Text = "N/A"
+	PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	PlayerName.TextScaled = true
+	PlayerName.TextSize = 14.000
+	PlayerName.TextWrapped = true
+
+	-- Scripts:
+
+	local function WCRUAQ_fake_script() -- Avatar.LocalScript 
+		local script = Instance.new('LocalScript', Avatar)
+
+		local Player = game:GetService("Players").LocalPlayer -- Return the player
+		local PlayerThumbnail = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username="..Player.Name
+		--Now you can set anything that uses a image to be the variable PlayerThumbnail, like this:
+		script.Parent.Image = PlayerThumbnail
+	end
+	coroutine.wrap(WCRUAQ_fake_script)()
+	local function WSOUD_fake_script() -- PlayerName.LocalScript 
+		local script = Instance.new('LocalScript', PlayerName)
+
+		script.Parent.Text = game.Players.LocalPlayer.Name
+	end
+	coroutine.wrap(WSOUD_fake_script)()
 
 	MainSide.Name = "MainSide"
 	MainSide.Parent = Main
@@ -1099,7 +1068,7 @@ function Kavo.CreateLib(kavName, themeList)
 				LabFunction.TextColor3 =  Color3.fromRGB(119, 209, 138)
 				LabFunction.TextSize = 14.000
 				LabFunction.TextXAlignment = Enum.TextXAlignment.Left
-				
+
 				LabelIcon.Name = "LabelIcon"
 				LabelIcon.Parent = LabelElement
 				LabelIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2746,4 +2715,5 @@ function Kavo.CreateLib(kavName, themeList)
 	end  
 	return Tabs
 end
+
 return Kavo
