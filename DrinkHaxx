@@ -1,82 +1,4 @@
-local ScreenGui = Instance.new("ScreenGui")
-local KeyFrame = Instance.new("Frame")
-local KeyTitle = Instance.new("TextLabel")
-local GetKey = Instance.new("TextButton")
-local UICorner = Instance.new("UICorner")
-local UICorner_2 = Instance.new("UICorner")
-local SubmitKey = Instance.new("TextButton")
-local UICorner_3 = Instance.new("UICorner")
-local InputKey = Instance.new("TextLabel")
-
---Properties:
-
-ScreenGui.Parent = game.CoreGui
-
-KeyFrame.Name = "KeyFrame"
-KeyFrame.Parent = ScreenGui
-KeyFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-KeyFrame.BorderSizePixel = 0
-KeyFrame.Position = UDim2.new(0.00777202053, 0, 0.783306479, 0)
-KeyFrame.Size = UDim2.new(0, 246, 0, 78)
-
-KeyTitle.Name = "KeyTitle"
-KeyTitle.Parent = KeyFrame
-KeyTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-KeyTitle.BackgroundTransparency = 1.000
-KeyTitle.Position = UDim2.new(0, 0, -0.00467759371, 0)
-KeyTitle.Size = UDim2.new(0, 246, 0, 19)
-KeyTitle.Font = Enum.Font.GothamSemibold
-KeyTitle.Text = "Key System"
-KeyTitle.TextColor3 = Color3.fromRGB(119, 209, 138)
-KeyTitle.TextSize = 14.000
-
-GetKey.Parent = KeyFrame
-GetKey.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-GetKey.Position = UDim2.new(0.0365853906, 0, 0.576923072, 0)
-GetKey.Size = UDim2.new(0, 84, 0, 26)
-GetKey.Font = Enum.Font.GothamSemibold
-GetKey.Text = "Get Key"
-GetKey.TextColor3 = Color3.fromRGB(119, 209, 138)
-GetKey.TextSize = 14.000
-GetKey.MouseButton1Down:Connect(function()
-	InputKey.Text = "NewKeySystem"
-end)
-
-UICorner.Parent = GetKey
-
-UICorner_2.Parent = KeyFrame
-
-SubmitKey.Parent = KeyFrame
-SubmitKey.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-SubmitKey.Position = UDim2.new(0.658536613, 0, 0.576923072, 0)
-SubmitKey.Size = UDim2.new(0, 84, 0, 26)
-SubmitKey.Font = Enum.Font.GothamSemibold
-SubmitKey.Text = "Submit"
-SubmitKey.TextColor3 = Color3.fromRGB(119, 209, 138)
-SubmitKey.TextSize = 14.000
-SubmitKey.MouseButton1Down:Connect(function()
-	if InputKey.Text == "NewKeySystem" then
-	end
-end)
-
-UICorner_3.Parent = SubmitKey
-
-InputKey.Name = "Input Key"
-InputKey.Parent = KeyFrame
-InputKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InputKey.BackgroundTransparency = 1.000
-InputKey.Position = UDim2.new(0, 0, 0.238911942, 0)
-InputKey.Size = UDim2.new(0, 246, 0, 26)
-InputKey.Font = Enum.Font.GothamSemibold
-InputKey.Text = "Input Key"
-InputKey.TextColor3 = Color3.fromRGB(119, 209, 138)
-InputKey.TextSize = 14.000
-
-SubmitKey.MouseButton1Click:Connect(function()
-	game:GetService("TweenService"):Create(KeyFrame, TweenInfo.new(0.25), {Position = UDim2.new(0.008,0,0,-100,0)}):Play()
-	wait(0.25)
-	game.CoreGui.ScreenGui:Remove()
-	local SoundFolder = Instance.new("Folder", game.Players.LocalPlayer)
+local SoundFolder = Instance.new("Folder", game.Players.LocalPlayer)
 SoundFolder.Name = "SoundFolder"
 local Sound = Instance.new("Sound", game.Players.LocalPlayer.SoundFolder)
 Sound.Name = "Sound"
@@ -551,6 +473,19 @@ AutoFarm:NewToggle("Auto equip best drink", "Auto equip the best drink in your b
 	end
 end)
 
+AutoFarm:NewToggle("Auto Mine", "Auto Mines", function(v)
+		getgenv().automine = v
+		while true do
+			if not getgenv().automine then return end
+			wait()
+            local plrname = game.Players.LocalPlayer.Name
+			local plr = game.Players.LocalPlayer
+			local A_1 = game.Workspace[plrname].Pickaxe.Server.Mine
+			local Event = game.Workspace[plrname].Pickaxe.Server.Mine
+			Event:FireServer(A_1)
+		end
+	end)
+
 Pets:NewDropdown("Buy Pets", "Buys The Selected Pet", {"Small Blue", "Small Red", "Blue", "Purple","Green", "Orange", "Winged Blue", "Winged Purple", "Winged Green", "Winged Orange", "Fire", "Flower", "Wizard", "Vampire", "Cool Dude", "Rainbow", "Triplet", "Radioactive", "Volcanic", "Cyborg",}, function(currentOption)
 	if currentOption == "Small Blue" then
 		local A_1 = "Small Blue"
@@ -654,41 +589,44 @@ Pets:NewDropdown("Buy Pets", "Buys The Selected Pet", {"Small Blue", "Small Red"
 	end
 end)
 
-Teleport:NewDropdown("Teleport", "Select a place you want to tp to", {"SafeZone", "PetShop", "DiscoIsland", "CloudOne","CloudSecond", "SkyIsland", "SkyIslandRoof", "SecondIslandPortal", "SkyIslandPortal", "SecondislandHotelRoof", "SafePlace",}, function(currentOption)
-	if currentOption == "SafeZone" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2261353, 49.3965607, -14.7153053)
-	end
-	if currentOption == "PetShop" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(311.173431, 51.67733, 103.252586)
-	end
-	if currentOption == "DiscoIsland" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.326767, 57.8280067, 636.143311)
-	end
-	if currentOption == "CloudOne" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(296.072845, 578.587952, 689.323914)
-	end
-	if currentOption == "CloudSecond" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1224.30969, 569.08551, -318.371063)
-	end
-	if currentOption == "SkyIsland" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2131.95117, 1468.90979, -1033.56641)
-	end
-	if currentOption == "SkyIslandRoof" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2137.84351, 1755.90881, -1385.93677)
-	end
-	if currentOption == "SecondIslandPortal" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.32132, 60.3405838, -23.2665043)
-	end
-	if currentOption == "SkyIslandPortal" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1243.97876, 60.0078888, -257.224762)
-	end
-	if currentOption == "SecondislandHotelRoof" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
-	end
-	if currentOption == "SafePlace" then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4022.9074707031, 5931.6162109375, -11967.360351563)
-	end
-end)
+Teleport:NewDropdown("Teleport", "Select a place you want to tp to", {"SafeZone", "PetShop", "DiscoIsland", "CloudOne","CloudSecond", "SkyIsland", "SkyIslandRoof", "SecondIslandPortal", "SkyIslandPortal", "SecondislandHotelRoof", "SafePlace", "FightSpot",}, function(currentOption)
+		if currentOption == "SafeZone" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2261353, 49.3965607, -14.7153053)
+		end
+		if currentOption == "PetShop" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(311.173431, 51.67733, 103.252586)
+		end
+		if currentOption == "DiscoIsland" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.326767, 57.8280067, 636.143311)
+		end
+		if currentOption == "CloudOne" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(296.072845, 578.587952, 689.323914)
+		end
+		if currentOption == "CloudSecond" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1224.30969, 569.08551, -318.371063)
+		end
+		if currentOption == "SkyIsland" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2131.95117, 1468.90979, -1033.56641)
+		end
+		if currentOption == "SkyIslandRoof" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2137.84351, 1755.90881, -1385.93677)
+		end
+		if currentOption == "SecondIslandPortal" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.32132, 60.3405838, -23.2665043)
+		end
+		if currentOption == "SkyIslandPortal" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1243.97876, 60.0078888, -257.224762)
+		end
+		if currentOption == "SecondislandHotelRoof" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1066.13696, 195.190948, 190.565338)
+		end
+		if currentOption == "SafePlace" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4022.9074707031, 5931.6162109375, -11967.360351563)
+		end
+        if currentOption == "FightSpot" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-930.2958984375, 0.57490587234497, -232.33110046387)
+		end
+	end)
 
 AutoFarm:NewToggle("Auto Prestige", "Prestige auto without clicking prestige button", function(v)
 	getgenv().prestige = v
@@ -761,4 +699,3 @@ while wait() do
 	Value.Font = Enum.Font.GothamBold
 	Value.TextSize = 20
 end
-end)
