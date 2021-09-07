@@ -1033,7 +1033,7 @@ function Kavo.CreateLib(kavName, themeList)
 
 
 
-			function Elements:NewLabel(tname)
+			function Elements:NewInfo(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
 				table.insert(SettingsT, tname)
