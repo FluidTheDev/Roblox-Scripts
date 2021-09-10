@@ -147,7 +147,7 @@ pcall(function()
 	Settings = game:service'HttpService':JSONEncode(readfile(Name))
 end)
 
-function Kavo.CreateLib(kavName, themeList)
+function Kavo.CreateLib(kavName, themeList, GameName)
 	if not themeList then
 		themeList = themes
 	end
@@ -212,6 +212,7 @@ function Kavo.CreateLib(kavName, themeList)
 	local AvatarCorner = Instance.new("UICorner")
 	local ProfileCorner = Instance.new("UICorner")
 	local PlayerName = Instance.new("TextLabel")
+	local gamename = Instance.new("TextLabel")
 
 	local blurFrame = Instance.new("Frame")
 
@@ -271,6 +272,20 @@ function Kavo.CreateLib(kavName, themeList)
 	title.TextSize = 16.000
 	title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	title.TextXAlignment = Enum.TextXAlignment.Left
+
+	gamename.Name = "gamename"
+	gamename.Parent = MainHeader
+	gamename.BackgroundColor3 = Color3.fromRGB(119, 209, 138)
+	gamename.BackgroundTransparency = 1.000
+	gamename.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	gamename.BorderSizePixel = 0
+	gamename.Position = UDim2.new(0.32,0,0.3)
+	gamename.Size = UDim2.new(0, 204, 0, 12)
+	gamename.Font = Enum.Font.GothamSemibold
+	gamename.TextColor3 = Color3.fromRGB(255, 255, 255)
+	gamename.TextSize = 16.000
+	gamename.TextXAlignment = Enum.TextXAlignment.Left
+	gamename.Text = GameName
 
 	close.Name = "close"
 	close.Parent = MainHeader
@@ -2715,5 +2730,3 @@ function Kavo.CreateLib(kavName, themeList)
 	end  
 	return Tabs
 end
-
-return Kavo
