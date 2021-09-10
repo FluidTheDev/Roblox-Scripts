@@ -45,7 +45,7 @@ wall4.Orientation = Vector3.new(0, 90, 0)
 wall4.Parent = game.Workspace.safeplace
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/moddedhacker/Roblox-Scripts/main/lib"))()
-local DrinkHaxx = Library.CreateLib("DrinkHaxx", "Sentinel")
+local DrinkHaxx = Library.CreateLib("DrinkHaxx", "Sentinel", "Burping Simulator")
 local main = DrinkHaxx:NewTab("game")
 local LocalPlayer = main:NewSection("LocalPlayer")
 local RandomScripts = main:NewSection("Random Scripts")
