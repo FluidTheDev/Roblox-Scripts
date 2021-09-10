@@ -2730,3 +2730,5 @@ function Kavo.CreateLib(kavName, themeList, GameName)
 	end  
 	return Tabs
 end
+
+return Kavo
