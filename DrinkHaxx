@@ -642,6 +642,10 @@ FEScripts:NewButton("Infinity Yield", "Execute Infinity Yield", function()
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 end)
 
+Credits:NewButton("Discord Server", "Discord Server: https://discord.gg/zNBc5Sgd", function()
+	setclipboard("https://discord.gg/zNBc5Sgd")
+end)
+
 Credits:NewButton("GrannyTheDev#6786", "Discord: GrannyTheDev#6786", function()
 	setclipboard("GrannyTheDev#6786")
 end)
