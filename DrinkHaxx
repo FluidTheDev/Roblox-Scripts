@@ -64,6 +64,24 @@ local Settings = Setting:NewSection("Settings")
 local Credit = DrinkHaxx:NewTab("Credits")
 local Credits = Credit:NewSection("Credits")
 
+AutoFarm:NewToggle("Afk", "loop tp you to safe place", function(v)
+getgenv().afk = v
+while true do
+if not getgenv().afk then return end
+wait()
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-4022.9074707031, 5931.6162109375, -11967.360351563)
+end
+end)
+
+AutoFarm:NewToggle("Fix Auto Equip Best Drink Script", "Fixes the auto equip best drink script", function(v)
+getgenv().fix = v
+while true do
+if not getgenv().fix then return end
+wait(60)
+game.Players.LocalPlayer.Character:BreakJoints()
+end
+end)
+
 RandomScripts:NewButton("Anti Kick", "You Cant Get Kicked by the afk kick system of this game", function()
 		local mt = getrawmetatable(game)
 		local old = mt.__namecall
