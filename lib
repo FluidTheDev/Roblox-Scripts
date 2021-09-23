@@ -1048,7 +1048,7 @@ function Kavo.CreateLib(kavName, themeList, GameName)
 
 
 
-			function Elements:NewInfo(tname)
+			function Elements:NewLabel(tname)
 				local LabelFunction = {}
 				tname = tname or "Label"
 				table.insert(SettingsT, tname)
